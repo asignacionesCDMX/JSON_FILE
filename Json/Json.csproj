@@ -48,6 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.9.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.9.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -60,8 +64,9 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\WebSites\WebSite1\Bin\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -85,8 +90,84 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bin\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="bin\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="bin\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="bin\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="bin\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="bin\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="CatCP.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_AsignacionClientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_AsignacionDatos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_CyberPrueba.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Bitacora.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Claves.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Conexion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Conexionp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Correos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_DirMal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Gescar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_MailMal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Pyme.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_Segmento.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_TelMal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_TipoConexion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Cyber_TipoTarjeta.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_ExclusionCuentas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Posiciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_QuejasTel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Reestructura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Segbin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Tel_Paso.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ent_Excel.cs" />
     <Compile Include="Ent_Guardar_Json.cs" />
     <Compile Include="Ent_Json.cs" />
@@ -126,6 +207,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,31 +228,109 @@
     <Compile Include="spSelectAmexBitacora_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="spSelectAmexPreguntaSeguridad_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateADDRESSReloaded_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="spSelectAmexUpdateADDRESS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateCONCE_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateCUENTAReloaded_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="spSelectAmexUpdateCUENTA_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="spSelectAmexUpdateEMAILReloaded_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="spSelectAmexUpdateEMAIL_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateNOTE_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdatePHONEReloaded_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="spSelectAmexUpdatePHONE_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="spSelectAmexUpdateReloaded_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="spSelectAmexUpdateSALDOS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateSEGVISIONREloaded_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="spSelectAmexUpdateSEG_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="spSelectAmexUpdateVISIONFASTReloaded_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateVISIONFAST_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateVISIONReloaded_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectAmexUpdateVISION_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="spSelectAmexUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectBitacoraSecuencialesAmexJSON_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="spSelectOracle_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="spSelectProducto_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectSertecAgencyIdFCS1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectSertecAgencyIdFCS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectSertecBitacoraGlobal_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectSertecBitacoraPagosGlobal2_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectSertecCamposFCS_OldestMinBucket_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelectSertecCamposFCS_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TabAsignacionDat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TabAsignacionNuevas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TabAsignacionPnc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TabAsignacionTelMal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TabAsignacionTelPas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Tab_Amex_Account.cs">
@@ -213,6 +378,9 @@
     <Compile Include="Tab_Amex_Banks.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tab_Amex_Bitacora.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tab_Amex_CapInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -229,6 +397,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Tab_Amex_CollectionInfo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_Amex_CollectionRiskScore.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Tab_Amex_CollectionScore.cs">
@@ -315,6 +486,9 @@
     <Compile Include="Tab_Amex_ProductDetails.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tab_Amex_Productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tab_Amex_RegulatoryChange.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -348,6 +522,62 @@
     <Compile Include="Tab_Amex_Treatment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tab_Banamex_Layout.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_BBVA_Layout.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_BBVA_Layout2.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_Bnt_Layout_.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_Cyber_Tra.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_Dat_General.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_QueryA.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_QueryB.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_QueryC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_QueryD.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_QueryE.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_QueryF.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_Retrocesos_Layout.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TAB_ST_AccountList_CYB_MEX.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TAB_ST_BitacoraAsignaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tab_ST_JSONUPDATESIB.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="bin\Debug\Json.Frm_Json.resources" />
+    <EmbeddedResource Include="bin\Debug\Json.Frm_Portal.resources" />
+    <EmbeddedResource Include="bin\Debug\Json.Principal.resources" />
+    <EmbeddedResource Include="bin\Debug\Json.Properties.Resources.resources" />
+    <EmbeddedResource Include="bin\Release\Json.Frm_Json.resources" />
+    <EmbeddedResource Include="bin\Release\Json.Frm_Portal.resources" />
+    <EmbeddedResource Include="bin\Release\Json.Principal.resources" />
+    <EmbeddedResource Include="bin\Release\Json.Properties.Resources.resources" />
     <EmbeddedResource Include="Frm_Bitacora.resx">
       <DependentUpon>Frm_Bitacora.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +587,16 @@
     <EmbeddedResource Include="Frm_Portal.resx">
       <DependentUpon>Frm_Portal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Json.Frm_Bitacora.resources" />
+    <EmbeddedResource Include="obj\Debug\Json.Frm_Json.resources" />
+    <EmbeddedResource Include="obj\Debug\Json.Frm_Portal.resources" />
+    <EmbeddedResource Include="obj\Debug\Json.Principal.resources" />
+    <EmbeddedResource Include="obj\Debug\Json.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Release\Json.Frm_Bitacora.resources" />
+    <EmbeddedResource Include="obj\Release\Json.Frm_Json.resources" />
+    <EmbeddedResource Include="obj\Release\Json.Frm_Portal.resources" />
+    <EmbeddedResource Include="obj\Release\Json.Principal.resources" />
+    <EmbeddedResource Include="obj\Release\Json.Properties.Resources.resources" />
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,9 +614,109 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="bin\Debug\CONCENTRADO24092019112414.xlsx" />
+    <None Include="bin\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="bin\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_AMEX.csdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_AMEX.msl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_AMEX.ssdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_Oracle.csdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_Oracle.msl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_Oracle.ssdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_SQL.csdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_SQL.msl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Data_SQL.ssdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Model1.csdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Model1.msl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\Model1.ssdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\SQL.csdl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\SQL.msl" />
+    <None Include="bin\Debug\edmxResourcesToEmbed\SQL.ssdl" />
+    <None Include="bin\Debug\Json.csproj.GenerateResource.Cache" />
+    <None Include="bin\Debug\Json.csprojResolveAssemblyReference.cache" />
+    <None Include="bin\Debug\Json.exe.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\Json.exe.lastcodeanalysissucceeded" />
+    <None Include="bin\Debug\Json.vshost.exe.config" />
+    <None Include="bin\Debug\Json.vshost.exe.manifest" />
+    <None Include="bin\Release\CONCENTRADO24092019112414.xlsx" />
+    <None Include="bin\Release\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="bin\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_AMEX.csdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_AMEX.msl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_AMEX.ssdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_Oracle.csdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_Oracle.msl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_Oracle.ssdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_SQL.csdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_SQL.msl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Data_SQL.ssdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Model1.csdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Model1.msl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\Model1.ssdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\SQL.csdl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\SQL.msl" />
+    <None Include="bin\Release\edmxResourcesToEmbed\SQL.ssdl" />
+    <None Include="bin\Release\Json.csproj.GenerateResource.Cache" />
+    <None Include="bin\Release\Json.csprojResolveAssemblyReference.cache" />
+    <None Include="bin\Release\Json.exe.config" />
+    <None Include="bin\Release\Json.exe.lastcodeanalysissucceeded" />
+    <None Include="bin\Release\Json.vshost.exe.config" />
+    <None Include="bin\Release\Json.vshost.exe.manifest" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_AMEX.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_AMEX.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_AMEX.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_Oracle.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_Oracle.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_Oracle.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_SQL.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_SQL.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Data_SQL.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Model1.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Model1.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Model1.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\SQL.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\SQL.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\SQL.ssdl" />
+    <None Include="obj\Debug\Json.csproj.CopyComplete" />
+    <None Include="obj\Debug\Json.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Json.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\Json.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\Json.exe.config" />
+    <None Include="obj\Debug\Json.vshost.exe.config" />
+    <None Include="obj\Debug\Json.vshost.exe.manifest" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_AMEX.csdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_AMEX.msl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_AMEX.ssdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_Oracle.csdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_Oracle.msl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_Oracle.ssdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_SQL.csdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_SQL.msl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Data_SQL.ssdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Model1.csdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Model1.msl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\Model1.ssdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\SQL.csdl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\SQL.msl" />
+    <None Include="obj\Release\edmxResourcesToEmbed\SQL.ssdl" />
+    <None Include="obj\Release\Json.csproj.CopyComplete" />
+    <None Include="obj\Release\Json.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Release\Json.csproj.GenerateResource.Cache" />
+    <None Include="obj\Release\Json.csprojAssemblyReference.cache" />
+    <None Include="obj\Release\Json.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\Json.exe.config" />
+    <None Include="obj\Release\Json.vshost.exe.config" />
+    <None Include="obj\Release\Json.vshost.exe.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -397,6 +737,64 @@
     <None Include="Resources\cargar.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\DocumentFormat.OpenXml.dll" />
+    <Content Include="bin\Debug\DocumentFormat.OpenXml.xml" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Json.csproj.FileListAbsolute.txt" />
+    <Content Include="bin\Debug\Json.exe" />
+    <Content Include="bin\Debug\Json.exe.CodeAnalysisLog.xml" />
+    <Content Include="bin\Debug\Json.pdb" />
+    <Content Include="bin\Debug\Json.vshost.exe" />
+    <Content Include="bin\Debug\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.json.txt" />
+    <Content Include="bin\Debug\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.txt" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\Oracle.ManagedDataAccess.dll" />
+    <Content Include="bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll" />
+    <Content Include="bin\Debug\TempPE\Data_AMEX.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Data_AMEX.Designer.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Data_Oracle.Context.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Data_Oracle.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Data_Oracle.Designer.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Data_SQL.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Data_SQL.Designer.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Model1.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Model1.Designer.cs.dll" />
+    <Content Include="bin\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="bin\Debug\TempPE\SQL.cs.dll" />
+    <Content Include="bin\Debug\TempPE\SQL.Designer.cs.dll" />
+    <Content Include="bin\Release\DocumentFormat.OpenXml.dll" />
+    <Content Include="bin\Release\DocumentFormat.OpenXml.xml" />
+    <Content Include="bin\Release\EntityFramework.dll" />
+    <Content Include="bin\Release\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Release\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Release\EntityFramework.xml" />
+    <Content Include="bin\Release\Json.csproj.FileListAbsolute.txt" />
+    <Content Include="bin\Release\Json.exe" />
+    <Content Include="bin\Release\Json.exe.CodeAnalysisLog.xml" />
+    <Content Include="bin\Release\Json.pdb" />
+    <Content Include="bin\Release\Json.vshost.exe" />
+    <Content Include="bin\Release\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.json.txt" />
+    <Content Include="bin\Release\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.txt" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\Oracle.ManagedDataAccess.dll" />
+    <Content Include="bin\Release\Oracle.ManagedDataAccess.EntityFramework.dll" />
+    <Content Include="bin\Release\TempPE\Data_AMEX.cs.dll" />
+    <Content Include="bin\Release\TempPE\Data_AMEX.Designer.cs.dll" />
+    <Content Include="bin\Release\TempPE\Data_Oracle.Context.cs.dll" />
+    <Content Include="bin\Release\TempPE\Data_Oracle.cs.dll" />
+    <Content Include="bin\Release\TempPE\Data_Oracle.Designer.cs.dll" />
+    <Content Include="bin\Release\TempPE\Data_SQL.cs.dll" />
+    <Content Include="bin\Release\TempPE\Data_SQL.Designer.cs.dll" />
+    <Content Include="bin\Release\TempPE\Model1.cs.dll" />
+    <Content Include="bin\Release\TempPE\Model1.Designer.cs.dll" />
+    <Content Include="bin\Release\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="bin\Release\TempPE\SQL.cs.dll" />
+    <Content Include="bin\Release\TempPE\SQL.Designer.cs.dll" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -407,6 +805,64 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="obj\Debug\EntityFramework.dll" />
+    <Content Include="obj\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="obj\Debug\EntityFramework.xml" />
+    <Content Include="obj\Debug\Json.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Json.exe" />
+    <Content Include="obj\Debug\Json.pdb" />
+    <Content Include="obj\Debug\Json.vshost.exe" />
+    <Content Include="obj\Debug\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.json.txt" />
+    <Content Include="obj\Debug\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.txt" />
+    <Content Include="obj\Debug\Newtonsoft.Json.dll" />
+    <Content Include="obj\Debug\Newtonsoft.Json.xml" />
+    <Content Include="obj\Debug\Oracle.ManagedDataAccess.dll" />
+    <Content Include="obj\Debug\Oracle.ManagedDataAccess.EntityFramework.dll" />
+    <Content Include="obj\Debug\TempPE\Data_AMEX.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Data_AMEX.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Data_Oracle.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Data_Oracle.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Data_Oracle.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Data_SQL.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Data_SQL.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model1.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model1.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model1.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model99.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Model99.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\SQL.cs.dll" />
+    <Content Include="obj\Debug\TempPE\SQL.Designer.cs.dll" />
+    <Content Include="obj\Release\EntityFramework.dll" />
+    <Content Include="obj\Release\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Release\EntityFramework.SqlServer.xml" />
+    <Content Include="obj\Release\EntityFramework.xml" />
+    <Content Include="obj\Release\Json.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\Json.exe" />
+    <Content Include="obj\Release\Json.pdb" />
+    <Content Include="obj\Release\Json.vshost.exe" />
+    <Content Include="obj\Release\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.json.txt" />
+    <Content Include="obj\Release\LZ.E2.ACORN.ST.AUTOIA.V01.080718.S0001.txt" />
+    <Content Include="obj\Release\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\Newtonsoft.Json.xml" />
+    <Content Include="obj\Release\Oracle.ManagedDataAccess.dll" />
+    <Content Include="obj\Release\Oracle.ManagedDataAccess.EntityFramework.dll" />
+    <Content Include="obj\Release\TempPE\Data_AMEX.cs.dll" />
+    <Content Include="obj\Release\TempPE\Data_AMEX.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Data_Oracle.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Data_Oracle.cs.dll" />
+    <Content Include="obj\Release\TempPE\Data_Oracle.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Data_SQL.cs.dll" />
+    <Content Include="obj\Release\TempPE\Data_SQL.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Model1.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Model1.cs.dll" />
+    <Content Include="obj\Release\TempPE\Model1.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Model99.cs.dll" />
+    <Content Include="obj\Release\TempPE\Model99.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\Release\TempPE\SQL.cs.dll" />
+    <Content Include="obj\Release\TempPE\SQL.Designer.cs.dll" />
     <None Include="Resources\Btn_Excel1.png" />
     <None Include="Resources\Btn_Cuenta1.png" />
     <None Include="Resources\Btn_Buscar1.png" />

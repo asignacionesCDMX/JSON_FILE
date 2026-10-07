@@ -10,7 +10,7 @@ namespace Json
     {
         public class RootObject
         {
-            public DateTime? updateDate { get; set; }
+            public DateTime? updateDate { get; set;} //aanay para la nueva estructura json
             public string updatedBy { get; set; }
             public Header header { get; set; }
             public List<AccountRecallInfoList> accountRecallInfoList { get; set; }
@@ -27,10 +27,10 @@ namespace Json
         }
         public class AccountRecallInfoList
         {
-            public DateTime updateDate { get; set; }
+            public DateTime updateDate { get; set;} //aanay para la nueva estructura json
             public string updatedBy { get; set; }
             public string agencyId { get; set; }
-            public string accountNumber { get; set; }
+            public string accountNumber { get; set; } //aanay para la nueva estructura json
             public string agencyAssignmentStatusCode { get; set; }
             public string agencyRecallDate { get; set; }
             public double balanceAmount { get; set; }

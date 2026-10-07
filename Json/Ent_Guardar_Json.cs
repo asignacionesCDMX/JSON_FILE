@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Json
 {
@@ -12,7 +13,7 @@ namespace Json
         public void Actions(Ent_Json_Action.RootObject Action)
         {
             Tab_Amex_Json Action_ = new Tab_Amex_Json();
-            Action_.TBAXJNFECHA = new DateTime();
+            Action_.TBAXJNFECHA = DateTime.Now;
             Action_.TBAXJNUPDATEDATE = Action.updateDate;
             Action_.TBAXJNIDHEADER = HeaderAction(Action.header);
             Action_.TBAXJNTIPO = "ACTION";
@@ -28,12 +29,12 @@ namespace Json
                     ActionsHistory(Action.actionsHistoryList[i], Action_.TBAXJNID);
                 }
             }
-           
+
         }
         public void Recall(Ent_Json_Recall.RootObject Recall)
         {
             Tab_Amex_Json Recall_ = new Tab_Amex_Json();
-            Recall_.TBAXJNFECHA = new DateTime();
+            Recall_.TBAXJNFECHA = DateTime.Now;
             Recall_.TBAXJNUPDATEDATE = Recall.updateDate;
             Recall_.TBAXJNIDHEADER = HeaderRecall(Recall.header);
             Recall_.TBAXJNTIPO = "RECALL";
@@ -49,7 +50,7 @@ namespace Json
                     AccountRecall(Recall.accountRecallInfoList[i], Recall_.TBAXJNID);
                 }
             }
-           
+
 
         }
 
@@ -60,7 +61,7 @@ namespace Json
             Recall.TBAXATUPDATEDATE = AccountRecallInfoList.updateDate;
             Recall.TBAXATUPDATEDBY = AccountRecallInfoList.updatedBy;
             Recall.TBAXATAGENCYID = AccountRecallInfoList.agencyId;
-            Recall.TBAXATACCOUNTNUMBER = AccountRecallInfoList.accountNumber;
+            Recall.TBAXATACCOUNTNUMBER = AccountRecallInfoList.accountNumber;//aanay para la nueva estructura de json
             Recall.TBAXATAGENCYASSIGNMENT = AccountRecallInfoList.agencyAssignmentStatusCode;
             Recall.TBAXATAGENCYRECALLDATE = AccountRecallInfoList.agencyRecallDate;
             Recall.TBAXATBALANCEAMOUNT = Convert.ToDecimal(AccountRecallInfoList.balanceAmount);
@@ -90,7 +91,7 @@ namespace Json
             return Header_.TBAXHRID;
         }
         public int? HeaderRecall(Ent_Json_Recall.Header Header)
-        {        
+        {
             Tab_Amex_Header Header_ = new Tab_Amex_Header();
             Header_.TBAXHRUPDATEDATE = Header.updateDate;
             Header_.TBAXHRSENDERID = Header.senderID;
@@ -105,12 +106,12 @@ namespace Json
                 DB.SaveChanges();
             }
             return Header_.TBAXHRID;
-    }
+        }
 
         public void Update(Ent_Json_Update.RootObject Update)
         {
             Tab_Amex_Json Update_ = new Tab_Amex_Json();
-            Update_.TBAXJNFECHA = new DateTime();
+            Update_.TBAXJNFECHA = DateTime.Now;
             Update_.TBAXJNUPDATEDATE = Update.updateDate;
             Update_.TBAXJNIDHEADER = HeaderUpd(Update.header);
             Update_.TBAXJNTIPO = "UPDATEOB";
@@ -119,7 +120,7 @@ namespace Json
                 DB.Tab_Amex_Json.Add(Update_);
                 DB.SaveChanges();
             }
-            
+
             if (Update.demographicsList != null)
             {
                 for (int i = 0; i < Update.demographicsList.Count; i++)
@@ -127,7 +128,7 @@ namespace Json
                     DemographicsUpd(Update.demographicsList[i], Update_.TBAXJNID);
                 }
             }
-            
+
             if (Update.riskScoreList != null)
             {
                 for (int i = 0; i < Update.riskScoreList.Count; i++)
@@ -184,29 +185,60 @@ namespace Json
                     CollectionScoreUpd(Update.collectionScoreList[i], Update_.TBAXJNID);
                 }
             }
-
+            if (Update.treatmentList != null)
+            {
+                for (int i = 0; i < Update.treatmentList.Count; i++)
+                {
+                    TreatmentUpd(Update.treatmentList[i], Update_.TBAXJNID);
+                }
+            }
+            if (Update.collectionRiskScoreList != null)
+            {
+                for (int i = 0; i < Update.collectionRiskScoreList.Count; i++)
+                {
+                    CollectionRiskScoreListUpd(Update.collectionRiskScoreList[i], Update_.TBAXJNID);
+                }
+            }
+            if (Update.contactInfoList != null)
+            {
+                for (int i = 0; i < Update.contactInfoList.Count; i++)
+                {
+                    ContactInfoListUpd(Update.contactInfoList[i], Update_.TBAXJNID);
+                }
+            }
         }
 
-        private void ActionsHistory(Ent_Json_Action.ActionsHistoryList actionsHistoryList, int tBAXJNID)
+        private void ActionsHistory(Ent_Json_Action.ActionsHistoryList actionHistoryList, int tBAXJNID)
         {
             Tab_Amex_ActionsHistory ActionsHistory_ = new Tab_Amex_ActionsHistory();
-            ActionsHistory_.TBAXATUPDATEDATE = actionsHistoryList.updateDate;
-            ActionsHistory_.TBAXATUPDATEDBY = actionsHistoryList.updatedBy;
-            ActionsHistory_.TBAXATACCOUNTNUMBER = actionsHistoryList.accountNumber;
-            ActionsHistory_.TBAXATACCOUNTCATEGORY = actionsHistoryList.accountCategoryTypeCode;
-            ActionsHistory_.TBAXATACTIVITY = actionsHistoryList.timeOfActivity;
-            ActionsHistory_.TBAXATTYPE = actionsHistoryList.type;
-            ActionsHistory_.TBAXATCONTACT = actionsHistoryList.contactTypeCode;
-            ActionsHistory_.TBAXATPARTY = actionsHistoryList.partyContactCode;
-            ActionsHistory_.TBAXATPLACE = actionsHistoryList.placeContactCode;
-            ActionsHistory_.TBAXATPROMISEAMOUNT = actionsHistoryList.promiseAmount;
-            ActionsHistory_.TBAXATPROMISEDUEDATE = actionsHistoryList.promiseDueDate;
-            ActionsHistory_.TBAXATPROMISEFREQUENCY = actionsHistoryList.promiseFrequencyCode;
-            ActionsHistory_.TBAXATPROMISEPAYMENT = actionsHistoryList.promisePaymentMethod;
-            ActionsHistory_.TBAXATTIMEOFACTIVITY = actionsHistoryList.timeOfActivity;
-            ActionsHistory_.TBAXATNOTE = actionsHistoryList.note;
+            ActionsHistory_.TBAXATUPDATEDATE = actionHistoryList.updateDate;
+            ActionsHistory_.TBAXATUPDATEDBY = actionHistoryList.updatedBy;
+            ActionsHistory_.TBAXATACCOUNTNUMBER = actionHistoryList.accountNumber;
+            ActionsHistory_.TBAXATACCOUNTCATEGORY = actionHistoryList.accountCategoryTypeCode;
+            ActionsHistory_.TBAXATACTIVITY = actionHistoryList.activityTypeCode;
+            ActionsHistory_.TBAXATTYPE = actionHistoryList.type;
+            ActionsHistory_.TBAXATCONTACT = actionHistoryList.contactTypeCode;
+            ActionsHistory_.TBAXATPARTY = actionHistoryList.partyContactCode;
+            ActionsHistory_.TBAXATPLACE = actionHistoryList.placeContactCode;
+            ActionsHistory_.TBAXATPROMISEAMOUNT = actionHistoryList.promiseAmount;
+            ActionsHistory_.TBAXATPROMISEDUEDATE = actionHistoryList.promiseDueDate;
+            ActionsHistory_.TBAXATPROMISEFREQUENCY = actionHistoryList.promiseFrequencyCode;
+            ActionsHistory_.TBAXATPROMISEPAYMENT = actionHistoryList.promisePaymentMethod;
+            ActionsHistory_.TBAXATTIMEOFACTIVITY = actionHistoryList.timeOfActivity;
+            ActionsHistory_.TBAXATNOTE = actionHistoryList.note;
+            //if (actionHistoryList.note != null)
+            //{
+            //    if (actionHistoryList.note.Length > 200)
+            //    {
+            //        ActionsHistory_.TBAXATNOTE = actionHistoryList.note.Substring(0, 200);
+            //    }
+            //    else
+            //        ActionsHistory_.TBAXATNOTE = actionHistoryList.note;
+
+
+            //}
             ActionsHistory_.TBAXATHEADER = tBAXJNID;
-            ActionsHistory_.TBAXATTIPO = "UPDATEOB";
+            ActionsHistory_.TBAXATTIPO = "ACTION";
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_ActionsHistory.Add(ActionsHistory_);
@@ -227,14 +259,19 @@ namespace Json
             {
                 FinancialSummary_.TBAXFYIDDEBITSUMMARYINMONTHS = DebitSummaryInMonthsUpd(FinancialSummary.debitSummaryInMonths);
             }
+            if (FinancialSummary.debitSummaryInMonthsUSD != null)
+            {
+                FinancialSummary_.TBAXFYIDDEBITSUMMARYINMONTHSUSD = DebitSummaryInMonthsUSDUpd(FinancialSummary.debitSummaryInMonthsUSD);
+            }
             if (FinancialSummary.accountBalanceInMonths != null)
             {
                 FinancialSummary_.TBAXFYIDACCOUNTBALANCEINMONTHS = AccountBalanceInMonthsUpd(FinancialSummary.accountBalanceInMonths);
             }
-            if (FinancialSummary.interestAccessedByMonth != null)
+            if (FinancialSummary.accountBalanceInMonthsUSD != null)
             {
-                FinancialSummary_.TBAXFYIDINTERESTACCESSEDBYMONTH = InterestAccessedByMonthUpd(FinancialSummary.interestAccessedByMonth);
+                FinancialSummary_.TBAXFYIDACCOUNTBALANCEINMONTHSUSD = AccountBalanceInMonthsUSDUpd(FinancialSummary.accountBalanceInMonthsUSD);
             }
+
             if (FinancialSummary.summaryCreditInMonths != null)
             {
                 FinancialSummary_.TBAXFYIDSUMMARYCREDITINMONTHS = SummaryCreditInMonthsUpd(FinancialSummary.summaryCreditInMonths);
@@ -323,7 +360,29 @@ namespace Json
             }
             return DebitSummaryInMonths_.TBAXMSID;
         }
-
+        private int AccountBalanceInMonthsUSDUpd(AccountBalanceInMonthsUSD AccountBalanceInMonthsUSD)
+        {
+            Tab_Amex_Months DebitSummaryInMonthsUSD_ = new Tab_Amex_Months();
+            DebitSummaryInMonthsUSD_.TBAXMSTIPO = "UPDATEOB";
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH01 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month01);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH02 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month02);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH03 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month03);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH04 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month04);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH05 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month05);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH06 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month06);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH07 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month07);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH08 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month08);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH09 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month09);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH10 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month10);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH11 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month11);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH12 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month12);
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Months.Add(DebitSummaryInMonthsUSD_);
+                DB.SaveChanges();
+            }
+            return DebitSummaryInMonthsUSD_.TBAXMSID;
+        }
         private int AccountBalanceInMonthsUpd(AccountBalanceInMonths AccountBalanceInMonths)
         {
             Tab_Amex_Months DebitSummaryInMonths_ = new Tab_Amex_Months();
@@ -347,7 +406,29 @@ namespace Json
             }
             return DebitSummaryInMonths_.TBAXMSID;
         }
-
+        private int DebitSummaryInMonthsUSDUpd(DebitSummaryInMonthsUSD DebitSummaryInMonthsUSD)
+        {
+            Tab_Amex_Months DebitSummaryInMonthsUSD_ = new Tab_Amex_Months();
+            DebitSummaryInMonthsUSD_.TBAXMSTIPO = "UPDATEOB";
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH01 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month01);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH02 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month02);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH03 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month03);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH04 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month04);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH05 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month05);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH06 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month06);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH07 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month07);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH08 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month08);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH09 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month09);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH10 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month10);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH11 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month11);
+            DebitSummaryInMonthsUSD_.TBAXMSMONTH12 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month12);
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Months.Add(DebitSummaryInMonthsUSD_);
+                DB.SaveChanges();
+            }
+            return DebitSummaryInMonthsUSD_.TBAXMSID;
+        }
         private int DebitSummaryInMonthsUpd(DebitSummaryInMonths DebitSummaryInMonths)
         {
             Tab_Amex_Months DebitSummaryInMonths_ = new Tab_Amex_Months();
@@ -387,7 +468,6 @@ namespace Json
             Demographics_.TBAXDSRETURNMAILINDICATOR = Demographics.returnMailIndicator;
             Demographics_.TBAXDSTIPO = "UPDATEOB";
             Demographics_.TBAXDSIDHEADER = id;
-
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_Demographics.Add(Demographics_);
@@ -401,7 +481,6 @@ namespace Json
                     {
                         AddressUpd(Demographics.addresses[i], Demographics_.TBAXDSID);
                     }
-
                 }
             }
 
@@ -415,6 +494,7 @@ namespace Json
                     }
                 }
             }
+
             if (Demographics.phones != null)
             {
                 for (int i = 0; i < Demographics.phones.Count; i++)
@@ -423,9 +503,9 @@ namespace Json
                     {
                         PhonesUpd(Demographics.phones[i], Demographics_.TBAXDSID);
                     }
-
                 }
             }
+
             if (Demographics.nationalIds != null)
             {
                 for (int i = 0; i < Demographics.nationalIds.Count; i++)
@@ -434,7 +514,6 @@ namespace Json
                     {
                         NationalIdsUpd(Demographics.nationalIds[i], Demographics_.TBAXDSID);
                     }
-
                 }
             }
         }
@@ -457,6 +536,7 @@ namespace Json
 
         private void PhonesUpd(Phone Phones, int id)
         {
+            //ERROR: Aqui no se esta guardando el ID que se recibe de Demographics.
             Tab_Amex_Phones Phones_ = new Tab_Amex_Phones();
             Phones_.TBAXPSUPDATEDATE = Phones.updateDate;
             Phones_.TBAXPSUPDATEDBY = Phones.updatedBy;
@@ -472,9 +552,19 @@ namespace Json
             Phones_.TBAXPSTIPO = "UPDATEOB";
             using (CYBEREntities DB = new CYBEREntities())
             {
-                DB.Tab_Amex_Phones.Add(Phones_);
-                DB.SaveChanges();
-            }           
+                try
+                {
+                    DB.Tab_Amex_Phones.Add(Phones_);
+                    DB.SaveChanges();
+                }
+
+                catch (Exception e)
+                {
+                    string message = e.Message;
+                }
+
+               
+            }
         }
 
         private void EmailsUpd(Emails Emails, int Id)
@@ -511,7 +601,7 @@ namespace Json
             Address_.TBAXASADDRESSLINE2 = Address.addressLine2;
             Address_.TBAXASADDRESSLINE3 = Address.addressLine3;
             Address_.TBAXASCITY = Address.city;
-            Address_.TBAXASSTATE = Address.state;
+            Address_.TBAXASSTATE = (Address.state != null && Address.state.Length > 45) ? Address.state.Substring(0, 45) : Address.state; //Para que state no sea mayor a la longitud prestablecida [22/12/2021]. 
             Address_.TBAXASCOUNTRY = Address.country;
             Address_.TBAXASZIPCODE = Address.zipCode;
             Address_.TBAXASADDRESSCONFIRMATIONDATE = Address.addressConfirmationDate;
@@ -545,9 +635,9 @@ namespace Json
                 DB.Tab_Amex_CollectionScore.Add(CollectionScore_);
                 DB.SaveChanges();
             }
-            
+
         }
-        private void FinancialTransactionDetailsUpd(FinancialTransactionDetailsList FinancialTransactionDetails,int id)
+        private void FinancialTransactionDetailsUpd(FinancialTransactionDetailsList FinancialTransactionDetails, int id)
         {
             Tab_Amex_FinancialTransactionDetails FinancialTransactionDetails_ = new Tab_Amex_FinancialTransactionDetails();
             FinancialTransactionDetails_.TBAXFSUPDATEDATE = FinancialTransactionDetails.updateDate;
@@ -569,7 +659,7 @@ namespace Json
                 }
             }
 
-          
+
         }
 
         private void Transactions(Transactions Transactions, int id)
@@ -577,14 +667,13 @@ namespace Json
             {
                 Tab_Amex_Transactions Transactions_ = new Tab_Amex_Transactions();
                 Transactions_.TBAXTSIDFINANCIAL = id;
-                Transactions_.TBAXTSUPDATEDATE = Transactions.updateDate;
                 Transactions_.TBAXTSUPDATEDBY = Transactions.updatedBy;
                 Transactions_.TBAXTSACCOUNTNUMBER = Transactions.accountNumber;
                 Transactions_.TBAXTSACCOUNTCATEGORYTYPECODE = Transactions.accountCategoryTypeCode;
                 Transactions_.TBAXTSLAST5DIGITSOFTRANSACTION = Transactions.last5DigitsOfTransaction;
                 Transactions_.TBAXTSTRANSACTIONAMOUNT = Convert.ToDecimal(Transactions.transactionAmount);
                 Transactions_.TBAXTSTRANSACTIONTYPECODE = Transactions.transactionTypeCode;
-                Transactions_.TBAXTSTRANSACTIONDATE = Transactions.transactionDate;
+                Transactions_.TBAXTSUPDATEDATE = Transactions.updateDate;
                 Transactions_.TBAXTSLEGACYFIELDCODE = Transactions.legacyFieldCode;
                 Transactions_.TBAXTSTRANSACTIONCODE = Transactions.transactionCode;
                 Transactions_.TBAXTSTRANSACTIONID = Transactions.transactionId;
@@ -595,10 +684,22 @@ namespace Json
                 Transactions_.TBAXTSSTAMPEDFXRATE = Convert.ToDecimal(Transactions.stampedFxRate);
                 Transactions_.TBAXTSSORTRANSACTIONCODE = Transactions.sorTransactionCode;
                 Transactions_.TBAXTSCURRENTFOREIGNBALANCE = Convert.ToDecimal(Transactions.currentForeignBalance);
-                Transactions_.TBAXTSCURRENTLOCALCURRENCYBALANCE = Convert.ToDecimal(Transactions.currentLocalCurrencyBalance);
+                if (Transactions.currentLocalCurrencyBalance.HasValue)
+                    Transactions_.TBAXTSCURRENTLOCALCURRENCYBALANCE = Convert.ToDecimal(Transactions.currentLocalCurrencyBalance);
                 Transactions_.TBAXTSACORNPOSTDATE = Transactions.acornPostDate;
                 Transactions_.TBAXTSPROCESSINGSTATUS = Transactions.processingStatus;
                 Transactions_.TBAXTSTIPO = "UPDATEOB";
+                //*copiar aqui
+                if (Transactions.transactionDate.ToString().Substring(6, 3) == "031") //Si la fecha de transacción es incorrecta, y comienza con un 0, se le asignará una fecha NEUTRA con valor de 1900.
+                {
+                    Transactions_.TBAXTSTRANSACTIONDATE = Convert.ToDateTime("01/01/1900 00:00:00");
+                    MessageBox.Show("ESTA CUENTA : " + Transactions_.TBAXTSACCOUNTNUMBER.ToString() + " TIENE UNA FECHA ERRONEA!!!!! REVISALA!!", "JELP PLS", MessageBoxButtons.OK); //Se despliega un mensaje en pantalla diciendo que el archivo de RECALL se ha generado
+                }
+                else
+                {
+                    Transactions_.TBAXTSTRANSACTIONDATE = Transactions.transactionDate;
+                }
+
                 using (CYBEREntities DB = new CYBEREntities())
                 {
                     DB.Tab_Amex_Transactions.Add(Transactions_);
@@ -617,9 +718,12 @@ namespace Json
             Account_.TBAXATCOUNTRYISOALPHA2CODE = Account.countryIsoAlpha2Code;
             Account_.TBAXATPRODUCTCODE = Account.productCode;
             Account_.TBAXATCHARGEOFFREASONCODE = Account.chargeOffReasonCode;
-            Account_.TBAXATPLACEMENTBALANCE = Convert.ToDecimal(Account.placementBalance);
-            Account_.TBAXATCURRENTBALANCE = Convert.ToDecimal(Account.currentBalance);
-            Account_.TBAXATWRITEOFFAMOUNT = Convert.ToDecimal(Account.writeOffAmount);
+            if (Account.placementBalance.HasValue)
+                Account_.TBAXATPLACEMENTBALANCE = Convert.ToDecimal(Account.placementBalance);
+            if (Account.currentBalance.HasValue)
+                Account_.TBAXATCURRENTBALANCE = Convert.ToDecimal(Account.currentBalance);
+            if (Account.writeOffAmount.HasValue)
+                Account_.TBAXATWRITEOFFAMOUNT = Convert.ToDecimal(Account.writeOffAmount);
             Account_.TBAXATACCOUNTSTATUS = Account.accountStatus;
             Account_.TBAXATWRITEOFFDATE = Account.writeOffDate;
             Account_.TBAXATORIGINALPLACEMENTDATE = Account.originalPlacementDate;
@@ -735,9 +839,9 @@ namespace Json
                 DB.Tab_Amex_FinancialRisk.Add(FinancialRisk_);
                 DB.SaveChanges();
             }
-            
+
         }
-        public void CustomerFinancialUpd(CustomerFinancialList CustomerFinancial,int id)
+        public void CustomerFinancialUpd(CustomerFinancialList CustomerFinancial, int id)
         {
             Tab_Amex_CustomerFinancial CustomerFinancial_ = new Tab_Amex_CustomerFinancial();
             CustomerFinancial_.TBAXCLUPDATEDATE = CustomerFinancial.updateDate;
@@ -746,32 +850,41 @@ namespace Json
             CustomerFinancial_.TBAXCLACCOUNTNUMBER = CustomerFinancial.accountNumber;
             CustomerFinancial_.TBAXCLACCOUNTCATEGORYTYPECODE = CustomerFinancial.accountCategoryTypeCode;
             CustomerFinancial_.TBAXCLLARGEORMIDDLEMARKET = CustomerFinancial.largeOrMiddleMarket;
-            CustomerFinancial_.TBAXCLCYCLECUT = CustomerFinancial.cycleCut;
+            if (CustomerFinancial.cycleCut.HasValue)
+                CustomerFinancial_.TBAXCLCYCLECUT = CustomerFinancial.cycleCut;
             CustomerFinancial_.TBAXCLWAIVERORGUARANTEED = CustomerFinancial.waiverOrGuaranteed;
-            CustomerFinancial_.TBAXCLNUMBEROFTIMESPASTDUE60DAYS = CustomerFinancial.numberOfTimesPastDue60Days;
+            if (CustomerFinancial.numberOfTimesPastDue60Days.HasValue)
+                CustomerFinancial_.TBAXCLNUMBEROFTIMESPASTDUE60DAYS = CustomerFinancial.numberOfTimesPastDue60Days;
             CustomerFinancial_.TBAXCLLIABILITY = CustomerFinancial.liability;
-            CustomerFinancial_.TBAXCLTOTALEXPOSURE = Convert.ToDecimal(CustomerFinancial.totalExposure);
+            if (CustomerFinancial.totalExposure.HasValue)
+                CustomerFinancial_.TBAXCLTOTALEXPOSURE = Convert.ToDecimal(CustomerFinancial.totalExposure);
             CustomerFinancial_.TBAXCLLASTPAYMENTDATE = CustomerFinancial.lastPaymentDate;
-            CustomerFinancial_.TBAXCLCREDITBALANCE = Convert.ToDecimal(CustomerFinancial.creditBalance);
-            CustomerFinancial_.TBAXCLMINIMUMAMOUNTDUE = Convert.ToDecimal(CustomerFinancial.minimumAmountDue);
-            CustomerFinancial_.TBAXCLUNBILLEDAMOUNTDUE = Convert.ToDecimal(CustomerFinancial.unbilledAmountDue);
-            CustomerFinancial_.TBAXCLCURRENTAMOUNTDUE = Convert.ToDecimal(CustomerFinancial.currentAmountDue);
-            CustomerFinancial_.TBAXCLAMOUNTDUE30DAYS = Convert.ToDecimal(CustomerFinancial.amountDue30Days);
-            CustomerFinancial_.TBAXCLAMOUNTDUE60DAYS = Convert.ToDecimal(CustomerFinancial.amountDue60Days);
-            CustomerFinancial_.TBAXCLAMOUNTDUE90DAYS = Convert.ToDecimal(CustomerFinancial.amountDue90Days);
-            CustomerFinancial_.TBAXCLAMOUNTDUE120DAYS = Convert.ToDecimal(CustomerFinancial.amountDue120Days);
-            CustomerFinancial_.TBAXCLAMOUNTDUE150DAYS = Convert.ToDecimal(CustomerFinancial.amountDue150Days);
-            CustomerFinancial_.TBAXCLAMOUNTDUE180DAYS = Convert.ToDecimal(CustomerFinancial.amountDue180Days);
-            CustomerFinancial_.TBAXCLTOTALAMOUNTDUEINUSD = Convert.ToDecimal(CustomerFinancial.totalAmountDueInUSD);
-            CustomerFinancial_.TBAXCLUNBILLEDAMOUNTDUEINUSD = Convert.ToDecimal(CustomerFinancial.unbilledAmountDueInUSD);
-            CustomerFinancial_.TBAXCLCURRENTAMOUNTDUEINUSD = Convert.ToDecimal(CustomerFinancial.currentAmountDueInUSD);
-            CustomerFinancial_.TBAXCLAMOUNTDUE30DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue30DaysInUSD);
-            CustomerFinancial_.TBAXCLAMOUNTDUE60DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue60DaysInUSD);
-            CustomerFinancial_.TBAXCLAMOUNTDUE90DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue90DaysInUSD);
-            CustomerFinancial_.TBAXCLAMOUNTDUE120DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue120DaysInUSD);
-            CustomerFinancial_.TBAXCLAMOUNTDUE150DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue150DaysInUSD);
-            CustomerFinancial_.TBAXCLCREDITINUSD = CustomerFinancial.creditInUSD;
+            CustomerFinancial_.TBAXCLCREDITBALANCE = (decimal?)CustomerFinancial.creditBalance;
+            CustomerFinancial_.TBAXCLMINIMUMAMOUNTDUE = (decimal?)CustomerFinancial.minimumAmountDue;
+            CustomerFinancial_.TBAXCLUNBILLEDAMOUNTDUE = (decimal?)CustomerFinancial.unbilledAmountDue;
+            CustomerFinancial_.TBAXCLCURRENTAMOUNTDUE = (decimal?)CustomerFinancial.currentAmountDue;
+            CustomerFinancial_.TBAXCLAMOUNTDUE30DAYS = (decimal?)CustomerFinancial.amountDue30Days;
+            CustomerFinancial_.TBAXCLAMOUNTDUE60DAYS = (decimal?)CustomerFinancial.amountDue60Days;
+            CustomerFinancial_.TBAXCLAMOUNTDUE90DAYS = (decimal?)CustomerFinancial.amountDue90Days;
+            CustomerFinancial_.TBAXCLAMOUNTDUE120DAYS = (decimal?)CustomerFinancial.amountDue120Days;
+            CustomerFinancial_.TBAXCLAMOUNTDUE150DAYS = (decimal?)CustomerFinancial.amountDue150Days;
+            CustomerFinancial_.TBAXCLAMOUNTDUE180DAYS = (decimal?)CustomerFinancial.amountDue180Days;
+            CustomerFinancial_.TBAXCLTOTALAMOUNTDUEINUSD = (decimal?)CustomerFinancial.totalAmountDueInUSD;
+            CustomerFinancial_.TBAXCLUNBILLEDAMOUNTDUEINUSD = (decimal?)CustomerFinancial.unbilledAmountDueInUSD;
+            CustomerFinancial_.TBAXCLCURRENTAMOUNTDUEINUSD = (decimal?)CustomerFinancial.currentAmountDueInUSD;
+            CustomerFinancial_.TBAXCLAMOUNTDUE30DAYSINUSD = (decimal?)CustomerFinancial.amountDue30DaysInUSD;
+            CustomerFinancial_.TBAXCLAMOUNTDUE60DAYSINUSD = (decimal?)CustomerFinancial.amountDue60DaysInUSD;
+            CustomerFinancial_.TBAXCLAMOUNTDUE90DAYSINUSD = (decimal?)CustomerFinancial.amountDue90DaysInUSD;
+            CustomerFinancial_.TBAXCLAMOUNTDUE120DAYSINUSD = (decimal?)CustomerFinancial.amountDue120DaysInUSD;
+            CustomerFinancial_.TBAXCLAMOUNTDUE150DAYSINUSD = (decimal?)CustomerFinancial.amountDue150DaysInUSD;
+            CustomerFinancial_.TBAXCLOTHERINCOME = (decimal?)CustomerFinancial.otherIncome;
+            CustomerFinancial_.TBAXCLTOTALPASTDUE = (decimal?)CustomerFinancial.totalPastdue;
             CustomerFinancial_.TBAXCLLEGACYCODE = CustomerFinancial.legacyCode;
+            if (CustomerFinancial.creditInUSD != null)
+            {
+                CustomerFinancial_.TBAXCLCREDITINUSD = CreditInUSDUpd(CustomerFinancial.creditInUSD).ToString();
+            }
+
             CustomerFinancial_.TBAXCLTIPO = "UPDATEOB";
             CustomerFinancial_.TBAXCLIDHEADER = id;
             using (CYBEREntities DB = new CYBEREntities())
@@ -790,12 +903,57 @@ namespace Json
             RiskScore_.TBAXREACCOUNTCATEGORYTYPECODE = RiskScore.accountCategoryTypeCode;
             RiskScore_.TBAXREDEBTTOVALUERATIO = Convert.ToDecimal(RiskScore.debtToValueRatio);
             RiskScore_.TBAXRECUSTOMERLEVELSCOREFORCHARGEANDLENDING = Convert.ToDecimal(RiskScore.customerLevelScoreForChargeAndLending);
-            RiskScore_.TBAXRELENDINGPAYTOCURRRENTSCORE = Convert.ToInt32(RiskScore.lendingPayToCurrrentScore);
+            RiskScore_.TBAXRELENDINGPAYTOCURRRENTSCORE = Convert.ToDecimal(RiskScore.lendingPayToCurrrentScore);
             RiskScore_.TBAXREPROBSCORE = RiskScore.probScore;
             RiskScore_.TBAXRETIPO = "UPDATEOB";
+            //ERROR: Falta un campo asi:
+            //RiskScore_.TBAXREIDHEADER = id; //Para almacenar de que json viene la información insertada.
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_RiskScore.Add(RiskScore_);
+                DB.SaveChanges();
+            }
+        }
+
+        private void CollectionRiskScoreListUpd(CollectionRiskScoreList collectionRiskScore, int id)
+        {
+            Tab_Amex_CollectionRiskScore CollectionRiskScore_ = new Tab_Amex_CollectionRiskScore();
+            CollectionRiskScore_.TBAXCREUPDATEDATE = collectionRiskScore.updateDate;
+            CollectionRiskScore_.TBAXCREIDUPDATEDBY = collectionRiskScore.updatedBy;
+            CollectionRiskScore_.TBAXCREIDACCOUNTNUMBER = collectionRiskScore.accountNumber;
+            CollectionRiskScore_.TBAXCREIDACCOUNTCATEGORYTYPECODE = collectionRiskScore.accountCategoryTypeCode;
+            CollectionRiskScore_.TBAXCREID_ID = collectionRiskScore.id;
+            CollectionRiskScore_.TBAXCREIDCOLLECTIBILITYSCORE = collectionRiskScore.collectibilityScore;
+            CollectionRiskScore_.TBAXCREIDRECOVERYSCORE = collectionRiskScore.recoveryScore;
+            CollectionRiskScore_.TBAXCREIDBANKRUPTCYSCORE = collectionRiskScore.bankruptcyScore;
+            CollectionRiskScore_.TBAXCREIDMARKETRECOVERYSCORE = collectionRiskScore.marketRecoveryScore;
+            CollectionRiskScore_.TBAXCREIDRETURNMETRICSCORE = collectionRiskScore.returnMetricScore;
+            CollectionRiskScore_.TBAXCREIDFICOSCORE = collectionRiskScore.ficoScore;
+            CollectionRiskScore_.TBAXCREIDDEBTTOVALUERATIO = Convert.ToDecimal(collectionRiskScore.debtToValueRatio);
+            CollectionRiskScore_.TBAXCREIDCUSTOMERLEVELSCOREFORCHARGEANDLENDING = Convert.ToDecimal(collectionRiskScore.customerLevelScoreForChargeAndLending);
+            CollectionRiskScore_.TBAXCREIDLENDINGPAYTOCURRRENTSCORE = Convert.ToDecimal(collectionRiskScore.lendingPayToCurrrentScore);
+            CollectionRiskScore_.TBAXCREIDPROBSCORE = collectionRiskScore.probScore;
+            CollectionRiskScore_.TBAXCRETIPO = "UPDATESOB";
+            CollectionRiskScore_.TBAXCREIDHEADER = id; 
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_CollectionRiskScore.Add(CollectionRiskScore_);
+                DB.SaveChanges();
+            }
+        }
+
+        private void ContactInfoListUpd(ContactInfoList conactInfo, int id)
+        {
+            Tab_Amex_ContactInfo ContactInfo_ = new Tab_Amex_ContactInfo();
+            ContactInfo_.TBAXCOUPDATEDATE = conactInfo.updateDate;
+            ContactInfo_.TBAXCOUPDATEDBY = conactInfo.updatedBy;
+            ContactInfo_.TBAXCOACCOUNTNUMBER = conactInfo.accountNumber;
+            ContactInfo_.TBAXCOACCOUNTCATEGORYTYPECODE = conactInfo.accountCategoryTypeCode;
+            ContactInfo_.TBAXCOTYPE = conactInfo.type;
+            ContactInfo_.TBAXCOLASTCONTACTDATE = conactInfo.lastContactDate;            
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_ContactInfo.Add(ContactInfo_);
                 DB.SaveChanges();
             }
         }
@@ -805,9 +963,8 @@ namespace Json
             Tab_Amex_Json Json_ = new Tab_Amex_Json();
             Json_.TBAXJNFECHA = DateTime.Now;
             Json_.TBAXJNUPDATEDATE = Json.updateDate;
-            Json_.TBAXJNIDHEADER = Header(Json.header);
+            Json_.TBAXJNIDHEADER = Header(Json.header); //El método Header(), almacena en la base los datos que se encuentren en la entidad Header de un JSON PLACEMENT; y como return, devuelve el ID con el que se almacenó en la base.
             Json_.TBAXJNTIPO = "PLACEMENT";
-
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_Json.Add(Json_);
@@ -815,7 +972,6 @@ namespace Json
             }
             CaseInfoList(Json.caseInfoList, Json_.TBAXJNID);
         }
-
         public int HeaderUpd(Header Header)
         {
             Tab_Amex_Header Header_ = new Tab_Amex_Header();
@@ -826,11 +982,18 @@ namespace Json
             Header_.TBAXHRBALANCINGID = Header.balancingId;
             Header_.TBAXHRBALANCINGSEQNO = Header.balancingSeqNo;
             Header_.TBAXHRTIPO = "UPDATEOB";
-            using (CYBEREntities DB = new CYBEREntities())
-            {
-                DB.Tab_Amex_Header.Add(Header_);
-                DB.SaveChanges();
+            try {
+                using (CYBEREntities DB = new CYBEREntities())
+                {
+                    DB.Tab_Amex_Header.Add(Header_);
+                    DB.SaveChanges();
+                }
             }
+            catch (Exception e) {
+                var x = e;
+                int z = 0;
+            }
+            
             return Header_.TBAXHRID;
         }
 
@@ -851,23 +1014,23 @@ namespace Json
             }
             return Header_.TBAXHRID;
         }
-        public void CaseInfoList(List<Ent_Json.CaseInfoList> CaseInfoList, int Id_Header)
+        public void CaseInfoList(List<Ent_Json.CaseInfoList> CaseInfoList, int IDJSON)//Aqui se llega después del método Json() para almacenar la info del JSON en Tab_Amex_Json. 
         {
-            for (int i = 0; i < CaseInfoList.Count; i++)
+            for (int i = 0; i < CaseInfoList.Count; i++) //Por cada uno de los elementos en la CaseInfoList se almacenará todo de las entidades. 
             {
-                Tab_Amex_CaseInfoList CaseInfoList_ = new Tab_Amex_CaseInfoList();
-                CaseInfoList_.TBAXCTUPDATEDATE = CaseInfoList[i].updateDate;
-                CaseInfoList_.TBAXCT_ID = CaseInfoList[i].id;                 
-                CaseInfoList_.TBAXCTIDHEADER = Id_Header;
+                Tab_Amex_CaseInfoList CaseInfoList_ = new Tab_Amex_CaseInfoList(); //Se crea una nuevo elemento de tipo CaseInfoList llamado CaseInfoList_ (Guión bajo).
+                CaseInfoList_.TBAXCTUPDATEDATE = CaseInfoList[i].updateDate; //Se toda la lista de CaseInfoList se obtiene el updateDate del índice i.
+                CaseInfoList_.TBAXCT_ID = CaseInfoList[i].id; //A dia de hoy, 15 de Enero del 2020, este campo siempre va en null ya que no se recibe nada.       //6 de MArzo, sigue en nulo        
+                CaseInfoList_.TBAXCTIDHEADER = IDJSON; //
                 using (CYBEREntities DB = new CYBEREntities())
                 {
                     DB.Tab_Amex_CaseInfoList.Add(CaseInfoList_);
                     DB.SaveChanges();
                 }
-                AccounInfoList(CaseInfoList[i].accountInfoList,CaseInfoList_.TBAXCTID);
+                AccounInfoList(CaseInfoList[i].accountInfoList, CaseInfoList_.TBAXCTID);
             }
-           
-           
+
+
 
         }
 
@@ -881,49 +1044,55 @@ namespace Json
                 accountInfoList_.TBAXATUPDATEBY = accountInfoList[i].updatedBy;
                 accountInfoList_.TBAXAT_ID = accountInfoList[i].id;
                 accountInfoList_.TBAXATACCOUNTNUMBER = accountInfoList[i].accountNumber;
-                if (accountInfoList[i].customerDetails!=null)               
-                    accountInfoList_.TBAXATIDCUSTOMERDETAILS = CustomerDetails(accountInfoList[i].customerDetails);           
-                if (accountInfoList[i].demographics!=null)
+                if (accountInfoList[i].customerDetails != null)
+                {
+                    accountInfoList_.TBAXATIDCUSTOMERDETAILS = CustomerDetails(accountInfoList[i].customerDetails);
+                }
+                if (accountInfoList[i].demographics != null)
+                {
                     accountInfoList_.TBAXATIDDEMOGRAPHICS = Demographics(accountInfoList[i].demographics);
-                if (accountInfoList[i].contactInfo!=null)
+                }
+                if (accountInfoList[i].contactInfo != null)
+                {
                     accountInfoList_.TBAXATIDCONTACTINFO = contactInfo(accountInfoList[i].contactInfo);
-                if (accountInfoList[i].employer!=null)
+                }
+                if (accountInfoList[i].employer != null)
                 {
                     accountInfoList_.TBAXATIDEMPLOYER = Employer(accountInfoList[i].employer);
                 }
-                if (accountInfoList[i].relatedPerson!=null)
+                if (accountInfoList[i].relatedPersonList != null)
                 {
-                    accountInfoList_.TBAXATIDRELATEDPERSONLIST = RelatedPersonList(accountInfoList[i].relatedPerson);
+                    accountInfoList_.TBAXATIDRELATEDPERSONLIST = RelatedPersonList(accountInfoList[i].relatedPersonList);
                 }
-                if (accountInfoList[i].accountDetails!=null)
+                if (accountInfoList[i].accountDetails != null)
                 {
                     accountInfoList_.TBAXATIDACCOUNTDETAILS = AccountDetails(accountInfoList[i].accountDetails);
                 }
-                if (accountInfoList[i].productDetails!=null)
+                if (accountInfoList[i].productDetails != null)
                 {
                     accountInfoList_.TBAXATIDPRODUCTDETAILS = ProductDetails(accountInfoList[i].productDetails);
                 }
-                if (accountInfoList[i].attorneyDetails!=null)
+                if (accountInfoList[i].attorneyDetails != null)
                 {
                     accountInfoList_.TBAXATIDATTORNEYDETAILS = AttorneyDetails(accountInfoList[i].attorneyDetails);
                 }
-                if (accountInfoList[i].customerFinancial!=null)
+                if (accountInfoList[i].customerFinancial != null)
                 {
                     accountInfoList_.TBAXATIDCUSTOMERFINANCIAL = CustomerFinancial(accountInfoList[i].customerFinancial);
                 }
-                if (accountInfoList[i].financialRisk!=null)
+                if (accountInfoList[i].financialRisk != null)
                 {
                     accountInfoList_.TBAXATIDFINANCIALRISK = FinancialRisk(accountInfoList[i].financialRisk);
                 }
-                if (accountInfoList[i].financialSummary!=null)
+                if (accountInfoList[i].financialSummary != null)
                 {
                     accountInfoList_.TBAXATIDFINANCIALSUMMARY = FinancialSummary(accountInfoList[i].financialSummary);
                 }
-                if (accountInfoList[i].bankList!=null)
+                if (accountInfoList[i].bankList != null)
                 {
                     accountInfoList_.TBAXATIDBANKLIST = BankList(accountInfoList[i].bankList);
                 }
-                if (accountInfoList[i].paymentInfo!=null)
+                if (accountInfoList[i].paymentInfo != null)
                 {
                     accountInfoList_.TBAXATIDPAYMENTINFO = PaymentInfo(accountInfoList[i].paymentInfo);
                 }
@@ -935,47 +1104,43 @@ namespace Json
                 {
                     accountInfoList_.TBAXATIDBANKRUPTCYDETAILS = BankruptcyDetails(accountInfoList[i].bankruptcyDetails);
                 }
-                if (accountInfoList[i].creditRiskInfo !=null)
+                if (accountInfoList[i].creditRiskInfo != null)
                 {
                     accountInfoList_.TBAXATIDCREDITRISKINFO = CreditRiskInfo(accountInfoList[i].creditRiskInfo);
                 }
-                if (accountInfoList[i].capInfo!=null)
+                if (accountInfoList[i].capInfo != null)
                 {
                     accountInfoList_.TBAXATIDCAPINFO = CapInfo(accountInfoList[i].capInfo);
                 }
-                if (accountInfoList[i].legal!=null)
+                if (accountInfoList[i].legal != null)
                 {
                     accountInfoList_.TBAXATIDLEGAL = Legal(accountInfoList[i].legal);
                 }
-                if (accountInfoList[i].judgement!=null)
+                if (accountInfoList[i].judgement != null)
                 {
                     accountInfoList_.TBAXATIDJUDGEMENT = Judgement(accountInfoList[i].judgement);
                 }
-                if (accountInfoList[i].collectionInfo!=null)
+                if (accountInfoList[i].collectionInfo != null)
                 {
                     accountInfoList_.TBAXATIDCOLLECTIONINFO = CollectionInfo(accountInfoList[i].collectionInfo);
                 }
-                if (accountInfoList[i].financialTransactionDetails!=null)
+                if (accountInfoList[i].financialTransactionDetails != null)
                 {
                     accountInfoList_.TBAXATIDFINANCIALTRANSACTIONDETAILS = FinancialTransactionDetails(accountInfoList[i].financialTransactionDetails);
                 }
-                if (accountInfoList[i].riskScore!=null)
+                if (accountInfoList[i].riskScore != null)
                 {
                     accountInfoList_.TBAXATIDRISKSCORE = RiskScore(accountInfoList[i].riskScore);
                 }
-                if (accountInfoList[i].regulatoryChange!=null)
+                if (accountInfoList[i].regulatoryChange != null)
                 {
                     accountInfoList_.TBAXATIDREGULATORYCHANGE = RegulatoryChange(accountInfoList[i].regulatoryChange);
                 }
-                if (accountInfoList[i].treatment != null)
-                {
-                    accountInfoList_.TBAXATIDTREATMENT = Treatment(accountInfoList[i].treatment);
-                }
-                if (accountInfoList[i].settlement!=null)
+                if (accountInfoList[i].settlement != null)
                 {
                     accountInfoList_.TBAXATIDSETTLEMENT = Settlement(accountInfoList[i].settlement);
                 }
-                if (accountInfoList[i].strategyInfo!=null)
+                if (accountInfoList[i].strategyInfo != null)
                 {
                     accountInfoList_.TBAXATIDSTRATEGYINFO = StrategyInfo(accountInfoList[i].strategyInfo);
                 }
@@ -983,7 +1148,7 @@ namespace Json
                 {
                     accountInfoList_.TBAXATIDSUGARBARFIELDDETAILS = SugarBarFieldDetails(accountInfoList[i].sugarBarFieldDetails);
                 }
-                if (accountInfoList[i].disputeDetails!= null)
+                if (accountInfoList[i].disputeDetails != null)
                 {
                     accountInfoList_.TBAXATIDDISPUTEDETAILS = DisputeDetails(accountInfoList[i].disputeDetails);
                 }
@@ -991,46 +1156,55 @@ namespace Json
                 {
                     accountInfoList_.TBAXATIDACCOUNT = Account(accountInfoList[i].account);
                 }
-                if (accountInfoList[i].collectionScore!=null)
+                if (accountInfoList[i].collectionScore != null)
                 {
                     accountInfoList_.TBAXATIDCOLLECTIONSCORE = CollectionScore(accountInfoList[i].collectionScore);
                 }
-
-                if (accountInfoList[i].customerAdditionalDetails!=null)
+                if (accountInfoList[i].customerAdditionalDetails != null)
                 {
                     accountInfoList_.TBAXATIDCUSTOMERADDITIONALDETAILS = CustomerAdditionalDetails(accountInfoList[i].customerAdditionalDetails);
                 }
-                if (accountInfoList[i].historyNotes!=null)
+                if (accountInfoList[i].historyNotes != null)
                 {
                     accountInfoList_.TBAXATIDHISTORYNOTES = HistoryNotes(accountInfoList[i].historyNotes);
                 }
-                if (accountInfoList[i].acornCase!=null)
+                if (accountInfoList[i].acornCase != null)
                 {
                     accountInfoList_.TBAXATIDACORNCASE = AcornCase(accountInfoList[i].acornCase);
                 }
-                if (accountInfoList[i].deceasedDetails!=null)
+                if (accountInfoList[i].deceasedDetails != null)
                 {
                     accountInfoList_.TBAXATIDDECEASEDDETAILS = DeceasedDetails(accountInfoList[i].deceasedDetails);
                 }
-                if (accountInfoList[i].cmxTradeDemographics!=null)
+                if (accountInfoList[i].cmxTradeDemographics != null)
                 {
                     accountInfoList_.TBAXATIDCMXTRADEDEMOGRAPHICS = CmxTradeDemographics(accountInfoList[i].cmxTradeDemographics);
                 }
-                if (accountInfoList[i].agencyInfo!=null)
+                if (accountInfoList[i].agencyInfo != null)
                 {
                     accountInfoList_.TBAXATIDAGENCYINFO = AgencyInfo(accountInfoList[i].agencyInfo);
                 }
-                if (accountInfoList[i].agencyAssignment!=null)
+                if (accountInfoList[i].agencyAssignment != null)
                 {
                     accountInfoList_.TBAXATIDAGENCYASSIGNMENT = AgencyAssignment(accountInfoList[i].agencyAssignment);
+                }
+                if (accountInfoList[i].collectionRiskScore != null)
+                {
+                    accountInfoList_.TBAXATCOLLECTIONRISKSCORE = CollectionRiskScore(accountInfoList[i].collectionRiskScore);
                 }
                 using (CYBEREntities DB = new CYBEREntities())
                 {
                     DB.Tab_Amex_AccountInfoList.Add(accountInfoList_);
                     DB.SaveChanges();
                 }
+                if (accountInfoList[i].treatments != null)
+                {
+                    for (int ii = 0; ii < accountInfoList[i].treatments.Count; ii++)
+                    {
+                        Treatment(accountInfoList[i].treatments[ii], accountInfoList_.TBAXATID);
+                    }
+                }
             }
-
         }
         public int AgencyInfo(Ent_Json.AgencyInfo AgencyInfo)
         {
@@ -1045,16 +1219,22 @@ namespace Json
             AgencyInfo_.TBAXAOLEVELCODE = AgencyInfo.levelCode;
             AgencyInfo_.TBAXAOPROGRAMCODE = AgencyInfo.programCode;
             AgencyInfo_.TBAXAOLEGACYRECOVERCODE = AgencyInfo.legacyRecoverCode;
-            if (AgencyInfo.agencyAddress!=null)
+            if (AgencyInfo.agencyAddress != null)
             {
                 AgencyInfo_.TBAXAOIDAGENCYADDRESS = Address_(AgencyInfo.agencyAddress);
             }
-            if (AgencyInfo.agencyPhone!=null)
+            if (AgencyInfo.agencyPhone != null)
             {
                 AgencyInfo_.TBAXAOIDAGENCYPHONE = Phones(AgencyInfo.agencyPhone);
             }
             AgencyInfo_.TBAXAOAGENCYBRANCHNAME = AgencyInfo.agencyBranchName;
             AgencyInfo_.TBAXAOEXTENSIBLEATTRIBUTE = AgencyInfo.extensibleAttribute;
+            //Se agrega por Ricardo Cervantes 19/08/2020 para guardar información de la entidad agencyInfo.
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_AgencyInfo.Add(AgencyInfo_);
+                DB.SaveChanges();
+            }
             return AgencyInfo_.TBAXAOID;
         }
         public int CmxTradeDemographics(Ent_Json.CmxTradeDemographics CmxTradeDemographics)
@@ -1063,29 +1243,41 @@ namespace Json
             CmxTradeDemographics_.TBAXCSUPDATEDATE = CmxTradeDemographics.updateDate;
             CmxTradeDemographics_.TBAXCSUPDATEDBY = CmxTradeDemographics.updatedBy;
             CmxTradeDemographics_.TBAXCSACCOUNTNUMBER = CmxTradeDemographics.accountNumber;
-            if (CmxTradeDemographics.businessAddress!=null)
+            if (CmxTradeDemographics.businessAddress != null)
             {
                 CmxTradeDemographics_.TBAXCSBUSINESSADDRESS = Address_(CmxTradeDemographics.businessAddress);
             }
-            if (CmxTradeDemographics.businessCorrespondenceAddress!=null)
+            if (CmxTradeDemographics.businessCorrespondenceAddress != null)
             {
 
                 CmxTradeDemographics_.TBAXCSBUSINESSCORRESPONDENCEADDRESS = Address_(CmxTradeDemographics.businessCorrespondenceAddress);
             }
-            
+
             CmxTradeDemographics_.TBAXCSBUSINESSCONTACTNAME = CmxTradeDemographics.businessContactName;
-            if (CmxTradeDemographics.homeAddressOnBusinessAccount!= null)
+            //Quitar esto
+            if (CmxTradeDemographics.homeAddressOnBusinessAccount != null)
             {
                 for (int i = 0; i < CmxTradeDemographics.homeAddressOnBusinessAccount.Count; i++)
                 {
                     Address(CmxTradeDemographics.homeAddressOnBusinessAccount[i], CmxTradeDemographics_.TBAXCSID);
                 }
             }
+            //
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_CmxTradeDemographics.Add(CmxTradeDemographics_);
                 DB.SaveChanges();
             }
+            /*
+            //Modificación, Ricardo Cervantes 01/Abril/2020. Se mueve esta parte después de almacenar en la base, para obtener el ID correspondiente.
+            if (CmxTradeDemographics.homeAddressOnBusinessAccount != null)
+            {
+                for (int i = 0; i < CmxTradeDemographics.homeAddressOnBusinessAccount.Count; i++)
+                {
+                    Address(CmxTradeDemographics.homeAddressOnBusinessAccount[i], CmxTradeDemographics_.TBAXCSID);
+                }
+            }
+            */
             return CmxTradeDemographics_.TBAXCSID;
 
         }
@@ -1098,7 +1290,8 @@ namespace Json
             AcornCase_.TBAXAECASEID = AcornCase.caseId;
             AcornCase_.TBAXAEPARENTCASEID = AcornCase.parentCaseId;
             AcornCase_.TBAXAETYPE = AcornCase.type;
-            if (AcornCase.accountNumbers!=null)
+            //Aqui concatena los elementos de la lista de strings en una sola cadena
+            if (AcornCase.accountNumbers != null)
             {
                 string Number = null;
                 for (int i = 0; i < AcornCase.accountNumbers.Count; i++)
@@ -1113,7 +1306,7 @@ namespace Json
                     }
                 }
                 AcornCase_.TBAXAEACCOUNTNUMBERS = Number;
-            }           
+            }
             AcornCase_.TBAXAECUSTOMERID = AcornCase.customerId;
             AcornCase_.TBAXAECHARGEOFFREASONCODE = AcornCase.chargeOffReasonCode;
             AcornCase_.TBAXAECOUNTRYISOALPHA2CODE = AcornCase.countryISOAlpha2Code;
@@ -1192,13 +1385,13 @@ namespace Json
                 DB.Tab_Amex_SugarBarFieldDetails.Add(SugarBarFieldDetails_);
                 DB.SaveChanges();
             }
-            if (SugarBarFieldDetails.sugarBarFields!=null)
+            if (SugarBarFieldDetails.sugarBarFields != null)
             {
                 for (int i = 0; i < SugarBarFieldDetails.sugarBarFields.Count; i++)
                 {
                     SugarBarFields(SugarBarFieldDetails.sugarBarFields[i], SugarBarFieldDetails_.TBAXSSID);
                 }
-               
+
             }
             if (SugarBarFieldDetails.sugarBarMerchantFields != null)
             {
@@ -1206,9 +1399,9 @@ namespace Json
                 {
                     SugarBarMerchantFields(SugarBarFieldDetails.sugarBarMerchantFields[i], SugarBarFieldDetails_.TBAXSSID);
                 }
-                
+
             }
-            
+
             return SugarBarFieldDetails_.TBAXSSID;
         }
         private void SugarBarFields(Ent_Json.SugarBarFields SugarBarFields, int id)
@@ -1253,24 +1446,13 @@ namespace Json
                 DB.SaveChanges();
             }
         }
-
-        private int Treatment(Ent_Json.Treatment Treatment)
+        private void TreatmentUpd(TreatmentList Treatment, int ID)
         {
             Tab_Amex_Treatment Treatment_ = new Tab_Amex_Treatment();
             Treatment_.TBAXTTUPDATEDATE = Treatment.updateDate;
-            Treatment_.TBAXTT_ID = Treatment.id;
             Treatment_.TBAXTTACCOUNTNUMBER = Treatment.accountNumber;
             Treatment_.TBAXTTACCOUNTCATEGORYTYPECODE = Treatment.accountCategoryTypeCode;
-            Treatment_.TBAXTTNEXTPAYMENTDATE = Treatment.nextPaymentDate;
-            if (Treatment.care!=null)
-            {
-                Treatment_.TBAXTTIDCARE = Care(Treatment.care);
-            }
-            if (Treatment.cdmp != null)
-            {
-                Treatment_.TBAXTTIDCDMP = Cdmp(Treatment.cdmp);
-            }
-            Treatment_.TBAXTTACTUALSETTLEMENTAMOUNT = Treatment.actualSettlementAmount;
+            Treatment_.TBAXTTACTUALSETTLEMENTAMOUNT = Convert.ToDecimal(Treatment.actualSettlementAmount);
             Treatment_.TBAXTTTREATMENTELIGIBILITY = Treatment.treatmentEligibility;
             Treatment_.TBAXTTTREATMENTOFFER = Treatment.treatmentOffer;
             Treatment_.TBAXTTTREATMENTACCEPT = Treatment.treatmentAccept;
@@ -1278,16 +1460,41 @@ namespace Json
             Treatment_.TBAXTTTREATMENTEXPIRATION = Treatment.treatmentExpiration;
             Treatment_.TBAXTTTREATMENTPROGRAM = Treatment.treatmentProgram;
             Treatment_.TBAXTTAGREEDSETTLEMENTAMOUNT = Convert.ToDecimal(Treatment.agreedSettlementAmount);
-            Treatment_.TBAXTTAPPLICATIONGEOSCRAMNUMBER = Treatment.applicationGeoScramNumber;
             Treatment_.TBAXTTAGENCYID = Treatment.agencyId;
+            Treatment_.TBAXTTACCOUNTINSERTTIMESTAMP = Treatment.accountInsertTimeStamp;
+            Treatment_.TBAXTTISACTIVE = Treatment.isActive;
+            Treatment_.TBAXTTIDACCOUNT = ID;
 
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_Treatment.Add(Treatment_);
                 DB.SaveChanges();
             }
+        }
+        private void Treatment(Ent_Json.Treatments Treatment, int ID)
+        {
+            Tab_Amex_Treatment Treatment_ = new Tab_Amex_Treatment();
+            Treatment_.TBAXTTUPDATEDATE = Treatment.updateDate;
+            Treatment_.TBAXTTACCOUNTNUMBER = Treatment.accountNumber;
+            Treatment_.TBAXTTACCOUNTCATEGORYTYPECODE = Treatment.accountCategoryTypeCode;
+            Treatment_.TBAXTTACTUALSETTLEMENTAMOUNT = Convert.ToDecimal(Treatment.actualSettlementAmount);
+            Treatment_.TBAXTTTREATMENTELIGIBILITY = Treatment.treatmentEligibility;
+            Treatment_.TBAXTTTREATMENTOFFER = Treatment.treatmentOffer;
+            Treatment_.TBAXTTTREATMENTACCEPT = Treatment.treatmentAccept;
+            Treatment_.TBAXTTTREATMENTCOMPLETION = Treatment.treatmentCompletion;
+            Treatment_.TBAXTTTREATMENTEXPIRATION = Treatment.treatmentExpiration;
+            Treatment_.TBAXTTTREATMENTPROGRAM = Treatment.treatmentProgram;
+            Treatment_.TBAXTTAGREEDSETTLEMENTAMOUNT = Convert.ToDecimal(Treatment.agreedSettlementAmount);
+            Treatment_.TBAXTTAGENCYID = Treatment.agencyId;
+            Treatment_.TBAXTTACCOUNTINSERTTIMESTAMP = Treatment.accountInsertTimeStamp;
+            Treatment_.TBAXTTISACTIVE = Treatment.isActive;
+            Treatment_.TBAXTTIDACCOUNT = ID;
 
-            return Treatment_.TBAXTTID;
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Treatment.Add(Treatment_);
+                DB.SaveChanges();
+            }
         }
         private int Cdmp(Ent_Json.Cdmp Cdmp)
         {
@@ -1347,8 +1554,8 @@ namespace Json
             }
             return FinancialTransactionDetails_.TBAXFSID;
         }
-        public void Transactions(Ent_Json.Transactions Transactions,int id)
-            {
+        public void Transactions(Ent_Json.Transactions Transactions, int id)
+        {
             Tab_Amex_Transactions Transactions_ = new Tab_Amex_Transactions();
             Transactions_.TBAXTSIDFINANCIAL = id;
             Transactions_.TBAXTSUPDATEDATE = Transactions.updateDate;
@@ -1358,7 +1565,18 @@ namespace Json
             Transactions_.TBAXTSLAST5DIGITSOFTRANSACTION = Transactions.last5DigitsOfTransaction;
             Transactions_.TBAXTSTRANSACTIONAMOUNT = Convert.ToDecimal(Transactions.transactionAmount);
             Transactions_.TBAXTSTRANSACTIONTYPECODE = Transactions.transactionTypeCode;
-            Transactions_.TBAXTSTRANSACTIONDATE = Transactions.transactionDate;
+            if (Transactions.transactionDate != null)
+            {
+                if (Transactions.transactionDate.ToString().Substring(6, 3) == "031") //Si la fecha de transacción es incorrecta, y comienza con un 0, se le asignará una fecha NEUTRA con valor de 1900.
+                {
+                    Transactions_.TBAXTSTRANSACTIONDATE = Convert.ToDateTime("01/01/1900 00:00:00");
+                    MessageBox.Show("ESTA CUENTA : " + Transactions_.TBAXTSACCOUNTNUMBER.ToString() + " TIENE UNA FECHA ERRONEA!!!!! REVISALA!!", "JELP PLS", MessageBoxButtons.OK); //Se despliega un mensaje en pantalla diciendo que el archivo de RECALL se ha generado
+                }
+                else
+                {
+                    Transactions_.TBAXTSTRANSACTIONDATE = Transactions.transactionDate;
+                }
+            }
             Transactions_.TBAXTSLEGACYFIELDCODE = Transactions.legacyFieldCode;
             Transactions_.TBAXTSTRANSACTIONCODE = Transactions.transactionCode;
             Transactions_.TBAXTSTRANSACTIONID = Transactions.transactionId;
@@ -1386,7 +1604,7 @@ namespace Json
             Judgement_.TBAXJTUPDATEDATE = Judgement.updateDate;
             Judgement_.TBAXJT_ID = Judgement.id;
             Judgement_.TBAXJTACCOUNTNUMBER = Judgement.accountNumber;
-            Judgement_.TBAXJTACCOUNTCATEGORYTYPECODE = Judgement.accountCategoryTypeCode;            
+            Judgement_.TBAXJTACCOUNTCATEGORYTYPECODE = Judgement.accountCategoryTypeCode;
             Judgement_.TBAXJTLEGALPROCEEDINGCOURTDATE = Judgement.legalProceedingCourtDate;
             Judgement_.TBAXJTREASONFORSUIT = Judgement.reasonForSuit;
             Judgement_.TBAXJTJUDGEMENTDATE = Judgement.judgementDate;
@@ -1403,7 +1621,7 @@ namespace Json
             Judgement_.TBAXJTCOURTOFRECORDCOUNTY = Judgement.courtOfRecordCounty;
             Judgement_.TBAXJTCOURTOFRECORDSTATE = Judgement.courtOfRecordState;
             Judgement_.TBAXJTATTORNEYOFRECORDAGENCY = Judgement.attorneyOfRecordAgency;
-            if (Judgement.attorneyOfRecordPhone!=null)
+            if (Judgement.attorneyOfRecordPhone != null)
             {
                 Judgement_.TBAXJTIDATTORNEYOFRECORDPHONE = Phones(Judgement.attorneyOfRecordPhone);
             }
@@ -1413,24 +1631,24 @@ namespace Json
             Judgement_.TBAXJTBALANCEINLAWSUIT = Convert.ToDecimal(Judgement.balanceInLawSuit);
             Judgement_.TBAXJTSATISFACTIONOFJUDGEMENTFULFILLEDDATE = Judgement.satisfactionOfJudgementFulfilledDate;
             Judgement_.TBAXJTSATISFACTIONOFJUDGEMENTREQUESTEDDATE = Judgement.satisfactionOfJudgementRequestedDate;
-            if (Judgement.judgementExecutionAttemptsAndProgressByType!=null)
+            if (Judgement.judgementExecutionAttemptsAndProgressByType != null)
             {
-                string V =null;
+                string V = null;
                 for (int i = 0; i < Judgement.judgementExecutionAttemptsAndProgressByType.Count; i++)
                 {
                     if (i == 0)
                     {
-                        V =Judgement.judgementExecutionAttemptsAndProgressByType[i];
+                        V = Judgement.judgementExecutionAttemptsAndProgressByType[i];
                     }
                     else
                     {
                         V = V + '/' + Judgement.judgementExecutionAttemptsAndProgressByType[i];
                     }
-                   
+
                 }
                 Judgement_.TBAXJTJUDGEMENTEXECUTIONATTEMPTSANDPROGRESSBYTYPE = V;
             }
-            if (Judgement.judgementOperatingMetrics!=null)
+            if (Judgement.judgementOperatingMetrics != null)
             {
                 Judgement_.TBAXJTIDJUDGEMENTOPERATINGMETRICS = JudgementOperatingMetrics(Judgement.judgementOperatingMetrics);
             }
@@ -1452,7 +1670,7 @@ namespace Json
             }
             return Judgement_.TBAXJTID;
         }
-        private void LinkedAccountBalance(Ent_Json.LinkedAccountBalance LinkedAccountBalance ,int id)
+        private void LinkedAccountBalance(Ent_Json.LinkedAccountBalance LinkedAccountBalance, int id)
         {
             Tab_Amex_LinkedAccountBalance LinkedAccountBalance_ = new Tab_Amex_LinkedAccountBalance();
             LinkedAccountBalance_.TBAXLEIDJUDGEMENT = id;
@@ -1472,7 +1690,7 @@ namespace Json
         {
             Tab_Amex_JudgementWorkStandards JudgementWorkStandards_ = new Tab_Amex_JudgementWorkStandards();
             JudgementWorkStandards_.TBAXJSUPDATEDATE = JudgementWorkStandards.updateDate;
-                JudgementWorkStandards_.TBAXJS_ID = JudgementWorkStandards.id;
+            JudgementWorkStandards_.TBAXJS_ID = JudgementWorkStandards.id;
             JudgementWorkStandards_.TBAXJSACCOUNTNUMBER = JudgementWorkStandards.accountNumber;
             JudgementWorkStandards_.TBAXJSACCOUNTCATEGORYTYPECODE = JudgementWorkStandards.accountCategoryTypeCode;
             JudgementWorkStandards_.TBAXJSJUDGEMENTID = JudgementWorkStandards.judgementId;
@@ -1496,7 +1714,7 @@ namespace Json
         {
             Tab_Amex_JudgementOperatingMetrics JudgementOperatingMetrics_ = new Tab_Amex_JudgementOperatingMetrics();
             JudgementOperatingMetrics_.TBAXJSUPDATEDATE = JudgementOperatingMetrics.updateDate;
-                JudgementOperatingMetrics_.TBAXJS_ID = JudgementOperatingMetrics.id;
+            JudgementOperatingMetrics_.TBAXJS_ID = JudgementOperatingMetrics.id;
             JudgementOperatingMetrics_.TBAXJSACCOUNTNUMBER = JudgementOperatingMetrics.accountNumber;
             JudgementOperatingMetrics_.TBAXJSACCOUNTCATEGORYTYPECODE = JudgementOperatingMetrics.accountCategoryTypeCode;
             JudgementOperatingMetrics_.TBAXJSJUDGEMENTID = JudgementOperatingMetrics.judgementId;
@@ -1528,18 +1746,18 @@ namespace Json
             BankruptcyDetails_.TBAXBSBANKRUPTCYCHAPTER = BankruptcyDetails.bankruptcyChapter;
             BankruptcyDetails_.TBAXBSBANKRUPTCYCHAPTERCODE = BankruptcyDetails.bankruptcyChapterCode;
             BankruptcyDetails_.TBAXBSATTORNEYNAME = BankruptcyDetails.attorneyName;
-            if (BankruptcyDetails.attorneyAddress!=null)
+            if (BankruptcyDetails.attorneyAddress != null)
             {
                 BankruptcyDetails_.TBAXBSATTORNEYADDRESS = Address_(BankruptcyDetails.attorneyAddress);
             }
-            if (BankruptcyDetails.executorAddress!=null)
+            if (BankruptcyDetails.executorAddress != null)
             {
                 BankruptcyDetails_.TBAXBSEXECUTORADDRESS = Address_(BankruptcyDetails.executorAddress);
             }
-            if (BankruptcyDetails.executorPhone!=null)
+            if (BankruptcyDetails.executorPhone != null)
             {
                 BankruptcyDetails_.TBAXBSEXECUTORPHONE = Phones(BankruptcyDetails.executorPhone);
-            }           
+            }
             BankruptcyDetails_.TBAXBSCASENUMBER = BankruptcyDetails.caseNumber;
             using (CYBEREntities DB = new CYBEREntities())
             {
@@ -1584,7 +1802,7 @@ namespace Json
             AdditionalCmSpends_.TBAXASTOTALAMOUNTSPENTIN6MONTHS = Convert.ToDecimal(AdditionalCmSpends.totalAmountSpentIn6Months);
             AdditionalCmSpends_.TBAXASPERCENTAGEOFBALANCE = Convert.ToDecimal(AdditionalCmSpends.percentageOfBalance);
             AdditionalCmSpends_.TBAXASHIGHSPEND = Convert.ToDecimal(AdditionalCmSpends.highSpend);
-            AdditionalCmSpends_.TBAXASLEGACYFIELDCODE = AdditionalCmSpends.legacyFieldCode;            
+            AdditionalCmSpends_.TBAXASLEGACYFIELDCODE = AdditionalCmSpends.legacyFieldCode;
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_AdditionalCmSpends.Add(AdditionalCmSpends_);
@@ -1604,7 +1822,7 @@ namespace Json
                 DB.Tab_Amex_BankList.Add(BankList_);
                 DB.SaveChanges();
             }
-            if (BankList.banks!=null)
+            if (BankList.banks != null)
             {
                 for (int i = 0; i < BankList.banks.Count; i++)
                 {
@@ -1649,28 +1867,32 @@ namespace Json
             FinancialSummary_.TBAXFYACCOUNTNUMBER = FinancialSummary.accountNumber;
             FinancialSummary_.TBAXFYACCOUNTCATEGORYTYPECODE = FinancialSummary.accountCategoryTypeCode;
             FinancialSummary_.TBAXFYTIPO = "PLACEMENT";
-            if (FinancialSummary.debitSummaryInMonths!=null)
+            FinancialSummary_.TBAXFYPREVIOUSBALANCE = Convert.ToDecimal(FinancialSummary.previousBalance);
+            //Todo lo siguiente se inserta  en la misma tabla, Tab_Amex_Months, obteniendo el ID único del registro, y regresandolo a FinancialSummary.
+            if (FinancialSummary.debitSummaryInMonths != null)
             {
                 FinancialSummary_.TBAXFYIDDEBITSUMMARYINMONTHS = DebitSummaryInMonths(FinancialSummary.debitSummaryInMonths);
             }
-            if (FinancialSummary.accountBalanceInMonths!=null)
+            if (FinancialSummary.debitSummaryInMonthsUSD != null)
+            {
+                FinancialSummary_.TBAXFYIDDEBITSUMMARYINMONTHSUSD = DebitSummaryInMonthsUSD(FinancialSummary.debitSummaryInMonthsUSD);
+            }
+            if (FinancialSummary.accountBalanceInMonths != null)
             {
                 FinancialSummary_.TBAXFYIDACCOUNTBALANCEINMONTHS = AccountBalanceInMonths(FinancialSummary.accountBalanceInMonths);
             }
-            if (FinancialSummary.interestAccessedByMonth !=null)
+            if (FinancialSummary.accountBalanceInMonthsUSD != null)
             {
-                FinancialSummary_.TBAXFYIDINTERESTACCESSEDBYMONTH = InterestAccessedByMonth(FinancialSummary.interestAccessedByMonth);
+                FinancialSummary_.TBAXFYIDACCOUNTBALANCEINMONTHSUSD = AccountBalanceInMonthsUSD(FinancialSummary.accountBalanceInMonthsUSD);
             }
-            if (FinancialSummary.summaryCreditInMonths!= null)
+            if (FinancialSummary.summaryCreditInMonths != null)
             {
                 FinancialSummary_.TBAXFYIDSUMMARYCREDITINMONTHS = SummaryCreditInMonths(FinancialSummary.summaryCreditInMonths);
             }
-            FinancialSummary_.TBAXFYPREVIOUSBALANCE = Convert.ToDecimal(FinancialSummary.previousBalance);
-            if (FinancialSummary.accountAgingInMonths!=null)
+            if (FinancialSummary.accountAgingInMonths != null)
             {
                 FinancialSummary_.TBAXFYIDACCOUNTAGINGINMONTHS = AccountAgingInMonths(FinancialSummary.accountAgingInMonths);
             }
-
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_FinancialSummary.Add(FinancialSummary_);
@@ -1700,6 +1922,52 @@ namespace Json
                 DB.SaveChanges();
             }
             return DebitSummaryInMonths_.TBAXMSID;
+        }
+        private int CreditInUSDUpd(CreditInUSD CreditInUSD)
+        {
+            Tab_Amex_Months CreditInUSD_ = new Tab_Amex_Months();
+            CreditInUSD_.TBAXMSTIPO = "UPDATEOB";
+            CreditInUSD_.TBAXMSMONTH01 = (decimal?)CreditInUSD.Month01;
+            CreditInUSD_.TBAXMSMONTH02 = (decimal?)CreditInUSD.Month02;
+            CreditInUSD_.TBAXMSMONTH03 = (decimal?)CreditInUSD.Month03;
+            CreditInUSD_.TBAXMSMONTH04 = (decimal?)CreditInUSD.Month04;
+            CreditInUSD_.TBAXMSMONTH05 = (decimal?)CreditInUSD.Month05;
+            CreditInUSD_.TBAXMSMONTH06 = (decimal?)CreditInUSD.Month06;
+            CreditInUSD_.TBAXMSMONTH07 = (decimal?)CreditInUSD.Month07;
+            CreditInUSD_.TBAXMSMONTH08 = (decimal?)CreditInUSD.Month08;
+            CreditInUSD_.TBAXMSMONTH09 = (decimal?)CreditInUSD.Month09;
+            CreditInUSD_.TBAXMSMONTH10 = (decimal?)CreditInUSD.Month10;
+            CreditInUSD_.TBAXMSMONTH11 = (decimal?)CreditInUSD.Month11;
+            CreditInUSD_.TBAXMSMONTH12 = (decimal?)CreditInUSD.Month12;
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Months.Add(CreditInUSD_);
+                DB.SaveChanges();
+            }
+            return CreditInUSD_.TBAXMSID;
+        }
+        private int CreditInUSD(Ent_Json.CreditInUSD CreditInUSD)
+        {
+            Tab_Amex_Months CreditInUSD_ = new Tab_Amex_Months();
+            CreditInUSD_.TBAXMSTIPO = "PLACEMENT";
+            CreditInUSD_.TBAXMSMONTH01 = Convert.ToDecimal(CreditInUSD.Month01);
+            CreditInUSD_.TBAXMSMONTH02 = Convert.ToDecimal(CreditInUSD.Month02);
+            CreditInUSD_.TBAXMSMONTH03 = Convert.ToDecimal(CreditInUSD.Month03);
+            CreditInUSD_.TBAXMSMONTH04 = Convert.ToDecimal(CreditInUSD.Month04);
+            CreditInUSD_.TBAXMSMONTH05 = Convert.ToDecimal(CreditInUSD.Month05);
+            CreditInUSD_.TBAXMSMONTH06 = Convert.ToDecimal(CreditInUSD.Month06);
+            CreditInUSD_.TBAXMSMONTH07 = Convert.ToDecimal(CreditInUSD.Month07);
+            CreditInUSD_.TBAXMSMONTH08 = Convert.ToDecimal(CreditInUSD.Month08);
+            CreditInUSD_.TBAXMSMONTH09 = Convert.ToDecimal(CreditInUSD.Month09);
+            CreditInUSD_.TBAXMSMONTH10 = Convert.ToDecimal(CreditInUSD.Month10);
+            CreditInUSD_.TBAXMSMONTH11 = Convert.ToDecimal(CreditInUSD.Month11);
+            CreditInUSD_.TBAXMSMONTH12 = Convert.ToDecimal(CreditInUSD.Month12);
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Months.Add(CreditInUSD_);
+                DB.SaveChanges();
+            }
+            return CreditInUSD_.TBAXMSID;
         }
         private int SummaryCreditInMonths(Ent_Json.SummaryCreditInMonths SummaryCreditInMonths)
         {
@@ -1770,7 +2038,52 @@ namespace Json
             }
             return DebitSummaryInMonths_.TBAXMSID;
         }
-
+        private int AccountBalanceInMonthsUSD(Ent_Json.AccountBalanceInMonthsUSD AccountBalanceInMonthsUSD)
+        {
+            Tab_Amex_Months DebitSummaryInMonths_ = new Tab_Amex_Months();
+            DebitSummaryInMonths_.TBAXMSTIPO = "PLACEMENT";
+            DebitSummaryInMonths_.TBAXMSMONTH01 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month01);
+            DebitSummaryInMonths_.TBAXMSMONTH02 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month02);
+            DebitSummaryInMonths_.TBAXMSMONTH03 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month03);
+            DebitSummaryInMonths_.TBAXMSMONTH04 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month04);
+            DebitSummaryInMonths_.TBAXMSMONTH05 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month05);
+            DebitSummaryInMonths_.TBAXMSMONTH06 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month06);
+            DebitSummaryInMonths_.TBAXMSMONTH07 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month07);
+            DebitSummaryInMonths_.TBAXMSMONTH08 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month08);
+            DebitSummaryInMonths_.TBAXMSMONTH09 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month09);
+            DebitSummaryInMonths_.TBAXMSMONTH10 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month10);
+            DebitSummaryInMonths_.TBAXMSMONTH11 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month11);
+            DebitSummaryInMonths_.TBAXMSMONTH12 = Convert.ToDecimal(AccountBalanceInMonthsUSD.Month12);
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Months.Add(DebitSummaryInMonths_);
+                DB.SaveChanges();
+            }
+            return DebitSummaryInMonths_.TBAXMSID;
+        }
+        private int DebitSummaryInMonthsUSD(Ent_Json.DebitSummaryInMonthsUSD DebitSummaryInMonthsUSD)
+        {
+            Tab_Amex_Months DebitSummaryInMonths_ = new Tab_Amex_Months();
+            DebitSummaryInMonths_.TBAXMSTIPO = "PLACEMENT";
+            DebitSummaryInMonths_.TBAXMSMONTH01 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month01);
+            DebitSummaryInMonths_.TBAXMSMONTH02 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month02);
+            DebitSummaryInMonths_.TBAXMSMONTH03 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month03);
+            DebitSummaryInMonths_.TBAXMSMONTH04 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month04);
+            DebitSummaryInMonths_.TBAXMSMONTH05 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month05);
+            DebitSummaryInMonths_.TBAXMSMONTH06 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month06);
+            DebitSummaryInMonths_.TBAXMSMONTH07 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month07);
+            DebitSummaryInMonths_.TBAXMSMONTH08 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month08);
+            DebitSummaryInMonths_.TBAXMSMONTH09 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month09);
+            DebitSummaryInMonths_.TBAXMSMONTH10 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month10);
+            DebitSummaryInMonths_.TBAXMSMONTH11 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month11);
+            DebitSummaryInMonths_.TBAXMSMONTH12 = Convert.ToDecimal(DebitSummaryInMonthsUSD.Month12);
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_Months.Add(DebitSummaryInMonths_);
+                DB.SaveChanges();
+            }
+            return DebitSummaryInMonths_.TBAXMSID;
+        }
         private int DebitSummaryInMonths(Ent_Json.DebitSummaryInMonths DebitSummaryInMonths)
         {
             Tab_Amex_Months DebitSummaryInMonths_ = new Tab_Amex_Months();
@@ -1828,7 +2141,7 @@ namespace Json
             Demographics_.TBAXDSFIRSTNAME = Demographics.firstName;
             Demographics_.TBAXDSMIDDLENAME = Demographics.middleName;
             Demographics_.TBAXDSLASTNAME = Demographics.lastName;
-           
+
             Demographics_.TBAXDSBIRTHDATE = Demographics.birthDate;
             Demographics_.TBAXDSACCOUNTNUMBER = Demographics.accountNumber;
             Demographics_.TBAXDSACCOUNTCATEGORYTYPECODE = Demographics.accountCategoryTypeCode;
@@ -1840,7 +2153,7 @@ namespace Json
                 DB.Tab_Amex_Demographics.Add(Demographics_);
                 DB.SaveChanges();
             }
-            if (Demographics.addresses !=null)
+            if (Demographics.addresses != null)
             {
                 for (int i = 0; i < Demographics.addresses.Count; i++)
                 {
@@ -1848,11 +2161,9 @@ namespace Json
                     {
                         Address(Demographics.addresses[i], Demographics_.TBAXDSID);
                     }
-
                 }
             }
-            
-            if (Demographics.emails!=null)
+            if (Demographics.emails != null)
             {
                 for (int i = 0; i < Demographics.emails.Count; i++)
                 {
@@ -1862,7 +2173,7 @@ namespace Json
                     }
                 }
             }
-            if (Demographics.phones!=null)
+            if (Demographics.phones != null)
             {
                 for (int i = 0; i < Demographics.phones.Count; i++)
                 {
@@ -1873,7 +2184,7 @@ namespace Json
 
                 }
             }
-            if (Demographics.nationalIds!=null)
+            if (Demographics.nationalIds != null)
             {
                 for (int i = 0; i < Demographics.nationalIds.Count; i++)
                 {
@@ -1884,7 +2195,7 @@ namespace Json
 
                 }
             }
-          
+
             return Demographics_.TBAXDSID;
         }
         public int Address_(Ent_Json.Address Address)
@@ -1899,22 +2210,24 @@ namespace Json
             Address_.TBAXASADDRESSLINE2 = Address.addressLine2;
             Address_.TBAXASADDRESSLINE3 = Address.addressLine3;
             Address_.TBAXASCITY = Address.city;
-            Address_.TBAXASSTATE = Address.state;
+            Address_.TBAXASSTATE = (Address.state != null && Address.state.Length > 45) ? Address.state.Substring(0, 45) : Address.state; //En caso su longitud sea mayor [22/12/2021]
             Address_.TBAXASCOUNTRY = Address.country;
             Address_.TBAXASZIPCODE = Address.zipCode;
             Address_.TBAXASADDRESSCONFIRMATIONDATE = Address.addressConfirmationDate;
             Address_.TBAXASLASTUPDATEDATE = Address.lastUpdateDate;
+            //Address_.TBAXASTIPO = "PLACEMENT";  //ESTO NO EXISTIA, SE AGREGA POR RICARDO CERVANTES EL 26 DE MARZO DEL 2020							  
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_Address.Add(Address_);
                 DB.SaveChanges();
             }
-            return Address_.TBAXASID;
+            return Address_.TBAXASID; //A DIFRENCIA DEL ADDRESS DE DEMOGRAPHICS, ESTE NO RECIBE UN ID, SINO QUE REGRESA UNO.
         }
-        public void Address(Ent_Json.Address Address, int Id)
+        public void Address(Ent_Json.Address Address, int IdDemographics)
         {
+
             Tab_Amex_Address Address_ = new Tab_Amex_Address();
-            Address_.TBAXASIDENT = Id;
+            Address_.TBAXASIDENT = IdDemographics;
             Address_.TBAXASUPDATEDATE = Address.updateDate;
             Address_.TBAXASUPDATEDBY = Address.updatedBy;
             Address_.TBAXASTYPECODE = Address.typeCode;
@@ -1924,7 +2237,7 @@ namespace Json
             Address_.TBAXASADDRESSLINE2 = Address.addressLine2;
             Address_.TBAXASADDRESSLINE3 = Address.addressLine3;
             Address_.TBAXASCITY = Address.city;
-            Address_.TBAXASSTATE = Address.state;
+            Address_.TBAXASSTATE = (Address.state != null && Address.state.Length > 45) ? Address.state.Substring(0,45) : Address.state; //En caso state sea mayor longitud [22/12/2021].
             Address_.TBAXASCOUNTRY = Address.country;
             Address_.TBAXASZIPCODE = Address.zipCode;
             Address_.TBAXASADDRESSCONFIRMATIONDATE = Address.addressConfirmationDate;
@@ -2014,10 +2327,42 @@ namespace Json
             Phones_.TBAXPSTIPO = "PLACEMENT";
             using (CYBEREntities DB = new CYBEREntities())
             {
+                try
+                {
+                    DB.Tab_Amex_Phones.Add(Phones_);
+                    DB.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    string msg = e.Message;
+                }
+            }
+        }
+        /*
+        //MÉTODO CREADO POR RICARDO CERVANTES 26/03/2020 PRINCIPALMENTE PARA ALMACENAR TELEFONOS QUE NO VENGAN EN UNA LISTA, Y SOLO SEA UN ELEMENTO.
+        public int Phones_(Ent_Json.Phone Phones)
+        {
+            Tab_Amex_Phones Phones_ = new Tab_Amex_Phones();
+            Phones_.TBAXPSUPDATEDATE = Phones.updateDate;
+            Phones_.TBAXPSUPDATEDBY = Phones.updatedBy;
+            Phones_.TBAXPS_ID = Phones.id;
+            Phones_.TBAXPSTYPECODE = Phones.typeCode;
+            Phones_.TBAXPSCATEGORYCODE = Phones.categoryCode;
+            Phones_.TBAXPSSTATUSCODE = Phones.statusCode;
+            Phones_.TBAXPSNUMBER = Phones.number;
+            Phones_.TBAXPSISDCODE = Phones.isdCode;
+            Phones_.TBAXPSEXTENSION = Phones.extension;
+            Phones_.TBAXPSLASTUPDATEDATE = Phones.lastUpdateDate;
+            Phones_.TBAXPSLASTCONTACTDATE = Phones.lastContactDate;
+            Phones_.TBAXPSTIPO = "PLACEMENT";
+            using (CYBEREntities DB = new CYBEREntities())
+            {
                 DB.Tab_Amex_Phones.Add(Phones_);
                 DB.SaveChanges();
             }
+            return Phones_.TBAXPSID;
         }
+        */
         public void NationalIds(Ent_Json.NationalId NationalIds, int Id)
         {
             Tab_Amex_NationalIds NationalIds_ = new Tab_Amex_NationalIds();
@@ -2057,20 +2402,16 @@ namespace Json
             Employer_.TBAXERUPDATEDBY = Employer.updatedBy;
             Employer_.TBAXERACCOUNTNUMBER = Employer.accountNumber;
             Employer_.TBAXERNAME = Employer.name;
-            //Employer_.TBAXERIDADDRESS = Address_(Employer.address, Employer_.TBAXERID);
-            if (Employer.email!=null)
+            if (Employer.email != null) //Emails solo es un objeto, no una lista, por lo que no se realiza un ciclo para recorrerlo.
             {
                 Employer_.TBAXERIDEMAIL = Emails_(Employer.email);
             }
-            //Employer_.TBAXERIDPHONES = Employer.idphones;
-
-
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_Employer.Add(Employer_);
                 DB.SaveChanges();
             }
-            if (Employer.address!=null)
+            if (Employer.address != null)
             {
                 Address(Employer.address, Employer_.TBAXERID);
             }
@@ -2082,12 +2423,46 @@ namespace Json
                     {
                         Phones(Employer.Phones[i], Employer_.TBAXERID);
                     }
-
                 }
-            }         
+            }
             return Employer_.TBAXERID;
+            /*
+            //COMO SEGUN RICARDO DEBERÍA IR ESTE MÓDULO. PARA EVITAR EL JOIN ERRONEO DE ADDRESS            
+            Tab_Amex_Employer Employer_ = new Tab_Amex_Employer();
+            Employer_.TBAXERUPDATEDATE = Employer.updateDate;
+            Employer_.TBAXERUPDATEDBY = Employer.updatedBy;
+            Employer_.TBAXERACCOUNTNUMBER = Employer.accountNumber;
+            Employer_.TBAXERNAME = Employer.name;
+            if (Employer.address != null) //address solo es un objeto, no una lista, por lo que no se realiza un ciclo para recorrerlo.
+            {
+            //Se inserta el Address, se obtiene su ID unico, y su valor se le asigna a TBAXERIDADDRESS
+            Employer_.TBAXERIDADDRESS = Address_(Employer.address);
+            }
+            if (Employer.email != null) //Emails solo es un objeto, no una lista, por lo que no se realiza un ciclo para recorrerlo.
+            {
+            //Se inserta el Email, se obtiene su ID unico, y su valor se le asigna a TBAXERIDEMAIL
+            Employer_.TBAXERIDEMAIL = Emails_(Employer.email);
+            }
+            //Se inserta en la base, para obtener el último ID de Employer.
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+            DB.Tab_Amex_Employer.Add(Employer_);
+            DB.SaveChanges();
+            }
+            if (Employer.Phones != null)
+            {
+            for (int i = 0; i < Employer.Phones.Count; i++)
+            {
+            if (Employer.Phones[i] != null)
+            {
+            Phones(Employer.Phones[i], Employer_.TBAXERID);
+            }
+            }
+            }
+            return Employer_.TBAXERID; 
+            */
         }
-        public int RelatedPersonList(Ent_Json.RelatedPerson RelatedPerson)
+        public int RelatedPersonList(Ent_Json.RelatedPersonList RelatedPerson)
         {
             Tab_Amex_RelatedPerson RelatedPerson_ = new Tab_Amex_RelatedPerson();
             RelatedPerson_.TBAXRNUPDATEDATE = RelatedPerson.updateDate;
@@ -2108,7 +2483,7 @@ namespace Json
             }
             return RelatedPerson_.TBAXRNID;
         }
-        public void RelatedPersonDetailsList( Ent_Json.RelatedPersonDetailsList RelatedPersonDetailsList, int id)
+        public void RelatedPersonDetailsList(Ent_Json.RelatedPersonDetailsList RelatedPersonDetailsList, int id)
         {
             Tab_Amex_RelatedPersonList RelatedPersonDetailsList_ = new Tab_Amex_RelatedPersonList();
             RelatedPersonDetailsList_.TBAXRTUPDATEDATE = RelatedPersonDetailsList.updateDate;
@@ -2117,24 +2492,33 @@ namespace Json
             RelatedPersonDetailsList_.TBAXRTFIRSTNAME = RelatedPersonDetailsList.firstName;
             RelatedPersonDetailsList_.TBAXRTLASTNAME = RelatedPersonDetailsList.lastName;
             RelatedPersonDetailsList_.TBAXRTBIRTHDATE = RelatedPersonDetailsList.birthDate;
-            //RelatedPersonDetailsList_.TBAXERIDADDRESS = Address_(RelatedPersonDetailsList.address,id);
-            //RelatedPersonDetailsList_.TBAXERIDPHONES = RelatedPersonDetailsList.idphones;
-            //RelatedPersonDetailsList_.TBAXERIDNATIONALID = RelatedPersonDetailsList.idnationalid;
-
+            //RelatedPersonDetailsList_.TBAXERIDADDRESS = Address_(RelatedPersonDetailsList.address); /*Como Ricardo Cervantes Cree que debería de ir.
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_RelatedPersonList.Add(RelatedPersonDetailsList_);
                 DB.SaveChanges();
             }
-            Address(RelatedPersonDetailsList.address, RelatedPersonDetailsList_.TBAXRTID);
-            for (int i = 0; i < RelatedPersonDetailsList.phoneList.Count; i++)
+            /////Ricardo Cervantes Cree que esto se debe cambiar a un Object y no un List
+            if (RelatedPersonDetailsList.address != null)
             {
-                Phones(RelatedPersonDetailsList.phoneList[i], RelatedPersonDetailsList_.TBAXRTID);
+                Address(RelatedPersonDetailsList.address, RelatedPersonDetailsList_.TBAXRTID);//Creo que esto debería cambiarse por un Object y no por un List
             }
-            for (int i = 0; i < RelatedPersonDetailsList.nationalId.Count; i++)
+            ////
+            if (RelatedPersonDetailsList.phoneList != null)
             {
-                NationalIds(RelatedPersonDetailsList.nationalId[i], RelatedPersonDetailsList_.TBAXRTID);
+                for (int i = 0; i < RelatedPersonDetailsList.phoneList.Count; i++)
+                {
+                    Phones(RelatedPersonDetailsList.phoneList[i], RelatedPersonDetailsList_.TBAXRTID);
+                }
             }
+            if (RelatedPersonDetailsList.nationalId != null)
+            {
+                for (int i = 0; i < RelatedPersonDetailsList.nationalId.Count; i++)
+                {
+                    NationalIds(RelatedPersonDetailsList.nationalId[i], RelatedPersonDetailsList_.TBAXRTID);
+                }
+            }
+
         }
         public int AccountDetails(Ent_Json.AccountDetails AccountDetails)
         {
@@ -2161,7 +2545,7 @@ namespace Json
                 DB.SaveChanges();
             }
 
-           
+
             return AccountDetails_.TBAXASID;
         }
         public int AttorneyDetails(Ent_Json.AttorneyDetails AttorneyDetails)
@@ -2246,8 +2630,13 @@ namespace Json
             CustomerFinancial_.TBAXCLAMOUNTDUE90DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue90DaysInUSD);
             CustomerFinancial_.TBAXCLAMOUNTDUE120DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue120DaysInUSD);
             CustomerFinancial_.TBAXCLAMOUNTDUE150DAYSINUSD = Convert.ToDecimal(CustomerFinancial.amountDue150DaysInUSD);
-            CustomerFinancial_.TBAXCLCREDITINUSD = CustomerFinancial.creditInUSD;
+            CustomerFinancial_.TBAXCLOTHERINCOME = Convert.ToDecimal(CustomerFinancial.otherIncome);
+            CustomerFinancial_.TBAXCLTOTALPASTDUE = Convert.ToDecimal(CustomerFinancial.totalPastdue);
             CustomerFinancial_.TBAXCLLEGACYCODE = CustomerFinancial.legacyCode;
+            if (CustomerFinancial.creditInUSD != null)
+            {
+                CustomerFinancial_.TBAXCLCREDITINUSD = CreditInUSD(CustomerFinancial.creditInUSD).ToString();
+            }
             CustomerFinancial_.TBAXCLTIPO = "PLACEMENT";
             using (CYBEREntities DB = new CYBEREntities())
             {
@@ -2391,9 +2780,9 @@ namespace Json
             RiskScore_.TBAXREUPDATEDBY = RiskScore.updatedBy;
             RiskScore_.TBAXREACCOUNTNUMBER = RiskScore.accountNumber;
             RiskScore_.TBAXREACCOUNTCATEGORYTYPECODE = RiskScore.accountCategoryTypeCode;
-            RiskScore_.TBAXREDEBTTOVALUERATIO = Convert.ToDecimal( RiskScore.debtToValueRatio);
+            RiskScore_.TBAXREDEBTTOVALUERATIO = Convert.ToDecimal(RiskScore.debtToValueRatio);
             RiskScore_.TBAXRECUSTOMERLEVELSCOREFORCHARGEANDLENDING = Convert.ToDecimal(RiskScore.customerLevelScoreForChargeAndLending);
-            RiskScore_.TBAXRELENDINGPAYTOCURRRENTSCORE = Convert.ToInt32(RiskScore.lendingPayToCurrrentScore);
+            RiskScore_.TBAXRELENDINGPAYTOCURRRENTSCORE = Convert.ToDecimal(RiskScore.lendingPayToCurrrentScore);
             RiskScore_.TBAXREPROBSCORE = RiskScore.probScore;
             RiskScore_.TBAXRETIPO = "PLACEMENT";
             using (CYBEREntities DB = new CYBEREntities())
@@ -2500,9 +2889,9 @@ namespace Json
             Account_.TBAXATCOUNTRYISOALPHA2CODE = Account.countryIsoAlpha2Code;
             Account_.TBAXATPRODUCTCODE = Account.productCode;
             Account_.TBAXATCHARGEOFFREASONCODE = Account.chargeOffReasonCode;
-            Account_.TBAXATPLACEMENTBALANCE = Convert.ToDecimal(Account.placementBalance);
-            Account_.TBAXATCURRENTBALANCE = Convert.ToDecimal(Account.currentBalance);
-            Account_.TBAXATWRITEOFFAMOUNT = Convert.ToDecimal(Account.writeOffAmount);
+            if (Account.placementBalance.HasValue) { Account_.TBAXATPLACEMENTBALANCE = Convert.ToDecimal(Account.placementBalance); }
+            if (Account.currentBalance.HasValue) { Account_.TBAXATCURRENTBALANCE = Convert.ToDecimal(Account.currentBalance); }
+            if (Account.writeOffAmount.HasValue) { Account_.TBAXATWRITEOFFAMOUNT = Convert.ToDecimal(Account.writeOffAmount); }
             Account_.TBAXATACCOUNTSTATUS = Account.accountStatus;
             Account_.TBAXATWRITEOFFDATE = Account.writeOffDate;
             Account_.TBAXATORIGINALPLACEMENTDATE = Account.originalPlacementDate;
@@ -2517,9 +2906,15 @@ namespace Json
             Account_.TBAXATAGENCYASSIGNMENTDATE = Account.agencyAssignmentDate;
             Account_.TBAXATLASTSTATUSCHANGEDATE = Account.lastStatusChangeDate;
             Account_.TBAXATAGENCYRECALLDATE = Account.agencyRecallDate;
-            Account_.TBAXATCURRENTAGENCYID = Account.currentAgencyId;
+            if(Account.currentAgencyId != null)
+            {
+                Account_.TBAXATCURRENTAGENCYID = Account.currentAgencyId;
+            }
+            else
+            {
+                MessageBox.Show("La Cuenta: " + Account.accountNumber.ToString() + " NO tiene  un currentAgencyID", "REVISAR!", MessageBoxButtons.OK); 
+            }            
             Account_.TBAXATTIPO = "PLACEMENT";
-
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_Account.Add(Account_);
@@ -2580,7 +2975,7 @@ namespace Json
             DeceasedDetails_.TBAXDSACCOUNTNUMBER = DeceasedDetails.accountNumber;
             DeceasedDetails_.TBAXDSACCOUNTCATEGORYTYPECODE = DeceasedDetails.accountCategoryTypeCode;
             DeceasedDetails_.TBAXDSATTORNEYNAME = DeceasedDetails.attorneyName;
-            DeceasedDetails_.TBAXDSATTRONEYADDRESS = DeceasedDetails.attroneyAddress;
+            DeceasedDetails_.TBAXDSATTRONEYADDRESS = DeceasedDetails.attorneyAddress;
             DeceasedDetails_.TBAXDSEXECUTORADDRESS2 = DeceasedDetails.executorAddress2;
             DeceasedDetails_.TBAXDSEXECUTORCITY = DeceasedDetails.executorCity;
             DeceasedDetails_.TBAXDSEXECUTORSTATE = DeceasedDetails.executorState;
@@ -2600,7 +2995,7 @@ namespace Json
             Tab_Amex_AgencyAssignment AgencyAssignment_ = new Tab_Amex_AgencyAssignment();
             AgencyAssignment_.TBAXATUPDATEDATE = AgencyAssignment.updateDate;
             AgencyAssignment_.TBAXATUPDATEDBY = AgencyAssignment.updatedBy;
-            AgencyAssignment_.TBAXATCASEID = Convert.ToInt32( AgencyAssignment.caseId);
+            AgencyAssignment_.TBAXATCASEID = Convert.ToInt32(AgencyAssignment.caseId);
             AgencyAssignment_.TBAXATAGENCYID = AgencyAssignment.agencyId;
             AgencyAssignment_.TBAXATACCOUNTNUMBER = AgencyAssignment.accountNumber;
             AgencyAssignment_.TBAXATACCOUNTCATEGORYTYPECODE = AgencyAssignment.accountCategoryTypeCode;
@@ -2611,14 +3006,11 @@ namespace Json
             AgencyAssignment_.TBAXATACCOUNTINSERTTIMESTAMP = AgencyAssignment.accountInsertTimeStamp;
             AgencyAssignment_.TBAXATAGENCYASSIGNMENTDATE = AgencyAssignment.agencyAssignmentDate;
             AgencyAssignment_.TBAXATAGENCYRECALLDATE = AgencyAssignment.agencyRecallDate;
-            AgencyAssignment_.TBAXATBALANCEAMOUNT = Convert.ToDecimal( AgencyAssignment.balanceAmount);
+            AgencyAssignment_.TBAXATBALANCEAMOUNT = Convert.ToDecimal(AgencyAssignment.balanceAmount);
             AgencyAssignment_.TBAXATNOOFDAYS = AgencyAssignment.noOfDays;
             AgencyAssignment_.TBAXATPREVIOUSAGENCYID = AgencyAssignment.previousAgencyId;
             AgencyAssignment_.TBAXATCOMMISSIONRATE = Convert.ToDecimal(AgencyAssignment.commissionRate);
             AgencyAssignment_.TBAXATINTERNALAMEXRECOVERERCODE = AgencyAssignment.internalAmexRecovererCode;
-            
-
-
             using (CYBEREntities DB = new CYBEREntities())
             {
                 DB.Tab_Amex_AgencyAssignment.Add(AgencyAssignment_);
@@ -2627,6 +3019,34 @@ namespace Json
             return AgencyAssignment_.TBAXATID;
         }
 
-       
+        public int CollectionRiskScore(Ent_Json.CollectionRiskScore CollectionRiskScore)
+        {
+            Tab_Amex_CollectionRiskScore CollectionRiskScore_ = new Tab_Amex_CollectionRiskScore();
+            CollectionRiskScore_.TBAXCREUPDATEDATE = CollectionRiskScore.updateDate;
+            CollectionRiskScore_.TBAXCREIDUPDATEDBY = CollectionRiskScore.updatedBy;
+            CollectionRiskScore_.TBAXCREIDACCOUNTNUMBER = CollectionRiskScore.accountNumber;
+            CollectionRiskScore_.TBAXCREIDACCOUNTCATEGORYTYPECODE = CollectionRiskScore.accountCategoryTypeCode;
+            CollectionRiskScore_.TBAXCREID_ID = CollectionRiskScore.id;
+            CollectionRiskScore_.TBAXCREIDCOLLECTIBILITYSCORE = CollectionRiskScore.collectibilityScore;
+            CollectionRiskScore_.TBAXCREIDRECOVERYSCORE = CollectionRiskScore.recoveryScore;
+            CollectionRiskScore_.TBAXCREIDBANKRUPTCYSCORE = CollectionRiskScore.bankruptcyScore;
+            CollectionRiskScore_.TBAXCREIDMARKETRECOVERYSCORE = CollectionRiskScore.marketRecoveryScore;
+            CollectionRiskScore_.TBAXCREIDRETURNMETRICSCORE = CollectionRiskScore.returnMetricScore;
+            CollectionRiskScore_.TBAXCREIDFICOSCORE = CollectionRiskScore.ficoScore;
+            CollectionRiskScore_.TBAXCREIDDEBTTOVALUERATIO = Convert.ToDecimal(CollectionRiskScore.debtToValueRatio);
+            CollectionRiskScore_.TBAXCREIDCUSTOMERLEVELSCOREFORCHARGEANDLENDING = Convert.ToDecimal(CollectionRiskScore.customerLevelScoreForChargeAndLending);
+            CollectionRiskScore_.TBAXCREIDLENDINGPAYTOCURRRENTSCORE = Convert.ToDecimal(CollectionRiskScore.lendingPayToCurrrentScore);
+            CollectionRiskScore_.TBAXCREIDPROBSCORE = CollectionRiskScore.probScore;
+            CollectionRiskScore_.TBAXCRETIPO = "PLACEMENT";
+            CollectionRiskScore_.TBAXCREIDHEADER = null;
+            using (CYBEREntities DB = new CYBEREntities())
+            {
+                DB.Tab_Amex_CollectionRiskScore.Add(CollectionRiskScore_);
+                DB.SaveChanges();
+            }
+            return CollectionRiskScore_.TBAXCREID;
+        }
+
+
     }
 }

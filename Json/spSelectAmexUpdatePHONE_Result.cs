@@ -14,6 +14,7 @@ namespace Json
     public partial class spSelectAmexUpdatePHONE_Result
     {
         public string CUENTA { get; set; }
+        public Nullable<System.DateTime> FECHA { get; set; }
         public string D1 { get; set; }
         public string D2 { get; set; }
         public string D3 { get; set; }
@@ -34,5 +35,6 @@ namespace Json
         public string D18 { get; set; }
         public string D19 { get; set; }
         public string D20 { get; set; }
+        public string statusCode { get; set; }
     }
 }

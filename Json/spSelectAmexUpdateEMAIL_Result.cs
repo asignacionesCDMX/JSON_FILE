@@ -34,5 +34,6 @@ namespace Json
         public string D18 { get; set; }
         public string D19 { get; set; }
         public string D20 { get; set; }
+        //public string statusCode { get; set; }
     }
 }

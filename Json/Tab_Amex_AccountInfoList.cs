@@ -57,5 +57,6 @@ namespace Json
         public Nullable<int> TBAXATIDCMXTRADEDEMOGRAPHICS { get; set; }
         public Nullable<int> TBAXATIDAGENCYINFO { get; set; }
         public Nullable<int> TBAXATIDAGENCYASSIGNMENT { get; set; }
+        public Nullable<int> TBAXATCOLLECTIONRISKSCORE { get; set; }
     }
 }

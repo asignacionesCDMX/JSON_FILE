@@ -44,6 +44,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tableLayoutPanel1.BackgroundImage")));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
@@ -56,6 +57,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.39455F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1167, 735);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -124,6 +126,7 @@
             this.Txt_Pass.TabIndex = 3;
             this.Txt_Pass.Text = "Pthyue@1";
             this.Txt_Pass.Click += new System.EventHandler(this.Txt_Pass_Click);
+            this.Txt_Pass.TextChanged += new System.EventHandler(this.Txt_Pass_TextChanged);
             // 
             // Pbx_Iexplorer
             // 

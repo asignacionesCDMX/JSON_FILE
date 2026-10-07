@@ -49,5 +49,7 @@ namespace Json
         public string TBAXCLLEGACYCODE { get; set; }
         public string TBAXCLTIPO { get; set; }
         public Nullable<int> TBAXCLIDHEADER { get; set; }
+        public Nullable<decimal> TBAXCLOTHERINCOME { get; set; }
+        public Nullable<decimal> TBAXCLTOTALPASTDUE { get; set; }
     }
 }

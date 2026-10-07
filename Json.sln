@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Json", "Json\Json.csproj", "{63285FFD-0B61-4929-BC08-A710BB73F315}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Ex_JSON", "Ex_JSON\Ex_JSON.vdproj", "{77EDA515-3D55-4240-9AD9-8604722030DE}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "JSON_A", "JSON_A\JSON_A.vdproj", "{D4270A59-65F5-4DBA-8B85-262D76BEB599}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{63285FFD-0B61-4929-BC08-A710BB73F315}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63285FFD-0B61-4929-BC08-A710BB73F315}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63285FFD-0B61-4929-BC08-A710BB73F315}.Release|Any CPU.Build.0 = Release|Any CPU
-		{77EDA515-3D55-4240-9AD9-8604722030DE}.Debug|Any CPU.ActiveCfg = Debug
-		{77EDA515-3D55-4240-9AD9-8604722030DE}.Release|Any CPU.ActiveCfg = Release
+		{D4270A59-65F5-4DBA-8B85-262D76BEB599}.Debug|Any CPU.ActiveCfg = Debug
+		{D4270A59-65F5-4DBA-8B85-262D76BEB599}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

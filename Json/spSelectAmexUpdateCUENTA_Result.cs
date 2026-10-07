@@ -14,6 +14,7 @@ namespace Json
     public partial class spSelectAmexUpdateCUENTA_Result
     {
         public string CUENTA { get; set; }
+        public Nullable<System.DateTime> FECHA { get; set; }
         public string D1 { get; set; }
         public string D2 { get; set; }
         public string D3 { get; set; }

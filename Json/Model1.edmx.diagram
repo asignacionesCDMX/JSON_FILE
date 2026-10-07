@@ -4,24 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6e95368fe787456696422fe01b7e7407" Name="Diagram1" ZoomLevel="98">
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Account" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AccountDetails" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AccountInfoList" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AcornCase" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="6e95368fe787456696422fe01b7e7407" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Account" Width="1.75" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AccountDetails" Width="2.125" PointX="0.75" PointY="1.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AccountInfoList" Width="2.125" PointX="0.75" PointY="1.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AcornCase" Width="2.125" PointX="0.75" PointY="2.25" IsExpanded="false" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AdditionalCmSpendInfo" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AdditionalCmSpends" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Address" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AgencyAssignment" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AgencyInfo" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AttorneyDetails" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AdditionalCmSpends" Width="2.5" PointX="3.375" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AgencyAssignment" Width="2.5" PointX="3.375" PointY="1.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AgencyInfo" Width="2.5" PointX="3.375" PointY="1.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AttorneyDetails" Width="2.5" PointX="3.375" PointY="2.25" IsExpanded="false" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_BankList" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_BankruptcyDetails" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Banks" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CapInfo" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Care" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CaseInfoList" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Cdmp" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CaseInfoList" Width="2.5" PointX="3.375" PointY="2.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Cdmp" Width="2.5" PointX="3.375" PointY="3.25" IsExpanded="false" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CmxTradeDemographics" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CollectionInfo" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CollectionScore" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
@@ -29,14 +28,12 @@
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CreditRiskInfo" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CustomerAdditionalDetails" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CustomerDetails" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CustomerFinancial" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_DeceasedDetails" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Demographics" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_DisputeDetails" Width="1.5" PointX="2.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Emails" Width="1.5" PointX="16.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Employer" Width="1.5" PointX="16.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_FinancialRisk" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_FinancialSummary" Width="1.5" PointX="4.75" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_FinancialTransactionDetails" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Header" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_HistoryNotes" Width="1.5" PointX="18.75" PointY="8.75" IsExpanded="true" />
@@ -50,21 +47,72 @@
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Months" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_NationalIds" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_PaymentInfo" Width="1.5" PointX="20.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Phones" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Phones" Width="1.75" PointX="22.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_ProductDetails" Width="1.5" PointX="2.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_RegulatoryChange" Width="1.5" PointX="22.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_RelatedPerson" Width="1.5" PointX="8.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_RelatedPersonList" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_RiskScore" Width="1.5" PointX="10.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Settlement" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_StrategyInfo" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_SugarBarFieldDetails" Width="1.5" PointX="18.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_SugarBarFields" Width="1.5" PointX="12.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_SugarBarMerchantFields" Width="1.5" PointX="14.75" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Transactions" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Treatment" Width="1.5" PointX="4.75" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_AccountRecall" Width="1.5" PointX="21.375" PointY="24.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_RiskScore" Width="1.5" PointX="25.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_FinancialSummary" Width="1.5" PointX="7.375" PointY="25.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CustomerFinancial" Width="1.5" PointX="9.375" PointY="25.75" />
         <EntityTypeShape EntityType="CYBERModel.Tab_Amex_ActionsHistory" Width="1.5" PointX="23.375" PointY="24.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Treatment" Width="1.5" PointX="25.375" PointY="11.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Productos" Width="1.5" PointX="5.375" PointY="17.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Address" Width="1.5" PointX="25.375" PointY="17.75" />
+        <EntityTypeShape EntityType="CYBERModel.TAB_ST_AccountList_CYB_MEX" Width="1.5" PointX="25.375" PointY="23.75" />
+        <EntityTypeShape EntityType="CYBERModel.TAB_ST_BitacoraAsignaciones" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Conexionp" Width="1.5" PointX="0.75" PointY="26.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Pyme" Width="1.5" PointX="2.75" PointY="26.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_CyberPrueba" Width="1.5" PointX="4.75" PointY="26.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Posiciones" Width="1.5" PointX="17.75" PointY="26.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Tel_Paso" Width="1.5" PointX="27.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Banamex_Layout" Width="1.5" PointX="27.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_BBVA_Layout" Width="1.5" PointX="11.75" PointY="28.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Bnt_Layout_" Width="1.5" PointX="13.75" PointY="28.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Cyber_Tra" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Dat_General" Width="1.5" PointX="19.75" PointY="28.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_ST_JSONUPDATESIB" Width="1.5" PointX="29.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_AsignacionClientes" Width="1.5" PointX="29.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_AsignacionDatos" Width="1.5" PointX="29.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Bitacora" Width="1.5" PointX="29.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Claves" Width="1.5" PointX="29.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Conexion" Width="1.5" PointX="29.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Correos" Width="1.5" PointX="29.75" PointY="21.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_DirMal" Width="1.5" PointX="29.75" PointY="25.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Gescar" Width="1.5" PointX="29.75" PointY="29.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_MailMal" Width="1.5" PointX="6.75" PointY="30.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_Segmento" Width="1.5" PointX="15.75" PointY="30.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_TelMal" Width="1.5" PointX="21.75" PointY="30.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_TipoConexion" Width="1.5" PointX="31.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Cyber_TipoTarjeta" Width="1.5" PointX="31.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_ExclusionCuentas" Width="1.5" PointX="31.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_QuejasTel" Width="1.5" PointX="31.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Reestructura" Width="1.5" PointX="31.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CYBERModel.Cat_Segbin" Width="1.5" PointX="31.75" PointY="21.75" />
+        <EntityTypeShape EntityType="CYBERModel.CatCP" Width="1.5" PointX="23.75" PointY="31.75" />
+        <EntityTypeShape EntityType="CYBERModel.sysdiagrams" Width="1.5" PointX="31.75" PointY="24.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_Bitacora" Width="1.5" PointX="31.75" PointY="27.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_BBVA_Layout2" Width="1.5" PointX="31.75" PointY="30.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_QueryA" Width="1.5" PointX="33.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_QueryB" Width="1.5" PointX="33.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_QueryC" Width="1.5" PointX="33.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_QueryD" Width="1.5" PointX="33.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_QueryE" Width="1.5" PointX="33.75" PointY="12.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_QueryF" Width="1.5" PointX="33.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Retrocesos_Layout" Width="1.5" PointX="33.75" PointY="19.75" />
+        <EntityTypeShape EntityType="CYBERModel.TabAsignacionDat" Width="1.5" PointX="0.75" PointY="34.75" />
+        <EntityTypeShape EntityType="CYBERModel.TabAsignacionNuevas" Width="1.5" PointX="2.75" PointY="34.75" />
+        <EntityTypeShape EntityType="CYBERModel.TabAsignacionPnc" Width="1.5" PointX="4.75" PointY="34.75" />
+        <EntityTypeShape EntityType="CYBERModel.TabAsignacionTelMal" Width="1.5" PointX="6.75" PointY="34.75" />
+        <EntityTypeShape EntityType="CYBERModel.TabAsignacionTelPas" Width="1.5" PointX="8.75" PointY="34.75" />
+        <EntityTypeShape EntityType="CYBERModel.Tab_Amex_CollectionRiskScore" Width="1.5" PointX="24.375" PointY="34.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

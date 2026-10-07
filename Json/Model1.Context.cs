@@ -33,7 +33,6 @@ namespace Json
         public virtual DbSet<Tab_Amex_AcornCase> Tab_Amex_AcornCase { get; set; }
         public virtual DbSet<Tab_Amex_AdditionalCmSpendInfo> Tab_Amex_AdditionalCmSpendInfo { get; set; }
         public virtual DbSet<Tab_Amex_AdditionalCmSpends> Tab_Amex_AdditionalCmSpends { get; set; }
-        public virtual DbSet<Tab_Amex_Address> Tab_Amex_Address { get; set; }
         public virtual DbSet<Tab_Amex_AgencyAssignment> Tab_Amex_AgencyAssignment { get; set; }
         public virtual DbSet<Tab_Amex_AgencyInfo> Tab_Amex_AgencyInfo { get; set; }
         public virtual DbSet<Tab_Amex_AttorneyDetails> Tab_Amex_AttorneyDetails { get; set; }
@@ -51,14 +50,12 @@ namespace Json
         public virtual DbSet<Tab_Amex_CreditRiskInfo> Tab_Amex_CreditRiskInfo { get; set; }
         public virtual DbSet<Tab_Amex_CustomerAdditionalDetails> Tab_Amex_CustomerAdditionalDetails { get; set; }
         public virtual DbSet<Tab_Amex_CustomerDetails> Tab_Amex_CustomerDetails { get; set; }
-        public virtual DbSet<Tab_Amex_CustomerFinancial> Tab_Amex_CustomerFinancial { get; set; }
         public virtual DbSet<Tab_Amex_DeceasedDetails> Tab_Amex_DeceasedDetails { get; set; }
         public virtual DbSet<Tab_Amex_Demographics> Tab_Amex_Demographics { get; set; }
         public virtual DbSet<Tab_Amex_DisputeDetails> Tab_Amex_DisputeDetails { get; set; }
         public virtual DbSet<Tab_Amex_Emails> Tab_Amex_Emails { get; set; }
         public virtual DbSet<Tab_Amex_Employer> Tab_Amex_Employer { get; set; }
         public virtual DbSet<Tab_Amex_FinancialRisk> Tab_Amex_FinancialRisk { get; set; }
-        public virtual DbSet<Tab_Amex_FinancialSummary> Tab_Amex_FinancialSummary { get; set; }
         public virtual DbSet<Tab_Amex_FinancialTransactionDetails> Tab_Amex_FinancialTransactionDetails { get; set; }
         public virtual DbSet<Tab_Amex_Header> Tab_Amex_Header { get; set; }
         public virtual DbSet<Tab_Amex_HistoryNotes> Tab_Amex_HistoryNotes { get; set; }
@@ -77,16 +74,67 @@ namespace Json
         public virtual DbSet<Tab_Amex_RegulatoryChange> Tab_Amex_RegulatoryChange { get; set; }
         public virtual DbSet<Tab_Amex_RelatedPerson> Tab_Amex_RelatedPerson { get; set; }
         public virtual DbSet<Tab_Amex_RelatedPersonList> Tab_Amex_RelatedPersonList { get; set; }
-        public virtual DbSet<Tab_Amex_RiskScore> Tab_Amex_RiskScore { get; set; }
         public virtual DbSet<Tab_Amex_Settlement> Tab_Amex_Settlement { get; set; }
         public virtual DbSet<Tab_Amex_StrategyInfo> Tab_Amex_StrategyInfo { get; set; }
         public virtual DbSet<Tab_Amex_SugarBarFieldDetails> Tab_Amex_SugarBarFieldDetails { get; set; }
         public virtual DbSet<Tab_Amex_SugarBarFields> Tab_Amex_SugarBarFields { get; set; }
         public virtual DbSet<Tab_Amex_SugarBarMerchantFields> Tab_Amex_SugarBarMerchantFields { get; set; }
         public virtual DbSet<Tab_Amex_Transactions> Tab_Amex_Transactions { get; set; }
-        public virtual DbSet<Tab_Amex_Treatment> Tab_Amex_Treatment { get; set; }
         public virtual DbSet<Tab_Amex_AccountRecall> Tab_Amex_AccountRecall { get; set; }
+        public virtual DbSet<Tab_Amex_RiskScore> Tab_Amex_RiskScore { get; set; }
+        public virtual DbSet<Tab_Amex_FinancialSummary> Tab_Amex_FinancialSummary { get; set; }
+        public virtual DbSet<Tab_Amex_CustomerFinancial> Tab_Amex_CustomerFinancial { get; set; }
         public virtual DbSet<Tab_Amex_ActionsHistory> Tab_Amex_ActionsHistory { get; set; }
+        public virtual DbSet<Tab_Amex_Treatment> Tab_Amex_Treatment { get; set; }
+        public virtual DbSet<Tab_Amex_Productos> Tab_Amex_Productos { get; set; }
+        public virtual DbSet<Tab_Amex_Address> Tab_Amex_Address { get; set; }
+        public virtual DbSet<TAB_ST_AccountList_CYB_MEX> TAB_ST_AccountList_CYB_MEX { get; set; }
+        public virtual DbSet<TAB_ST_BitacoraAsignaciones> TAB_ST_BitacoraAsignaciones { get; set; }
+        public virtual DbSet<Cat_Cyber_Conexionp> Cat_Cyber_Conexionp { get; set; }
+        public virtual DbSet<Cat_Cyber_Pyme> Cat_Cyber_Pyme { get; set; }
+        public virtual DbSet<Cat_CyberPrueba> Cat_CyberPrueba { get; set; }
+        public virtual DbSet<Cat_Posiciones> Cat_Posiciones { get; set; }
+        public virtual DbSet<Cat_Tel_Paso> Cat_Tel_Paso { get; set; }
+        public virtual DbSet<Tab_Banamex_Layout> Tab_Banamex_Layout { get; set; }
+        public virtual DbSet<Tab_BBVA_Layout> Tab_BBVA_Layout { get; set; }
+        public virtual DbSet<Tab_Bnt_Layout_> Tab_Bnt_Layout_ { get; set; }
+        public virtual DbSet<Tab_Cyber_Tra> Tab_Cyber_Tra { get; set; }
+        public virtual DbSet<Tab_Dat_General> Tab_Dat_General { get; set; }
+        public virtual DbSet<Tab_ST_JSONUPDATESIB> Tab_ST_JSONUPDATESIB { get; set; }
+        public virtual DbSet<Cat_AsignacionClientes> Cat_AsignacionClientes { get; set; }
+        public virtual DbSet<Cat_AsignacionDatos> Cat_AsignacionDatos { get; set; }
+        public virtual DbSet<Cat_Cyber_Bitacora> Cat_Cyber_Bitacora { get; set; }
+        public virtual DbSet<Cat_Cyber_Claves> Cat_Cyber_Claves { get; set; }
+        public virtual DbSet<Cat_Cyber_Conexion> Cat_Cyber_Conexion { get; set; }
+        public virtual DbSet<Cat_Cyber_Correos> Cat_Cyber_Correos { get; set; }
+        public virtual DbSet<Cat_Cyber_DirMal> Cat_Cyber_DirMal { get; set; }
+        public virtual DbSet<Cat_Cyber_Gescar> Cat_Cyber_Gescar { get; set; }
+        public virtual DbSet<Cat_Cyber_MailMal> Cat_Cyber_MailMal { get; set; }
+        public virtual DbSet<Cat_Cyber_Segmento> Cat_Cyber_Segmento { get; set; }
+        public virtual DbSet<Cat_Cyber_TelMal> Cat_Cyber_TelMal { get; set; }
+        public virtual DbSet<Cat_Cyber_TipoConexion> Cat_Cyber_TipoConexion { get; set; }
+        public virtual DbSet<Cat_Cyber_TipoTarjeta> Cat_Cyber_TipoTarjeta { get; set; }
+        public virtual DbSet<Cat_ExclusionCuentas> Cat_ExclusionCuentas { get; set; }
+        public virtual DbSet<Cat_QuejasTel> Cat_QuejasTel { get; set; }
+        public virtual DbSet<Cat_Reestructura> Cat_Reestructura { get; set; }
+        public virtual DbSet<Cat_Segbin> Cat_Segbin { get; set; }
+        public virtual DbSet<CatCP> CatCP { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Tab_Amex_Bitacora> Tab_Amex_Bitacora { get; set; }
+        public virtual DbSet<Tab_BBVA_Layout2> Tab_BBVA_Layout2 { get; set; }
+        public virtual DbSet<Tab_QueryA> Tab_QueryA { get; set; }
+        public virtual DbSet<Tab_QueryB> Tab_QueryB { get; set; }
+        public virtual DbSet<Tab_QueryC> Tab_QueryC { get; set; }
+        public virtual DbSet<Tab_QueryD> Tab_QueryD { get; set; }
+        public virtual DbSet<Tab_QueryE> Tab_QueryE { get; set; }
+        public virtual DbSet<Tab_QueryF> Tab_QueryF { get; set; }
+        public virtual DbSet<Tab_Retrocesos_Layout> Tab_Retrocesos_Layout { get; set; }
+        public virtual DbSet<TabAsignacionDat> TabAsignacionDat { get; set; }
+        public virtual DbSet<TabAsignacionNuevas> TabAsignacionNuevas { get; set; }
+        public virtual DbSet<TabAsignacionPnc> TabAsignacionPnc { get; set; }
+        public virtual DbSet<TabAsignacionTelMal> TabAsignacionTelMal { get; set; }
+        public virtual DbSet<TabAsignacionTelPas> TabAsignacionTelPas { get; set; }
+        public virtual DbSet<Tab_Amex_CollectionRiskScore> Tab_Amex_CollectionRiskScore { get; set; }
     
         public virtual int spInsertTabAmexUpdate(Nullable<System.DateTime> i_dFecha)
         {
@@ -100,23 +148,6 @@ namespace Json
         public virtual ObjectResult<string> spSelectAmexSecuencia()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelectAmexSecuencia");
-        }
-    
-        public virtual ObjectResult<Nullable<int>> spSelectAmexTablaTrans(Nullable<System.DateTime> i_vFecha, Nullable<decimal> i_vMonto, string i_vCuenta)
-        {
-            var i_vFechaParameter = i_vFecha.HasValue ?
-                new ObjectParameter("i_vFecha", i_vFecha) :
-                new ObjectParameter("i_vFecha", typeof(System.DateTime));
-    
-            var i_vMontoParameter = i_vMonto.HasValue ?
-                new ObjectParameter("i_vMonto", i_vMonto) :
-                new ObjectParameter("i_vMonto", typeof(decimal));
-    
-            var i_vCuentaParameter = i_vCuenta != null ?
-                new ObjectParameter("i_vCuenta", i_vCuenta) :
-                new ObjectParameter("i_vCuenta", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spSelectAmexTablaTrans", i_vFechaParameter, i_vMontoParameter, i_vCuentaParameter);
         }
     
         public virtual ObjectResult<spSelectAmexUpdate_Result> spSelectAmexUpdate(string i_vFecha)
@@ -154,19 +185,6 @@ namespace Json
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateEMAIL_Result>("spSelectAmexUpdateEMAIL", i_vCuentaParameter, i_vFechaParameter);
         }
     
-        public virtual ObjectResult<spSelectAmexUpdatePHONE_Result> spSelectAmexUpdatePHONE(string i_vCuenta, string i_vFecha)
-        {
-            var i_vCuentaParameter = i_vCuenta != null ?
-                new ObjectParameter("i_vCuenta", i_vCuenta) :
-                new ObjectParameter("i_vCuenta", typeof(string));
-    
-            var i_vFechaParameter = i_vFecha != null ?
-                new ObjectParameter("i_vFecha", i_vFecha) :
-                new ObjectParameter("i_vFecha", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdatePHONE_Result>("spSelectAmexUpdatePHONE", i_vCuentaParameter, i_vFechaParameter);
-        }
-    
         public virtual ObjectResult<string> spSelectAmexUpdateTOTAL(string i_vFecha)
         {
             var i_vFechaParameter = i_vFecha != null ?
@@ -198,15 +216,6 @@ namespace Json
                 new ObjectParameter("i_vCuenta", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectProducto_Result>("spSelectProducto", i_vCuentaParameter);
-        }
-    
-        public virtual ObjectResult<spSelectAmexUpdateCUENTA_Result> spSelectAmexUpdateCUENTA(string i_vFecha)
-        {
-            var i_vFechaParameter = i_vFecha != null ?
-                new ObjectParameter("i_vFecha", i_vFecha) :
-                new ObjectParameter("i_vFecha", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateCUENTA_Result>("spSelectAmexUpdateCUENTA", i_vFechaParameter);
         }
     
         public virtual ObjectResult<spSelectAmexUpdateSEG_Result> spSelectAmexUpdateSEG(string i_vCuenta)
@@ -303,6 +312,1618 @@ namespace Json
                 new ObjectParameter("i_iTipo", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertAmexBitacora", i_vCuentaParameter, i_vReportadoParameter, i_vRecibidoParameter, i_vFechaParameter, i_vArchivoParameter, i_iTipoParameter);
+        }
+    
+        public virtual ObjectResult<string> spSelectAmexUpdateSTAMP(string i_vCuenta, string i_vSegmento, string i_vProducto)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vSegmentoParameter = i_vSegmento != null ?
+                new ObjectParameter("i_vSegmento", i_vSegmento) :
+                new ObjectParameter("i_vSegmento", typeof(string));
+    
+            var i_vProductoParameter = i_vProducto != null ?
+                new ObjectParameter("i_vProducto", i_vProducto) :
+                new ObjectParameter("i_vProducto", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelectAmexUpdateSTAMP", i_vCuentaParameter, i_vSegmentoParameter, i_vProductoParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateNOTE_Result> spSelectAmexUpdateNOTE(Nullable<int> i_iMaximo)
+        {
+            var i_iMaximoParameter = i_iMaximo.HasValue ?
+                new ObjectParameter("i_iMaximo", i_iMaximo) :
+                new ObjectParameter("i_iMaximo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateNOTE_Result>("spSelectAmexUpdateNOTE", i_iMaximoParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateCONCE_Result> spSelectAmexUpdateCONCE(Nullable<System.DateTime> i_dFecha)
+        {
+            var i_dFechaParameter = i_dFecha.HasValue ?
+                new ObjectParameter("i_dFecha", i_dFecha) :
+                new ObjectParameter("i_dFecha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateCONCE_Result>("spSelectAmexUpdateCONCE", i_dFechaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> spSelectAmexTablaTrans(Nullable<System.DateTime> i_vFecha, Nullable<decimal> i_vMonto, string i_vCuenta, string i_vIdTra)
+        {
+            var i_vFechaParameter = i_vFecha.HasValue ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(System.DateTime));
+    
+            var i_vMontoParameter = i_vMonto.HasValue ?
+                new ObjectParameter("i_vMonto", i_vMonto) :
+                new ObjectParameter("i_vMonto", typeof(decimal));
+    
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vIdTraParameter = i_vIdTra != null ?
+                new ObjectParameter("i_vIdTra", i_vIdTra) :
+                new ObjectParameter("i_vIdTra", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spSelectAmexTablaTrans", i_vFechaParameter, i_vMontoParameter, i_vCuentaParameter, i_vIdTraParameter);
+        }
+    
+        public virtual int spInsertSertecUpdatesIB(string accountN, Nullable<int> seqN, string fE_Ingreso, string sT5, string sT6, string gest, string comen, string tip)
+        {
+            var accountNParameter = accountN != null ?
+                new ObjectParameter("accountN", accountN) :
+                new ObjectParameter("accountN", typeof(string));
+    
+            var seqNParameter = seqN.HasValue ?
+                new ObjectParameter("seqN", seqN) :
+                new ObjectParameter("seqN", typeof(int));
+    
+            var fE_IngresoParameter = fE_Ingreso != null ?
+                new ObjectParameter("FE_Ingreso", fE_Ingreso) :
+                new ObjectParameter("FE_Ingreso", typeof(string));
+    
+            var sT5Parameter = sT5 != null ?
+                new ObjectParameter("ST5", sT5) :
+                new ObjectParameter("ST5", typeof(string));
+    
+            var sT6Parameter = sT6 != null ?
+                new ObjectParameter("ST6", sT6) :
+                new ObjectParameter("ST6", typeof(string));
+    
+            var gestParameter = gest != null ?
+                new ObjectParameter("Gest", gest) :
+                new ObjectParameter("Gest", typeof(string));
+    
+            var comenParameter = comen != null ?
+                new ObjectParameter("Comen", comen) :
+                new ObjectParameter("Comen", typeof(string));
+    
+            var tipParameter = tip != null ?
+                new ObjectParameter("Tip", tip) :
+                new ObjectParameter("Tip", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecUpdatesIB", accountNParameter, seqNParameter, fE_IngresoParameter, sT5Parameter, sT6Parameter, gestParameter, comenParameter, tipParameter);
+        }
+    
+        public virtual int spInsertSertecUpdatesIBAccountList(Nullable<int> v_SEQNO, string v_updateDate, string v_updatedBy, string v_accountNumber, string v_accountCategoryTypeCode, string v_countryIsoAlpha2Code, string v_productCode, string v_chargeOffReasonCode, Nullable<double> v_placementBalance, Nullable<double> v_currentBalance, Nullable<double> v_writeOffAmount, string v_accountStatus, string v_writeOffDate, string v_originalPlacementDate, string v_accountReceiveDate, string v_internalRecovererCode, string v_placementLevelCode, Nullable<double> v_stampedRate1, Nullable<double> v_stampedRate2, Nullable<double> v_stampedRate3, Nullable<double> v_stampedFxRate, Nullable<double> v_commissionRate, string v_agencyAssignmentDate, string v_lastStatusChangeDate, string v_agencyRecallDate, string v_currentAgencyId)
+        {
+            var v_SEQNOParameter = v_SEQNO.HasValue ?
+                new ObjectParameter("v_SEQNO", v_SEQNO) :
+                new ObjectParameter("v_SEQNO", typeof(int));
+    
+            var v_updateDateParameter = v_updateDate != null ?
+                new ObjectParameter("v_updateDate", v_updateDate) :
+                new ObjectParameter("v_updateDate", typeof(string));
+    
+            var v_updatedByParameter = v_updatedBy != null ?
+                new ObjectParameter("v_updatedBy", v_updatedBy) :
+                new ObjectParameter("v_updatedBy", typeof(string));
+    
+            var v_accountNumberParameter = v_accountNumber != null ?
+                new ObjectParameter("v_accountNumber", v_accountNumber) :
+                new ObjectParameter("v_accountNumber", typeof(string));
+    
+            var v_accountCategoryTypeCodeParameter = v_accountCategoryTypeCode != null ?
+                new ObjectParameter("v_accountCategoryTypeCode", v_accountCategoryTypeCode) :
+                new ObjectParameter("v_accountCategoryTypeCode", typeof(string));
+    
+            var v_countryIsoAlpha2CodeParameter = v_countryIsoAlpha2Code != null ?
+                new ObjectParameter("v_countryIsoAlpha2Code", v_countryIsoAlpha2Code) :
+                new ObjectParameter("v_countryIsoAlpha2Code", typeof(string));
+    
+            var v_productCodeParameter = v_productCode != null ?
+                new ObjectParameter("v_productCode", v_productCode) :
+                new ObjectParameter("v_productCode", typeof(string));
+    
+            var v_chargeOffReasonCodeParameter = v_chargeOffReasonCode != null ?
+                new ObjectParameter("v_chargeOffReasonCode", v_chargeOffReasonCode) :
+                new ObjectParameter("v_chargeOffReasonCode", typeof(string));
+    
+            var v_placementBalanceParameter = v_placementBalance.HasValue ?
+                new ObjectParameter("v_placementBalance", v_placementBalance) :
+                new ObjectParameter("v_placementBalance", typeof(double));
+    
+            var v_currentBalanceParameter = v_currentBalance.HasValue ?
+                new ObjectParameter("v_currentBalance", v_currentBalance) :
+                new ObjectParameter("v_currentBalance", typeof(double));
+    
+            var v_writeOffAmountParameter = v_writeOffAmount.HasValue ?
+                new ObjectParameter("v_writeOffAmount", v_writeOffAmount) :
+                new ObjectParameter("v_writeOffAmount", typeof(double));
+    
+            var v_accountStatusParameter = v_accountStatus != null ?
+                new ObjectParameter("v_accountStatus", v_accountStatus) :
+                new ObjectParameter("v_accountStatus", typeof(string));
+    
+            var v_writeOffDateParameter = v_writeOffDate != null ?
+                new ObjectParameter("v_writeOffDate", v_writeOffDate) :
+                new ObjectParameter("v_writeOffDate", typeof(string));
+    
+            var v_originalPlacementDateParameter = v_originalPlacementDate != null ?
+                new ObjectParameter("v_originalPlacementDate", v_originalPlacementDate) :
+                new ObjectParameter("v_originalPlacementDate", typeof(string));
+    
+            var v_accountReceiveDateParameter = v_accountReceiveDate != null ?
+                new ObjectParameter("v_accountReceiveDate", v_accountReceiveDate) :
+                new ObjectParameter("v_accountReceiveDate", typeof(string));
+    
+            var v_internalRecovererCodeParameter = v_internalRecovererCode != null ?
+                new ObjectParameter("v_internalRecovererCode", v_internalRecovererCode) :
+                new ObjectParameter("v_internalRecovererCode", typeof(string));
+    
+            var v_placementLevelCodeParameter = v_placementLevelCode != null ?
+                new ObjectParameter("v_placementLevelCode", v_placementLevelCode) :
+                new ObjectParameter("v_placementLevelCode", typeof(string));
+    
+            var v_stampedRate1Parameter = v_stampedRate1.HasValue ?
+                new ObjectParameter("v_stampedRate1", v_stampedRate1) :
+                new ObjectParameter("v_stampedRate1", typeof(double));
+    
+            var v_stampedRate2Parameter = v_stampedRate2.HasValue ?
+                new ObjectParameter("v_stampedRate2", v_stampedRate2) :
+                new ObjectParameter("v_stampedRate2", typeof(double));
+    
+            var v_stampedRate3Parameter = v_stampedRate3.HasValue ?
+                new ObjectParameter("v_stampedRate3", v_stampedRate3) :
+                new ObjectParameter("v_stampedRate3", typeof(double));
+    
+            var v_stampedFxRateParameter = v_stampedFxRate.HasValue ?
+                new ObjectParameter("v_stampedFxRate", v_stampedFxRate) :
+                new ObjectParameter("v_stampedFxRate", typeof(double));
+    
+            var v_commissionRateParameter = v_commissionRate.HasValue ?
+                new ObjectParameter("v_commissionRate", v_commissionRate) :
+                new ObjectParameter("v_commissionRate", typeof(double));
+    
+            var v_agencyAssignmentDateParameter = v_agencyAssignmentDate != null ?
+                new ObjectParameter("v_agencyAssignmentDate", v_agencyAssignmentDate) :
+                new ObjectParameter("v_agencyAssignmentDate", typeof(string));
+    
+            var v_lastStatusChangeDateParameter = v_lastStatusChangeDate != null ?
+                new ObjectParameter("v_lastStatusChangeDate", v_lastStatusChangeDate) :
+                new ObjectParameter("v_lastStatusChangeDate", typeof(string));
+    
+            var v_agencyRecallDateParameter = v_agencyRecallDate != null ?
+                new ObjectParameter("v_agencyRecallDate", v_agencyRecallDate) :
+                new ObjectParameter("v_agencyRecallDate", typeof(string));
+    
+            var v_currentAgencyIdParameter = v_currentAgencyId != null ?
+                new ObjectParameter("v_currentAgencyId", v_currentAgencyId) :
+                new ObjectParameter("v_currentAgencyId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecUpdatesIBAccountList", v_SEQNOParameter, v_updateDateParameter, v_updatedByParameter, v_accountNumberParameter, v_accountCategoryTypeCodeParameter, v_countryIsoAlpha2CodeParameter, v_productCodeParameter, v_chargeOffReasonCodeParameter, v_placementBalanceParameter, v_currentBalanceParameter, v_writeOffAmountParameter, v_accountStatusParameter, v_writeOffDateParameter, v_originalPlacementDateParameter, v_accountReceiveDateParameter, v_internalRecovererCodeParameter, v_placementLevelCodeParameter, v_stampedRate1Parameter, v_stampedRate2Parameter, v_stampedRate3Parameter, v_stampedFxRateParameter, v_commissionRateParameter, v_agencyAssignmentDateParameter, v_lastStatusChangeDateParameter, v_agencyRecallDateParameter, v_currentAgencyIdParameter);
+        }
+    
+        public virtual int spInsertSertecHistoricoAsignaciones(string v_NumCuenta, Nullable<int> v_SeqNo, Nullable<int> v_CuentasHeader, Nullable<int> v_CuentasCreadas, Nullable<int> v_CuentasUnicas, string v_FechaHeader, string v_FechaNombre, string v_FechaPlataforma, string v_Asignacion, Nullable<int> v_Tipo)
+        {
+            var v_NumCuentaParameter = v_NumCuenta != null ?
+                new ObjectParameter("v_NumCuenta", v_NumCuenta) :
+                new ObjectParameter("v_NumCuenta", typeof(string));
+    
+            var v_SeqNoParameter = v_SeqNo.HasValue ?
+                new ObjectParameter("v_SeqNo", v_SeqNo) :
+                new ObjectParameter("v_SeqNo", typeof(int));
+    
+            var v_CuentasHeaderParameter = v_CuentasHeader.HasValue ?
+                new ObjectParameter("v_CuentasHeader", v_CuentasHeader) :
+                new ObjectParameter("v_CuentasHeader", typeof(int));
+    
+            var v_CuentasCreadasParameter = v_CuentasCreadas.HasValue ?
+                new ObjectParameter("v_CuentasCreadas", v_CuentasCreadas) :
+                new ObjectParameter("v_CuentasCreadas", typeof(int));
+    
+            var v_CuentasUnicasParameter = v_CuentasUnicas.HasValue ?
+                new ObjectParameter("v_CuentasUnicas", v_CuentasUnicas) :
+                new ObjectParameter("v_CuentasUnicas", typeof(int));
+    
+            var v_FechaHeaderParameter = v_FechaHeader != null ?
+                new ObjectParameter("v_FechaHeader", v_FechaHeader) :
+                new ObjectParameter("v_FechaHeader", typeof(string));
+    
+            var v_FechaNombreParameter = v_FechaNombre != null ?
+                new ObjectParameter("v_FechaNombre", v_FechaNombre) :
+                new ObjectParameter("v_FechaNombre", typeof(string));
+    
+            var v_FechaPlataformaParameter = v_FechaPlataforma != null ?
+                new ObjectParameter("v_FechaPlataforma", v_FechaPlataforma) :
+                new ObjectParameter("v_FechaPlataforma", typeof(string));
+    
+            var v_AsignacionParameter = v_Asignacion != null ?
+                new ObjectParameter("v_Asignacion", v_Asignacion) :
+                new ObjectParameter("v_Asignacion", typeof(string));
+    
+            var v_TipoParameter = v_Tipo.HasValue ?
+                new ObjectParameter("v_Tipo", v_Tipo) :
+                new ObjectParameter("v_Tipo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecHistoricoAsignaciones", v_NumCuentaParameter, v_SeqNoParameter, v_CuentasHeaderParameter, v_CuentasCreadasParameter, v_CuentasUnicasParameter, v_FechaHeaderParameter, v_FechaNombreParameter, v_FechaPlataformaParameter, v_AsignacionParameter, v_TipoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> spSelectSertecCycleCutDate(string v_AccountNumber)
+        {
+            var v_AccountNumberParameter = v_AccountNumber != null ?
+                new ObjectParameter("v_AccountNumber", v_AccountNumber) :
+                new ObjectParameter("v_AccountNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("spSelectSertecCycleCutDate", v_AccountNumberParameter);
+        }
+    
+        public virtual ObjectResult<spSelectSertecCamposFCS_Result> spSelectSertecCamposFCS(string accountN)
+        {
+            var accountNParameter = accountN != null ?
+                new ObjectParameter("accountN", accountN) :
+                new ObjectParameter("accountN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectSertecCamposFCS_Result>("spSelectSertecCamposFCS", accountNParameter);
+        }
+    
+        public virtual ObjectResult<spSelectSertecCamposFCS_OldestMinBucket_Result> spSelectSertecCamposFCS_OldestMinBucket(string accountN)
+        {
+            var accountNParameter = accountN != null ?
+                new ObjectParameter("accountN", accountN) :
+                new ObjectParameter("accountN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectSertecCamposFCS_OldestMinBucket_Result>("spSelectSertecCamposFCS_OldestMinBucket", accountNParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateADDRESSReloaded_Result> spSelectAmexUpdateADDRESSReloaded(string i_vCuenta, string i_vFecha)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateADDRESSReloaded_Result>("spSelectAmexUpdateADDRESSReloaded", i_vCuentaParameter, i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateCUENTAReloaded_Result> spSelectAmexUpdateCUENTAReloaded(string i_vFecha)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateCUENTAReloaded_Result>("spSelectAmexUpdateCUENTAReloaded", i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateEMAILReloaded_Result> spSelectAmexUpdateEMAILReloaded(string i_vCuenta, string i_vFecha)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateEMAILReloaded_Result>("spSelectAmexUpdateEMAILReloaded", i_vCuentaParameter, i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> spSelectAmexUpdateFECHAReloaded(string i_vCuenta)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("spSelectAmexUpdateFECHAReloaded", i_vCuentaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdatePHONEReloaded_Result> spSelectAmexUpdatePHONEReloaded(string i_vCuenta, string i_vFecha)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdatePHONEReloaded_Result>("spSelectAmexUpdatePHONEReloaded", i_vCuentaParameter, i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateReloaded_Result> spSelectAmexUpdateReloaded(string i_vFecha)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateReloaded_Result>("spSelectAmexUpdateReloaded", i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<string> spSelectAmexUpdateTOTALReloaded(string i_vFecha)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelectAmexUpdateTOTALReloaded", i_vFechaParameter);
+        }
+    
+        public virtual int spInsertSertecAccountList(string v_accountStatus_ACLT, string v_updatedBy_ACLT, Nullable<System.DateTime> v_updateDate_ACLT, string v_accountNumber_ACLT, string v_currentAgencyId_ACLT, Nullable<System.DateTime> v_lastStatusChangeDate_ACLT, string v_accountCategoryTypeCode_ACLT, string v_D1_ACLT, string v_D2_ACLT, string v_D3_ACLT, string v_D4_ACLT, string v_D5_ACLT, string v_D6_ACLT, string v_D7_ACLT, string v_D8_ACLT, string v_D9_ACLT, string v_D10_ACLT, string v_D11_ACLT, string v_D12_ACLT, string v_D13_ACLT, string v_D14_ACLT, string v_D15_ACLT, string v_D16_ACLT, string v_D17_ACLT, string v_D18_ACLT, string v_D19_ACLT, string v_D20_ACLT, Nullable<int> v_SecuencialJSON_ACLT)
+        {
+            var v_accountStatus_ACLTParameter = v_accountStatus_ACLT != null ?
+                new ObjectParameter("v_accountStatus_ACLT", v_accountStatus_ACLT) :
+                new ObjectParameter("v_accountStatus_ACLT", typeof(string));
+    
+            var v_updatedBy_ACLTParameter = v_updatedBy_ACLT != null ?
+                new ObjectParameter("v_updatedBy_ACLT", v_updatedBy_ACLT) :
+                new ObjectParameter("v_updatedBy_ACLT", typeof(string));
+    
+            var v_updateDate_ACLTParameter = v_updateDate_ACLT.HasValue ?
+                new ObjectParameter("v_updateDate_ACLT", v_updateDate_ACLT) :
+                new ObjectParameter("v_updateDate_ACLT", typeof(System.DateTime));
+    
+            var v_accountNumber_ACLTParameter = v_accountNumber_ACLT != null ?
+                new ObjectParameter("v_accountNumber_ACLT", v_accountNumber_ACLT) :
+                new ObjectParameter("v_accountNumber_ACLT", typeof(string));
+    
+            var v_currentAgencyId_ACLTParameter = v_currentAgencyId_ACLT != null ?
+                new ObjectParameter("v_currentAgencyId_ACLT", v_currentAgencyId_ACLT) :
+                new ObjectParameter("v_currentAgencyId_ACLT", typeof(string));
+    
+            var v_lastStatusChangeDate_ACLTParameter = v_lastStatusChangeDate_ACLT.HasValue ?
+                new ObjectParameter("v_lastStatusChangeDate_ACLT", v_lastStatusChangeDate_ACLT) :
+                new ObjectParameter("v_lastStatusChangeDate_ACLT", typeof(System.DateTime));
+    
+            var v_accountCategoryTypeCode_ACLTParameter = v_accountCategoryTypeCode_ACLT != null ?
+                new ObjectParameter("v_accountCategoryTypeCode_ACLT", v_accountCategoryTypeCode_ACLT) :
+                new ObjectParameter("v_accountCategoryTypeCode_ACLT", typeof(string));
+    
+            var v_D1_ACLTParameter = v_D1_ACLT != null ?
+                new ObjectParameter("v_D1_ACLT", v_D1_ACLT) :
+                new ObjectParameter("v_D1_ACLT", typeof(string));
+    
+            var v_D2_ACLTParameter = v_D2_ACLT != null ?
+                new ObjectParameter("v_D2_ACLT", v_D2_ACLT) :
+                new ObjectParameter("v_D2_ACLT", typeof(string));
+    
+            var v_D3_ACLTParameter = v_D3_ACLT != null ?
+                new ObjectParameter("v_D3_ACLT", v_D3_ACLT) :
+                new ObjectParameter("v_D3_ACLT", typeof(string));
+    
+            var v_D4_ACLTParameter = v_D4_ACLT != null ?
+                new ObjectParameter("v_D4_ACLT", v_D4_ACLT) :
+                new ObjectParameter("v_D4_ACLT", typeof(string));
+    
+            var v_D5_ACLTParameter = v_D5_ACLT != null ?
+                new ObjectParameter("v_D5_ACLT", v_D5_ACLT) :
+                new ObjectParameter("v_D5_ACLT", typeof(string));
+    
+            var v_D6_ACLTParameter = v_D6_ACLT != null ?
+                new ObjectParameter("v_D6_ACLT", v_D6_ACLT) :
+                new ObjectParameter("v_D6_ACLT", typeof(string));
+    
+            var v_D7_ACLTParameter = v_D7_ACLT != null ?
+                new ObjectParameter("v_D7_ACLT", v_D7_ACLT) :
+                new ObjectParameter("v_D7_ACLT", typeof(string));
+    
+            var v_D8_ACLTParameter = v_D8_ACLT != null ?
+                new ObjectParameter("v_D8_ACLT", v_D8_ACLT) :
+                new ObjectParameter("v_D8_ACLT", typeof(string));
+    
+            var v_D9_ACLTParameter = v_D9_ACLT != null ?
+                new ObjectParameter("v_D9_ACLT", v_D9_ACLT) :
+                new ObjectParameter("v_D9_ACLT", typeof(string));
+    
+            var v_D10_ACLTParameter = v_D10_ACLT != null ?
+                new ObjectParameter("v_D10_ACLT", v_D10_ACLT) :
+                new ObjectParameter("v_D10_ACLT", typeof(string));
+    
+            var v_D11_ACLTParameter = v_D11_ACLT != null ?
+                new ObjectParameter("v_D11_ACLT", v_D11_ACLT) :
+                new ObjectParameter("v_D11_ACLT", typeof(string));
+    
+            var v_D12_ACLTParameter = v_D12_ACLT != null ?
+                new ObjectParameter("v_D12_ACLT", v_D12_ACLT) :
+                new ObjectParameter("v_D12_ACLT", typeof(string));
+    
+            var v_D13_ACLTParameter = v_D13_ACLT != null ?
+                new ObjectParameter("v_D13_ACLT", v_D13_ACLT) :
+                new ObjectParameter("v_D13_ACLT", typeof(string));
+    
+            var v_D14_ACLTParameter = v_D14_ACLT != null ?
+                new ObjectParameter("v_D14_ACLT", v_D14_ACLT) :
+                new ObjectParameter("v_D14_ACLT", typeof(string));
+    
+            var v_D15_ACLTParameter = v_D15_ACLT != null ?
+                new ObjectParameter("v_D15_ACLT", v_D15_ACLT) :
+                new ObjectParameter("v_D15_ACLT", typeof(string));
+    
+            var v_D16_ACLTParameter = v_D16_ACLT != null ?
+                new ObjectParameter("v_D16_ACLT", v_D16_ACLT) :
+                new ObjectParameter("v_D16_ACLT", typeof(string));
+    
+            var v_D17_ACLTParameter = v_D17_ACLT != null ?
+                new ObjectParameter("v_D17_ACLT", v_D17_ACLT) :
+                new ObjectParameter("v_D17_ACLT", typeof(string));
+    
+            var v_D18_ACLTParameter = v_D18_ACLT != null ?
+                new ObjectParameter("v_D18_ACLT", v_D18_ACLT) :
+                new ObjectParameter("v_D18_ACLT", typeof(string));
+    
+            var v_D19_ACLTParameter = v_D19_ACLT != null ?
+                new ObjectParameter("v_D19_ACLT", v_D19_ACLT) :
+                new ObjectParameter("v_D19_ACLT", typeof(string));
+    
+            var v_D20_ACLTParameter = v_D20_ACLT != null ?
+                new ObjectParameter("v_D20_ACLT", v_D20_ACLT) :
+                new ObjectParameter("v_D20_ACLT", typeof(string));
+    
+            var v_SecuencialJSON_ACLTParameter = v_SecuencialJSON_ACLT.HasValue ?
+                new ObjectParameter("v_SecuencialJSON_ACLT", v_SecuencialJSON_ACLT) :
+                new ObjectParameter("v_SecuencialJSON_ACLT", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecAccountList", v_accountStatus_ACLTParameter, v_updatedBy_ACLTParameter, v_updateDate_ACLTParameter, v_accountNumber_ACLTParameter, v_currentAgencyId_ACLTParameter, v_lastStatusChangeDate_ACLTParameter, v_accountCategoryTypeCode_ACLTParameter, v_D1_ACLTParameter, v_D2_ACLTParameter, v_D3_ACLTParameter, v_D4_ACLTParameter, v_D5_ACLTParameter, v_D6_ACLTParameter, v_D7_ACLTParameter, v_D8_ACLTParameter, v_D9_ACLTParameter, v_D10_ACLTParameter, v_D11_ACLTParameter, v_D12_ACLTParameter, v_D13_ACLTParameter, v_D14_ACLTParameter, v_D15_ACLTParameter, v_D16_ACLTParameter, v_D17_ACLTParameter, v_D18_ACLTParameter, v_D19_ACLTParameter, v_D20_ACLTParameter, v_SecuencialJSON_ACLTParameter);
+        }
+    
+        public virtual int spInsertSertecDemographicsADDRESSList(string v_CUENTA, string v_D1, string v_D2, string v_D3, string v_D4, string v_D5, string v_D6, string v_D7, string v_D8, string v_D9, string v_D10, string v_D11, string v_D12, string v_D13, string v_D14, string v_D15, string v_D16, string v_D17, string v_D18, string v_D19, string v_D20, string v_typecode, string v_statusCode, Nullable<System.DateTime> v_updateDate, string v_addressLine1, string v_addressLine2, string v_state, string v_country, string v_zipCode, string v_updatedBy, Nullable<int> v_secuencialJSON)
+        {
+            var v_CUENTAParameter = v_CUENTA != null ?
+                new ObjectParameter("v_CUENTA", v_CUENTA) :
+                new ObjectParameter("v_CUENTA", typeof(string));
+    
+            var v_D1Parameter = v_D1 != null ?
+                new ObjectParameter("v_D1", v_D1) :
+                new ObjectParameter("v_D1", typeof(string));
+    
+            var v_D2Parameter = v_D2 != null ?
+                new ObjectParameter("v_D2", v_D2) :
+                new ObjectParameter("v_D2", typeof(string));
+    
+            var v_D3Parameter = v_D3 != null ?
+                new ObjectParameter("v_D3", v_D3) :
+                new ObjectParameter("v_D3", typeof(string));
+    
+            var v_D4Parameter = v_D4 != null ?
+                new ObjectParameter("v_D4", v_D4) :
+                new ObjectParameter("v_D4", typeof(string));
+    
+            var v_D5Parameter = v_D5 != null ?
+                new ObjectParameter("v_D5", v_D5) :
+                new ObjectParameter("v_D5", typeof(string));
+    
+            var v_D6Parameter = v_D6 != null ?
+                new ObjectParameter("v_D6", v_D6) :
+                new ObjectParameter("v_D6", typeof(string));
+    
+            var v_D7Parameter = v_D7 != null ?
+                new ObjectParameter("v_D7", v_D7) :
+                new ObjectParameter("v_D7", typeof(string));
+    
+            var v_D8Parameter = v_D8 != null ?
+                new ObjectParameter("v_D8", v_D8) :
+                new ObjectParameter("v_D8", typeof(string));
+    
+            var v_D9Parameter = v_D9 != null ?
+                new ObjectParameter("v_D9", v_D9) :
+                new ObjectParameter("v_D9", typeof(string));
+    
+            var v_D10Parameter = v_D10 != null ?
+                new ObjectParameter("v_D10", v_D10) :
+                new ObjectParameter("v_D10", typeof(string));
+    
+            var v_D11Parameter = v_D11 != null ?
+                new ObjectParameter("v_D11", v_D11) :
+                new ObjectParameter("v_D11", typeof(string));
+    
+            var v_D12Parameter = v_D12 != null ?
+                new ObjectParameter("v_D12", v_D12) :
+                new ObjectParameter("v_D12", typeof(string));
+    
+            var v_D13Parameter = v_D13 != null ?
+                new ObjectParameter("v_D13", v_D13) :
+                new ObjectParameter("v_D13", typeof(string));
+    
+            var v_D14Parameter = v_D14 != null ?
+                new ObjectParameter("v_D14", v_D14) :
+                new ObjectParameter("v_D14", typeof(string));
+    
+            var v_D15Parameter = v_D15 != null ?
+                new ObjectParameter("v_D15", v_D15) :
+                new ObjectParameter("v_D15", typeof(string));
+    
+            var v_D16Parameter = v_D16 != null ?
+                new ObjectParameter("v_D16", v_D16) :
+                new ObjectParameter("v_D16", typeof(string));
+    
+            var v_D17Parameter = v_D17 != null ?
+                new ObjectParameter("v_D17", v_D17) :
+                new ObjectParameter("v_D17", typeof(string));
+    
+            var v_D18Parameter = v_D18 != null ?
+                new ObjectParameter("v_D18", v_D18) :
+                new ObjectParameter("v_D18", typeof(string));
+    
+            var v_D19Parameter = v_D19 != null ?
+                new ObjectParameter("v_D19", v_D19) :
+                new ObjectParameter("v_D19", typeof(string));
+    
+            var v_D20Parameter = v_D20 != null ?
+                new ObjectParameter("v_D20", v_D20) :
+                new ObjectParameter("v_D20", typeof(string));
+    
+            var v_typecodeParameter = v_typecode != null ?
+                new ObjectParameter("v_typecode", v_typecode) :
+                new ObjectParameter("v_typecode", typeof(string));
+    
+            var v_statusCodeParameter = v_statusCode != null ?
+                new ObjectParameter("v_statusCode", v_statusCode) :
+                new ObjectParameter("v_statusCode", typeof(string));
+    
+            var v_updateDateParameter = v_updateDate.HasValue ?
+                new ObjectParameter("v_updateDate", v_updateDate) :
+                new ObjectParameter("v_updateDate", typeof(System.DateTime));
+    
+            var v_addressLine1Parameter = v_addressLine1 != null ?
+                new ObjectParameter("v_addressLine1", v_addressLine1) :
+                new ObjectParameter("v_addressLine1", typeof(string));
+    
+            var v_addressLine2Parameter = v_addressLine2 != null ?
+                new ObjectParameter("v_addressLine2", v_addressLine2) :
+                new ObjectParameter("v_addressLine2", typeof(string));
+    
+            var v_stateParameter = v_state != null ?
+                new ObjectParameter("v_state", v_state) :
+                new ObjectParameter("v_state", typeof(string));
+    
+            var v_countryParameter = v_country != null ?
+                new ObjectParameter("v_country", v_country) :
+                new ObjectParameter("v_country", typeof(string));
+    
+            var v_zipCodeParameter = v_zipCode != null ?
+                new ObjectParameter("v_zipCode", v_zipCode) :
+                new ObjectParameter("v_zipCode", typeof(string));
+    
+            var v_updatedByParameter = v_updatedBy != null ?
+                new ObjectParameter("v_updatedBy", v_updatedBy) :
+                new ObjectParameter("v_updatedBy", typeof(string));
+    
+            var v_secuencialJSONParameter = v_secuencialJSON.HasValue ?
+                new ObjectParameter("v_secuencialJSON", v_secuencialJSON) :
+                new ObjectParameter("v_secuencialJSON", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecDemographicsADDRESSList", v_CUENTAParameter, v_D1Parameter, v_D2Parameter, v_D3Parameter, v_D4Parameter, v_D5Parameter, v_D6Parameter, v_D7Parameter, v_D8Parameter, v_D9Parameter, v_D10Parameter, v_D11Parameter, v_D12Parameter, v_D13Parameter, v_D14Parameter, v_D15Parameter, v_D16Parameter, v_D17Parameter, v_D18Parameter, v_D19Parameter, v_D20Parameter, v_typecodeParameter, v_statusCodeParameter, v_updateDateParameter, v_addressLine1Parameter, v_addressLine2Parameter, v_stateParameter, v_countryParameter, v_zipCodeParameter, v_updatedByParameter, v_secuencialJSONParameter);
+        }
+    
+        public virtual int spInsertSertecDemographicsEMAILSList(string v_CUENTA, string v_D1, string v_D2, string v_D3, string v_D4, string v_D5, string v_D6, string v_D7, string v_D8, string v_D9, string v_D10, string v_D11, string v_D12, string v_D13, string v_D14, string v_D15, string v_D16, string v_D17, string v_D18, string v_D19, string v_D20, string v_emailAddress, string v_typeCode, string v_statusCode, Nullable<System.DateTime> v_updateDate, string v_updatedBy, Nullable<int> v_secuencialJSON)
+        {
+            var v_CUENTAParameter = v_CUENTA != null ?
+                new ObjectParameter("v_CUENTA", v_CUENTA) :
+                new ObjectParameter("v_CUENTA", typeof(string));
+    
+            var v_D1Parameter = v_D1 != null ?
+                new ObjectParameter("v_D1", v_D1) :
+                new ObjectParameter("v_D1", typeof(string));
+    
+            var v_D2Parameter = v_D2 != null ?
+                new ObjectParameter("v_D2", v_D2) :
+                new ObjectParameter("v_D2", typeof(string));
+    
+            var v_D3Parameter = v_D3 != null ?
+                new ObjectParameter("v_D3", v_D3) :
+                new ObjectParameter("v_D3", typeof(string));
+    
+            var v_D4Parameter = v_D4 != null ?
+                new ObjectParameter("v_D4", v_D4) :
+                new ObjectParameter("v_D4", typeof(string));
+    
+            var v_D5Parameter = v_D5 != null ?
+                new ObjectParameter("v_D5", v_D5) :
+                new ObjectParameter("v_D5", typeof(string));
+    
+            var v_D6Parameter = v_D6 != null ?
+                new ObjectParameter("v_D6", v_D6) :
+                new ObjectParameter("v_D6", typeof(string));
+    
+            var v_D7Parameter = v_D7 != null ?
+                new ObjectParameter("v_D7", v_D7) :
+                new ObjectParameter("v_D7", typeof(string));
+    
+            var v_D8Parameter = v_D8 != null ?
+                new ObjectParameter("v_D8", v_D8) :
+                new ObjectParameter("v_D8", typeof(string));
+    
+            var v_D9Parameter = v_D9 != null ?
+                new ObjectParameter("v_D9", v_D9) :
+                new ObjectParameter("v_D9", typeof(string));
+    
+            var v_D10Parameter = v_D10 != null ?
+                new ObjectParameter("v_D10", v_D10) :
+                new ObjectParameter("v_D10", typeof(string));
+    
+            var v_D11Parameter = v_D11 != null ?
+                new ObjectParameter("v_D11", v_D11) :
+                new ObjectParameter("v_D11", typeof(string));
+    
+            var v_D12Parameter = v_D12 != null ?
+                new ObjectParameter("v_D12", v_D12) :
+                new ObjectParameter("v_D12", typeof(string));
+    
+            var v_D13Parameter = v_D13 != null ?
+                new ObjectParameter("v_D13", v_D13) :
+                new ObjectParameter("v_D13", typeof(string));
+    
+            var v_D14Parameter = v_D14 != null ?
+                new ObjectParameter("v_D14", v_D14) :
+                new ObjectParameter("v_D14", typeof(string));
+    
+            var v_D15Parameter = v_D15 != null ?
+                new ObjectParameter("v_D15", v_D15) :
+                new ObjectParameter("v_D15", typeof(string));
+    
+            var v_D16Parameter = v_D16 != null ?
+                new ObjectParameter("v_D16", v_D16) :
+                new ObjectParameter("v_D16", typeof(string));
+    
+            var v_D17Parameter = v_D17 != null ?
+                new ObjectParameter("v_D17", v_D17) :
+                new ObjectParameter("v_D17", typeof(string));
+    
+            var v_D18Parameter = v_D18 != null ?
+                new ObjectParameter("v_D18", v_D18) :
+                new ObjectParameter("v_D18", typeof(string));
+    
+            var v_D19Parameter = v_D19 != null ?
+                new ObjectParameter("v_D19", v_D19) :
+                new ObjectParameter("v_D19", typeof(string));
+    
+            var v_D20Parameter = v_D20 != null ?
+                new ObjectParameter("v_D20", v_D20) :
+                new ObjectParameter("v_D20", typeof(string));
+    
+            var v_emailAddressParameter = v_emailAddress != null ?
+                new ObjectParameter("v_emailAddress", v_emailAddress) :
+                new ObjectParameter("v_emailAddress", typeof(string));
+    
+            var v_typeCodeParameter = v_typeCode != null ?
+                new ObjectParameter("v_typeCode", v_typeCode) :
+                new ObjectParameter("v_typeCode", typeof(string));
+    
+            var v_statusCodeParameter = v_statusCode != null ?
+                new ObjectParameter("v_statusCode", v_statusCode) :
+                new ObjectParameter("v_statusCode", typeof(string));
+    
+            var v_updateDateParameter = v_updateDate.HasValue ?
+                new ObjectParameter("v_updateDate", v_updateDate) :
+                new ObjectParameter("v_updateDate", typeof(System.DateTime));
+    
+            var v_updatedByParameter = v_updatedBy != null ?
+                new ObjectParameter("v_updatedBy", v_updatedBy) :
+                new ObjectParameter("v_updatedBy", typeof(string));
+    
+            var v_secuencialJSONParameter = v_secuencialJSON.HasValue ?
+                new ObjectParameter("v_secuencialJSON", v_secuencialJSON) :
+                new ObjectParameter("v_secuencialJSON", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecDemographicsEMAILSList", v_CUENTAParameter, v_D1Parameter, v_D2Parameter, v_D3Parameter, v_D4Parameter, v_D5Parameter, v_D6Parameter, v_D7Parameter, v_D8Parameter, v_D9Parameter, v_D10Parameter, v_D11Parameter, v_D12Parameter, v_D13Parameter, v_D14Parameter, v_D15Parameter, v_D16Parameter, v_D17Parameter, v_D18Parameter, v_D19Parameter, v_D20Parameter, v_emailAddressParameter, v_typeCodeParameter, v_statusCodeParameter, v_updateDateParameter, v_updatedByParameter, v_secuencialJSONParameter);
+        }
+    
+        public virtual int spInsertSertecDemographicsList(string v_accountNumber, Nullable<System.DateTime> v_updateDate, string v_updatedBy, Nullable<int> v_TelefonosInsertados, Nullable<int> v_DireccionesInsertadas, Nullable<int> v_EmailsInsertados, Nullable<int> v_SecuencialJSON)
+        {
+            var v_accountNumberParameter = v_accountNumber != null ?
+                new ObjectParameter("v_accountNumber", v_accountNumber) :
+                new ObjectParameter("v_accountNumber", typeof(string));
+    
+            var v_updateDateParameter = v_updateDate.HasValue ?
+                new ObjectParameter("v_updateDate", v_updateDate) :
+                new ObjectParameter("v_updateDate", typeof(System.DateTime));
+    
+            var v_updatedByParameter = v_updatedBy != null ?
+                new ObjectParameter("v_updatedBy", v_updatedBy) :
+                new ObjectParameter("v_updatedBy", typeof(string));
+    
+            var v_TelefonosInsertadosParameter = v_TelefonosInsertados.HasValue ?
+                new ObjectParameter("v_TelefonosInsertados", v_TelefonosInsertados) :
+                new ObjectParameter("v_TelefonosInsertados", typeof(int));
+    
+            var v_DireccionesInsertadasParameter = v_DireccionesInsertadas.HasValue ?
+                new ObjectParameter("v_DireccionesInsertadas", v_DireccionesInsertadas) :
+                new ObjectParameter("v_DireccionesInsertadas", typeof(int));
+    
+            var v_EmailsInsertadosParameter = v_EmailsInsertados.HasValue ?
+                new ObjectParameter("v_EmailsInsertados", v_EmailsInsertados) :
+                new ObjectParameter("v_EmailsInsertados", typeof(int));
+    
+            var v_SecuencialJSONParameter = v_SecuencialJSON.HasValue ?
+                new ObjectParameter("v_SecuencialJSON", v_SecuencialJSON) :
+                new ObjectParameter("v_SecuencialJSON", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecDemographicsList", v_accountNumberParameter, v_updateDateParameter, v_updatedByParameter, v_TelefonosInsertadosParameter, v_DireccionesInsertadasParameter, v_EmailsInsertadosParameter, v_SecuencialJSONParameter);
+        }
+    
+        public virtual int spInsertSertecDemographicsPHONESList(string v_CUENTA, string v_D1, string v_D2, string v_D3, string v_D4, string v_D5, string v_D6, string v_D7, string v_D8, string v_D9, string v_D10, string v_D11, string v_D12, string v_D13, string v_D14, string v_D15, string v_D16, string v_D17, string v_D18, string v_D19, string v_D20, Nullable<System.DateTime> v_updateDate, string v_number, string v_typecode, string v_statusCode, string v_updatedBy, Nullable<int> v_secuencialJSON)
+        {
+            var v_CUENTAParameter = v_CUENTA != null ?
+                new ObjectParameter("v_CUENTA", v_CUENTA) :
+                new ObjectParameter("v_CUENTA", typeof(string));
+    
+            var v_D1Parameter = v_D1 != null ?
+                new ObjectParameter("v_D1", v_D1) :
+                new ObjectParameter("v_D1", typeof(string));
+    
+            var v_D2Parameter = v_D2 != null ?
+                new ObjectParameter("v_D2", v_D2) :
+                new ObjectParameter("v_D2", typeof(string));
+    
+            var v_D3Parameter = v_D3 != null ?
+                new ObjectParameter("v_D3", v_D3) :
+                new ObjectParameter("v_D3", typeof(string));
+    
+            var v_D4Parameter = v_D4 != null ?
+                new ObjectParameter("v_D4", v_D4) :
+                new ObjectParameter("v_D4", typeof(string));
+    
+            var v_D5Parameter = v_D5 != null ?
+                new ObjectParameter("v_D5", v_D5) :
+                new ObjectParameter("v_D5", typeof(string));
+    
+            var v_D6Parameter = v_D6 != null ?
+                new ObjectParameter("v_D6", v_D6) :
+                new ObjectParameter("v_D6", typeof(string));
+    
+            var v_D7Parameter = v_D7 != null ?
+                new ObjectParameter("v_D7", v_D7) :
+                new ObjectParameter("v_D7", typeof(string));
+    
+            var v_D8Parameter = v_D8 != null ?
+                new ObjectParameter("v_D8", v_D8) :
+                new ObjectParameter("v_D8", typeof(string));
+    
+            var v_D9Parameter = v_D9 != null ?
+                new ObjectParameter("v_D9", v_D9) :
+                new ObjectParameter("v_D9", typeof(string));
+    
+            var v_D10Parameter = v_D10 != null ?
+                new ObjectParameter("v_D10", v_D10) :
+                new ObjectParameter("v_D10", typeof(string));
+    
+            var v_D11Parameter = v_D11 != null ?
+                new ObjectParameter("v_D11", v_D11) :
+                new ObjectParameter("v_D11", typeof(string));
+    
+            var v_D12Parameter = v_D12 != null ?
+                new ObjectParameter("v_D12", v_D12) :
+                new ObjectParameter("v_D12", typeof(string));
+    
+            var v_D13Parameter = v_D13 != null ?
+                new ObjectParameter("v_D13", v_D13) :
+                new ObjectParameter("v_D13", typeof(string));
+    
+            var v_D14Parameter = v_D14 != null ?
+                new ObjectParameter("v_D14", v_D14) :
+                new ObjectParameter("v_D14", typeof(string));
+    
+            var v_D15Parameter = v_D15 != null ?
+                new ObjectParameter("v_D15", v_D15) :
+                new ObjectParameter("v_D15", typeof(string));
+    
+            var v_D16Parameter = v_D16 != null ?
+                new ObjectParameter("v_D16", v_D16) :
+                new ObjectParameter("v_D16", typeof(string));
+    
+            var v_D17Parameter = v_D17 != null ?
+                new ObjectParameter("v_D17", v_D17) :
+                new ObjectParameter("v_D17", typeof(string));
+    
+            var v_D18Parameter = v_D18 != null ?
+                new ObjectParameter("v_D18", v_D18) :
+                new ObjectParameter("v_D18", typeof(string));
+    
+            var v_D19Parameter = v_D19 != null ?
+                new ObjectParameter("v_D19", v_D19) :
+                new ObjectParameter("v_D19", typeof(string));
+    
+            var v_D20Parameter = v_D20 != null ?
+                new ObjectParameter("v_D20", v_D20) :
+                new ObjectParameter("v_D20", typeof(string));
+    
+            var v_updateDateParameter = v_updateDate.HasValue ?
+                new ObjectParameter("v_updateDate", v_updateDate) :
+                new ObjectParameter("v_updateDate", typeof(System.DateTime));
+    
+            var v_numberParameter = v_number != null ?
+                new ObjectParameter("v_number", v_number) :
+                new ObjectParameter("v_number", typeof(string));
+    
+            var v_typecodeParameter = v_typecode != null ?
+                new ObjectParameter("v_typecode", v_typecode) :
+                new ObjectParameter("v_typecode", typeof(string));
+    
+            var v_statusCodeParameter = v_statusCode != null ?
+                new ObjectParameter("v_statusCode", v_statusCode) :
+                new ObjectParameter("v_statusCode", typeof(string));
+    
+            var v_updatedByParameter = v_updatedBy != null ?
+                new ObjectParameter("v_updatedBy", v_updatedBy) :
+                new ObjectParameter("v_updatedBy", typeof(string));
+    
+            var v_secuencialJSONParameter = v_secuencialJSON.HasValue ?
+                new ObjectParameter("v_secuencialJSON", v_secuencialJSON) :
+                new ObjectParameter("v_secuencialJSON", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecDemographicsPHONESList", v_CUENTAParameter, v_D1Parameter, v_D2Parameter, v_D3Parameter, v_D4Parameter, v_D5Parameter, v_D6Parameter, v_D7Parameter, v_D8Parameter, v_D9Parameter, v_D10Parameter, v_D11Parameter, v_D12Parameter, v_D13Parameter, v_D14Parameter, v_D15Parameter, v_D16Parameter, v_D17Parameter, v_D18Parameter, v_D19Parameter, v_D20Parameter, v_updateDateParameter, v_numberParameter, v_typecodeParameter, v_statusCodeParameter, v_updatedByParameter, v_secuencialJSONParameter);
+        }
+    
+        public virtual int spInsertSertecTreatmentList(string v_accountNumber_TTLS, string v_accountCategoryTypeCode_TTLS, string v_agencyId_TTLS, Nullable<System.DateTime> v_treatmentOffer_TTLS, Nullable<System.DateTime> v_updateDate_TTLS, string v_treatmentProgram_TTLS, string v_accountInsertTimeStamp_TTLS, Nullable<System.DateTime> v_treatmentAccept_TTLS, Nullable<System.DateTime> v_treatmentCompletion_TTLS, Nullable<decimal> v_actualSettlementAmount_TTLS, Nullable<decimal> v_agreedSettlementAmount_TTLS, Nullable<System.DateTime> v_treatmentExpiration_TTLS, string v_D1_TTLS, string v_D2_TTLS, string v_D3_TTLS, string v_D4_TTLS, string v_D5_TTLS, string v_D6_TTLS, string v_D7_TTLS, string v_D8_TTLS, string v_D9_TTLS, string v_D10_TTLS, string v_D11_TTLS, string v_D12_TTLS, string v_D13_TTLS, string v_D14_TTLS, string v_D15_TTLS, string v_D16_TTLS, string v_D17_TTLS, string v_D18_TTLS, string v_D19_TTLS, string v_D20_TTLS, Nullable<int> v_Secuencial_TTLS)
+        {
+            var v_accountNumber_TTLSParameter = v_accountNumber_TTLS != null ?
+                new ObjectParameter("v_accountNumber_TTLS", v_accountNumber_TTLS) :
+                new ObjectParameter("v_accountNumber_TTLS", typeof(string));
+    
+            var v_accountCategoryTypeCode_TTLSParameter = v_accountCategoryTypeCode_TTLS != null ?
+                new ObjectParameter("v_accountCategoryTypeCode_TTLS", v_accountCategoryTypeCode_TTLS) :
+                new ObjectParameter("v_accountCategoryTypeCode_TTLS", typeof(string));
+    
+            var v_agencyId_TTLSParameter = v_agencyId_TTLS != null ?
+                new ObjectParameter("v_agencyId_TTLS", v_agencyId_TTLS) :
+                new ObjectParameter("v_agencyId_TTLS", typeof(string));
+    
+            var v_treatmentOffer_TTLSParameter = v_treatmentOffer_TTLS.HasValue ?
+                new ObjectParameter("v_treatmentOffer_TTLS", v_treatmentOffer_TTLS) :
+                new ObjectParameter("v_treatmentOffer_TTLS", typeof(System.DateTime));
+    
+            var v_updateDate_TTLSParameter = v_updateDate_TTLS.HasValue ?
+                new ObjectParameter("v_updateDate_TTLS", v_updateDate_TTLS) :
+                new ObjectParameter("v_updateDate_TTLS", typeof(System.DateTime));
+    
+            var v_treatmentProgram_TTLSParameter = v_treatmentProgram_TTLS != null ?
+                new ObjectParameter("v_treatmentProgram_TTLS", v_treatmentProgram_TTLS) :
+                new ObjectParameter("v_treatmentProgram_TTLS", typeof(string));
+    
+            var v_accountInsertTimeStamp_TTLSParameter = v_accountInsertTimeStamp_TTLS != null ?
+                new ObjectParameter("v_accountInsertTimeStamp_TTLS", v_accountInsertTimeStamp_TTLS) :
+                new ObjectParameter("v_accountInsertTimeStamp_TTLS", typeof(string));
+    
+            var v_treatmentAccept_TTLSParameter = v_treatmentAccept_TTLS.HasValue ?
+                new ObjectParameter("v_treatmentAccept_TTLS", v_treatmentAccept_TTLS) :
+                new ObjectParameter("v_treatmentAccept_TTLS", typeof(System.DateTime));
+    
+            var v_treatmentCompletion_TTLSParameter = v_treatmentCompletion_TTLS.HasValue ?
+                new ObjectParameter("v_treatmentCompletion_TTLS", v_treatmentCompletion_TTLS) :
+                new ObjectParameter("v_treatmentCompletion_TTLS", typeof(System.DateTime));
+    
+            var v_actualSettlementAmount_TTLSParameter = v_actualSettlementAmount_TTLS.HasValue ?
+                new ObjectParameter("v_actualSettlementAmount_TTLS", v_actualSettlementAmount_TTLS) :
+                new ObjectParameter("v_actualSettlementAmount_TTLS", typeof(decimal));
+    
+            var v_agreedSettlementAmount_TTLSParameter = v_agreedSettlementAmount_TTLS.HasValue ?
+                new ObjectParameter("v_agreedSettlementAmount_TTLS", v_agreedSettlementAmount_TTLS) :
+                new ObjectParameter("v_agreedSettlementAmount_TTLS", typeof(decimal));
+    
+            var v_treatmentExpiration_TTLSParameter = v_treatmentExpiration_TTLS.HasValue ?
+                new ObjectParameter("v_treatmentExpiration_TTLS", v_treatmentExpiration_TTLS) :
+                new ObjectParameter("v_treatmentExpiration_TTLS", typeof(System.DateTime));
+    
+            var v_D1_TTLSParameter = v_D1_TTLS != null ?
+                new ObjectParameter("v_D1_TTLS", v_D1_TTLS) :
+                new ObjectParameter("v_D1_TTLS", typeof(string));
+    
+            var v_D2_TTLSParameter = v_D2_TTLS != null ?
+                new ObjectParameter("v_D2_TTLS", v_D2_TTLS) :
+                new ObjectParameter("v_D2_TTLS", typeof(string));
+    
+            var v_D3_TTLSParameter = v_D3_TTLS != null ?
+                new ObjectParameter("v_D3_TTLS", v_D3_TTLS) :
+                new ObjectParameter("v_D3_TTLS", typeof(string));
+    
+            var v_D4_TTLSParameter = v_D4_TTLS != null ?
+                new ObjectParameter("v_D4_TTLS", v_D4_TTLS) :
+                new ObjectParameter("v_D4_TTLS", typeof(string));
+    
+            var v_D5_TTLSParameter = v_D5_TTLS != null ?
+                new ObjectParameter("v_D5_TTLS", v_D5_TTLS) :
+                new ObjectParameter("v_D5_TTLS", typeof(string));
+    
+            var v_D6_TTLSParameter = v_D6_TTLS != null ?
+                new ObjectParameter("v_D6_TTLS", v_D6_TTLS) :
+                new ObjectParameter("v_D6_TTLS", typeof(string));
+    
+            var v_D7_TTLSParameter = v_D7_TTLS != null ?
+                new ObjectParameter("v_D7_TTLS", v_D7_TTLS) :
+                new ObjectParameter("v_D7_TTLS", typeof(string));
+    
+            var v_D8_TTLSParameter = v_D8_TTLS != null ?
+                new ObjectParameter("v_D8_TTLS", v_D8_TTLS) :
+                new ObjectParameter("v_D8_TTLS", typeof(string));
+    
+            var v_D9_TTLSParameter = v_D9_TTLS != null ?
+                new ObjectParameter("v_D9_TTLS", v_D9_TTLS) :
+                new ObjectParameter("v_D9_TTLS", typeof(string));
+    
+            var v_D10_TTLSParameter = v_D10_TTLS != null ?
+                new ObjectParameter("v_D10_TTLS", v_D10_TTLS) :
+                new ObjectParameter("v_D10_TTLS", typeof(string));
+    
+            var v_D11_TTLSParameter = v_D11_TTLS != null ?
+                new ObjectParameter("v_D11_TTLS", v_D11_TTLS) :
+                new ObjectParameter("v_D11_TTLS", typeof(string));
+    
+            var v_D12_TTLSParameter = v_D12_TTLS != null ?
+                new ObjectParameter("v_D12_TTLS", v_D12_TTLS) :
+                new ObjectParameter("v_D12_TTLS", typeof(string));
+    
+            var v_D13_TTLSParameter = v_D13_TTLS != null ?
+                new ObjectParameter("v_D13_TTLS", v_D13_TTLS) :
+                new ObjectParameter("v_D13_TTLS", typeof(string));
+    
+            var v_D14_TTLSParameter = v_D14_TTLS != null ?
+                new ObjectParameter("v_D14_TTLS", v_D14_TTLS) :
+                new ObjectParameter("v_D14_TTLS", typeof(string));
+    
+            var v_D15_TTLSParameter = v_D15_TTLS != null ?
+                new ObjectParameter("v_D15_TTLS", v_D15_TTLS) :
+                new ObjectParameter("v_D15_TTLS", typeof(string));
+    
+            var v_D16_TTLSParameter = v_D16_TTLS != null ?
+                new ObjectParameter("v_D16_TTLS", v_D16_TTLS) :
+                new ObjectParameter("v_D16_TTLS", typeof(string));
+    
+            var v_D17_TTLSParameter = v_D17_TTLS != null ?
+                new ObjectParameter("v_D17_TTLS", v_D17_TTLS) :
+                new ObjectParameter("v_D17_TTLS", typeof(string));
+    
+            var v_D18_TTLSParameter = v_D18_TTLS != null ?
+                new ObjectParameter("v_D18_TTLS", v_D18_TTLS) :
+                new ObjectParameter("v_D18_TTLS", typeof(string));
+    
+            var v_D19_TTLSParameter = v_D19_TTLS != null ?
+                new ObjectParameter("v_D19_TTLS", v_D19_TTLS) :
+                new ObjectParameter("v_D19_TTLS", typeof(string));
+    
+            var v_D20_TTLSParameter = v_D20_TTLS != null ?
+                new ObjectParameter("v_D20_TTLS", v_D20_TTLS) :
+                new ObjectParameter("v_D20_TTLS", typeof(string));
+    
+            var v_Secuencial_TTLSParameter = v_Secuencial_TTLS.HasValue ?
+                new ObjectParameter("v_Secuencial_TTLS", v_Secuencial_TTLS) :
+                new ObjectParameter("v_Secuencial_TTLS", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecTreatmentList", v_accountNumber_TTLSParameter, v_accountCategoryTypeCode_TTLSParameter, v_agencyId_TTLSParameter, v_treatmentOffer_TTLSParameter, v_updateDate_TTLSParameter, v_treatmentProgram_TTLSParameter, v_accountInsertTimeStamp_TTLSParameter, v_treatmentAccept_TTLSParameter, v_treatmentCompletion_TTLSParameter, v_actualSettlementAmount_TTLSParameter, v_agreedSettlementAmount_TTLSParameter, v_treatmentExpiration_TTLSParameter, v_D1_TTLSParameter, v_D2_TTLSParameter, v_D3_TTLSParameter, v_D4_TTLSParameter, v_D5_TTLSParameter, v_D6_TTLSParameter, v_D7_TTLSParameter, v_D8_TTLSParameter, v_D9_TTLSParameter, v_D10_TTLSParameter, v_D11_TTLSParameter, v_D12_TTLSParameter, v_D13_TTLSParameter, v_D14_TTLSParameter, v_D15_TTLSParameter, v_D16_TTLSParameter, v_D17_TTLSParameter, v_D18_TTLSParameter, v_D19_TTLSParameter, v_D20_TTLSParameter, v_Secuencial_TTLSParameter);
+        }
+    
+        public virtual int spInsertSertecVisionList(Nullable<System.DateTime> v_updateDate_VNLT, string v_updatedBy_VNLT, string v_accountNumber_VNLT, string v_rpc_VNLT, string v_rpcTypeCode_VNLT, string v_agencyId_VNLT, string v_D1_VNLT, string v_D2_VNLT, string v_D3_VNLT, string v_D4_VNLT, string v_D5_VNLT, string v_D6_VNLT, string v_D7_VNLT, string v_D8_VNLT, string v_D9_VNLT, string v_D10_VNLT, string v_D11_VNLT, string v_D12_VNLT, string v_D13_VNLT, string v_D14_VNLT, string v_D15_VNLT, string v_D16_VNLT, string v_D17_VNLT, string v_D18_VNLT, string v_D19_VNLT, string v_D20_VNLT, Nullable<int> v_secuencial_VNLT)
+        {
+            var v_updateDate_VNLTParameter = v_updateDate_VNLT.HasValue ?
+                new ObjectParameter("v_updateDate_VNLT", v_updateDate_VNLT) :
+                new ObjectParameter("v_updateDate_VNLT", typeof(System.DateTime));
+    
+            var v_updatedBy_VNLTParameter = v_updatedBy_VNLT != null ?
+                new ObjectParameter("v_updatedBy_VNLT", v_updatedBy_VNLT) :
+                new ObjectParameter("v_updatedBy_VNLT", typeof(string));
+    
+            var v_accountNumber_VNLTParameter = v_accountNumber_VNLT != null ?
+                new ObjectParameter("v_accountNumber_VNLT", v_accountNumber_VNLT) :
+                new ObjectParameter("v_accountNumber_VNLT", typeof(string));
+    
+            var v_rpc_VNLTParameter = v_rpc_VNLT != null ?
+                new ObjectParameter("v_rpc_VNLT", v_rpc_VNLT) :
+                new ObjectParameter("v_rpc_VNLT", typeof(string));
+    
+            var v_rpcTypeCode_VNLTParameter = v_rpcTypeCode_VNLT != null ?
+                new ObjectParameter("v_rpcTypeCode_VNLT", v_rpcTypeCode_VNLT) :
+                new ObjectParameter("v_rpcTypeCode_VNLT", typeof(string));
+    
+            var v_agencyId_VNLTParameter = v_agencyId_VNLT != null ?
+                new ObjectParameter("v_agencyId_VNLT", v_agencyId_VNLT) :
+                new ObjectParameter("v_agencyId_VNLT", typeof(string));
+    
+            var v_D1_VNLTParameter = v_D1_VNLT != null ?
+                new ObjectParameter("v_D1_VNLT", v_D1_VNLT) :
+                new ObjectParameter("v_D1_VNLT", typeof(string));
+    
+            var v_D2_VNLTParameter = v_D2_VNLT != null ?
+                new ObjectParameter("v_D2_VNLT", v_D2_VNLT) :
+                new ObjectParameter("v_D2_VNLT", typeof(string));
+    
+            var v_D3_VNLTParameter = v_D3_VNLT != null ?
+                new ObjectParameter("v_D3_VNLT", v_D3_VNLT) :
+                new ObjectParameter("v_D3_VNLT", typeof(string));
+    
+            var v_D4_VNLTParameter = v_D4_VNLT != null ?
+                new ObjectParameter("v_D4_VNLT", v_D4_VNLT) :
+                new ObjectParameter("v_D4_VNLT", typeof(string));
+    
+            var v_D5_VNLTParameter = v_D5_VNLT != null ?
+                new ObjectParameter("v_D5_VNLT", v_D5_VNLT) :
+                new ObjectParameter("v_D5_VNLT", typeof(string));
+    
+            var v_D6_VNLTParameter = v_D6_VNLT != null ?
+                new ObjectParameter("v_D6_VNLT", v_D6_VNLT) :
+                new ObjectParameter("v_D6_VNLT", typeof(string));
+    
+            var v_D7_VNLTParameter = v_D7_VNLT != null ?
+                new ObjectParameter("v_D7_VNLT", v_D7_VNLT) :
+                new ObjectParameter("v_D7_VNLT", typeof(string));
+    
+            var v_D8_VNLTParameter = v_D8_VNLT != null ?
+                new ObjectParameter("v_D8_VNLT", v_D8_VNLT) :
+                new ObjectParameter("v_D8_VNLT", typeof(string));
+    
+            var v_D9_VNLTParameter = v_D9_VNLT != null ?
+                new ObjectParameter("v_D9_VNLT", v_D9_VNLT) :
+                new ObjectParameter("v_D9_VNLT", typeof(string));
+    
+            var v_D10_VNLTParameter = v_D10_VNLT != null ?
+                new ObjectParameter("v_D10_VNLT", v_D10_VNLT) :
+                new ObjectParameter("v_D10_VNLT", typeof(string));
+    
+            var v_D11_VNLTParameter = v_D11_VNLT != null ?
+                new ObjectParameter("v_D11_VNLT", v_D11_VNLT) :
+                new ObjectParameter("v_D11_VNLT", typeof(string));
+    
+            var v_D12_VNLTParameter = v_D12_VNLT != null ?
+                new ObjectParameter("v_D12_VNLT", v_D12_VNLT) :
+                new ObjectParameter("v_D12_VNLT", typeof(string));
+    
+            var v_D13_VNLTParameter = v_D13_VNLT != null ?
+                new ObjectParameter("v_D13_VNLT", v_D13_VNLT) :
+                new ObjectParameter("v_D13_VNLT", typeof(string));
+    
+            var v_D14_VNLTParameter = v_D14_VNLT != null ?
+                new ObjectParameter("v_D14_VNLT", v_D14_VNLT) :
+                new ObjectParameter("v_D14_VNLT", typeof(string));
+    
+            var v_D15_VNLTParameter = v_D15_VNLT != null ?
+                new ObjectParameter("v_D15_VNLT", v_D15_VNLT) :
+                new ObjectParameter("v_D15_VNLT", typeof(string));
+    
+            var v_D16_VNLTParameter = v_D16_VNLT != null ?
+                new ObjectParameter("v_D16_VNLT", v_D16_VNLT) :
+                new ObjectParameter("v_D16_VNLT", typeof(string));
+    
+            var v_D17_VNLTParameter = v_D17_VNLT != null ?
+                new ObjectParameter("v_D17_VNLT", v_D17_VNLT) :
+                new ObjectParameter("v_D17_VNLT", typeof(string));
+    
+            var v_D18_VNLTParameter = v_D18_VNLT != null ?
+                new ObjectParameter("v_D18_VNLT", v_D18_VNLT) :
+                new ObjectParameter("v_D18_VNLT", typeof(string));
+    
+            var v_D19_VNLTParameter = v_D19_VNLT != null ?
+                new ObjectParameter("v_D19_VNLT", v_D19_VNLT) :
+                new ObjectParameter("v_D19_VNLT", typeof(string));
+    
+            var v_D20_VNLTParameter = v_D20_VNLT != null ?
+                new ObjectParameter("v_D20_VNLT", v_D20_VNLT) :
+                new ObjectParameter("v_D20_VNLT", typeof(string));
+    
+            var v_secuencial_VNLTParameter = v_secuencial_VNLT.HasValue ?
+                new ObjectParameter("v_secuencial_VNLT", v_secuencial_VNLT) :
+                new ObjectParameter("v_secuencial_VNLT", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecVisionList", v_updateDate_VNLTParameter, v_updatedBy_VNLTParameter, v_accountNumber_VNLTParameter, v_rpc_VNLTParameter, v_rpcTypeCode_VNLTParameter, v_agencyId_VNLTParameter, v_D1_VNLTParameter, v_D2_VNLTParameter, v_D3_VNLTParameter, v_D4_VNLTParameter, v_D5_VNLTParameter, v_D6_VNLTParameter, v_D7_VNLTParameter, v_D8_VNLTParameter, v_D9_VNLTParameter, v_D10_VNLTParameter, v_D11_VNLTParameter, v_D12_VNLTParameter, v_D13_VNLTParameter, v_D14_VNLTParameter, v_D15_VNLTParameter, v_D16_VNLTParameter, v_D17_VNLTParameter, v_D18_VNLTParameter, v_D19_VNLTParameter, v_D20_VNLTParameter, v_secuencial_VNLTParameter);
+        }
+    
+        public virtual ObjectResult<spSelectSertecAgencyIdFCS_Result> spSelectSertecAgencyIdFCS(string v_AccountNumber)
+        {
+            var v_AccountNumberParameter = v_AccountNumber != null ?
+                new ObjectParameter("v_AccountNumber", v_AccountNumber) :
+                new ObjectParameter("v_AccountNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectSertecAgencyIdFCS_Result>("spSelectSertecAgencyIdFCS", v_AccountNumberParameter);
+        }
+    
+        public virtual int spInsertSertecUpdatesIBBitacora(Nullable<int> v_secuencialJSON, string v_Entidad, Nullable<int> v_cuentasAProcesar, Nullable<int> v_cuentasInsertadas, Nullable<int> v_cuentasFaltantes, Nullable<int> v_cuentasProcesadas)
+        {
+            var v_secuencialJSONParameter = v_secuencialJSON.HasValue ?
+                new ObjectParameter("v_secuencialJSON", v_secuencialJSON) :
+                new ObjectParameter("v_secuencialJSON", typeof(int));
+    
+            var v_EntidadParameter = v_Entidad != null ?
+                new ObjectParameter("v_Entidad", v_Entidad) :
+                new ObjectParameter("v_Entidad", typeof(string));
+    
+            var v_cuentasAProcesarParameter = v_cuentasAProcesar.HasValue ?
+                new ObjectParameter("v_cuentasAProcesar", v_cuentasAProcesar) :
+                new ObjectParameter("v_cuentasAProcesar", typeof(int));
+    
+            var v_cuentasInsertadasParameter = v_cuentasInsertadas.HasValue ?
+                new ObjectParameter("v_cuentasInsertadas", v_cuentasInsertadas) :
+                new ObjectParameter("v_cuentasInsertadas", typeof(int));
+    
+            var v_cuentasFaltantesParameter = v_cuentasFaltantes.HasValue ?
+                new ObjectParameter("v_cuentasFaltantes", v_cuentasFaltantes) :
+                new ObjectParameter("v_cuentasFaltantes", typeof(int));
+    
+            var v_cuentasProcesadasParameter = v_cuentasProcesadas.HasValue ?
+                new ObjectParameter("v_cuentasProcesadas", v_cuentasProcesadas) :
+                new ObjectParameter("v_cuentasProcesadas", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecUpdatesIBBitacora", v_secuencialJSONParameter, v_EntidadParameter, v_cuentasAProcesarParameter, v_cuentasInsertadasParameter, v_cuentasFaltantesParameter, v_cuentasProcesadasParameter);
+        }
+    
+        public virtual ObjectResult<spSelectSertecAgencyIdFCS1_Result> spSelectSertecAgencyIdFCS1(string v_AccountNumber)
+        {
+            var v_AccountNumberParameter = v_AccountNumber != null ?
+                new ObjectParameter("v_AccountNumber", v_AccountNumber) :
+                new ObjectParameter("v_AccountNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectSertecAgencyIdFCS1_Result>("spSelectSertecAgencyIdFCS1", v_AccountNumberParameter);
+        }
+    
+        public virtual ObjectResult<string> spSelectSertecAgencyIdFuturosCiclos(string v_AccountNumber)
+        {
+            var v_AccountNumberParameter = v_AccountNumber != null ?
+                new ObjectParameter("v_AccountNumber", v_AccountNumber) :
+                new ObjectParameter("v_AccountNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelectSertecAgencyIdFuturosCiclos", v_AccountNumberParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> spSelectSertecUltimaTransaction()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spSelectSertecUltimaTransaction");
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> spSelectAmexAgencyAssignmentDate(string i_vCuenta)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("spSelectAmexAgencyAssignmentDate", i_vCuentaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectSertecBitacoraGlobal_Result> spSelectSertecBitacoraGlobal()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectSertecBitacoraGlobal_Result>("spSelectSertecBitacoraGlobal");
+        }
+    
+        public virtual int spInsertSertecBitacoraPagos(string v_tipo, string v_transactionTypeCode, Nullable<int> v_secuencial, Nullable<int> v_repeticiones, Nullable<decimal> v_montoTotal, string v_transactionId, string v_accountNumber, Nullable<System.DateTime> v_transactionDate, Nullable<int> v_tipoInserción)
+        {
+            var v_tipoParameter = v_tipo != null ?
+                new ObjectParameter("v_tipo", v_tipo) :
+                new ObjectParameter("v_tipo", typeof(string));
+    
+            var v_transactionTypeCodeParameter = v_transactionTypeCode != null ?
+                new ObjectParameter("v_transactionTypeCode", v_transactionTypeCode) :
+                new ObjectParameter("v_transactionTypeCode", typeof(string));
+    
+            var v_secuencialParameter = v_secuencial.HasValue ?
+                new ObjectParameter("v_secuencial", v_secuencial) :
+                new ObjectParameter("v_secuencial", typeof(int));
+    
+            var v_repeticionesParameter = v_repeticiones.HasValue ?
+                new ObjectParameter("v_repeticiones", v_repeticiones) :
+                new ObjectParameter("v_repeticiones", typeof(int));
+    
+            var v_montoTotalParameter = v_montoTotal.HasValue ?
+                new ObjectParameter("v_montoTotal", v_montoTotal) :
+                new ObjectParameter("v_montoTotal", typeof(decimal));
+    
+            var v_transactionIdParameter = v_transactionId != null ?
+                new ObjectParameter("v_transactionId", v_transactionId) :
+                new ObjectParameter("v_transactionId", typeof(string));
+    
+            var v_accountNumberParameter = v_accountNumber != null ?
+                new ObjectParameter("v_accountNumber", v_accountNumber) :
+                new ObjectParameter("v_accountNumber", typeof(string));
+    
+            var v_transactionDateParameter = v_transactionDate.HasValue ?
+                new ObjectParameter("v_transactionDate", v_transactionDate) :
+                new ObjectParameter("v_transactionDate", typeof(System.DateTime));
+    
+            var v_tipoInserciónParameter = v_tipoInserción.HasValue ?
+                new ObjectParameter("v_tipoInserción", v_tipoInserción) :
+                new ObjectParameter("v_tipoInserción", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecBitacoraPagos", v_tipoParameter, v_transactionTypeCodeParameter, v_secuencialParameter, v_repeticionesParameter, v_montoTotalParameter, v_transactionIdParameter, v_accountNumberParameter, v_transactionDateParameter, v_tipoInserciónParameter);
+        }
+    
+        public virtual int spSelectSertecBitacoraPagosGlobal()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spSelectSertecBitacoraPagosGlobal");
+        }
+    
+        public virtual ObjectResult<spSelectSertecBitacoraPagosGlobal2_Result> spSelectSertecBitacoraPagosGlobal2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectSertecBitacoraPagosGlobal2_Result>("spSelectSertecBitacoraPagosGlobal2");
+        }
+    
+        public virtual int spInsertSertecBitacoraPagos1(string v_tipo, string v_transactionTypeCode, Nullable<int> v_secuencial, Nullable<int> v_repeticiones, Nullable<decimal> v_montoTotal, string v_transactionId, string v_accountNumber, Nullable<System.DateTime> v_transactionDate, Nullable<int> v_tipoInserción)
+        {
+            var v_tipoParameter = v_tipo != null ?
+                new ObjectParameter("v_tipo", v_tipo) :
+                new ObjectParameter("v_tipo", typeof(string));
+    
+            var v_transactionTypeCodeParameter = v_transactionTypeCode != null ?
+                new ObjectParameter("v_transactionTypeCode", v_transactionTypeCode) :
+                new ObjectParameter("v_transactionTypeCode", typeof(string));
+    
+            var v_secuencialParameter = v_secuencial.HasValue ?
+                new ObjectParameter("v_secuencial", v_secuencial) :
+                new ObjectParameter("v_secuencial", typeof(int));
+    
+            var v_repeticionesParameter = v_repeticiones.HasValue ?
+                new ObjectParameter("v_repeticiones", v_repeticiones) :
+                new ObjectParameter("v_repeticiones", typeof(int));
+    
+            var v_montoTotalParameter = v_montoTotal.HasValue ?
+                new ObjectParameter("v_montoTotal", v_montoTotal) :
+                new ObjectParameter("v_montoTotal", typeof(decimal));
+    
+            var v_transactionIdParameter = v_transactionId != null ?
+                new ObjectParameter("v_transactionId", v_transactionId) :
+                new ObjectParameter("v_transactionId", typeof(string));
+    
+            var v_accountNumberParameter = v_accountNumber != null ?
+                new ObjectParameter("v_accountNumber", v_accountNumber) :
+                new ObjectParameter("v_accountNumber", typeof(string));
+    
+            var v_transactionDateParameter = v_transactionDate.HasValue ?
+                new ObjectParameter("v_transactionDate", v_transactionDate) :
+                new ObjectParameter("v_transactionDate", typeof(System.DateTime));
+    
+            var v_tipoInserciónParameter = v_tipoInserción.HasValue ?
+                new ObjectParameter("v_tipoInserción", v_tipoInserción) :
+                new ObjectParameter("v_tipoInserción", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecBitacoraPagos1", v_tipoParameter, v_transactionTypeCodeParameter, v_secuencialParameter, v_repeticionesParameter, v_montoTotalParameter, v_transactionIdParameter, v_accountNumberParameter, v_transactionDateParameter, v_tipoInserciónParameter);
+        }
+    
+        public virtual int spInsertSertecBitacoraPagos2(string v_tipo, string v_transactionTypeCode, Nullable<int> v_secuencial, Nullable<int> v_repeticiones, Nullable<decimal> v_montoTotal, string v_transactionId, string v_accountNumber, string v_recovererCode, string v_loanCode, Nullable<System.DateTime> v_transactionDate, Nullable<int> v_tipoInserción)
+        {
+            var v_tipoParameter = v_tipo != null ?
+                new ObjectParameter("v_tipo", v_tipo) :
+                new ObjectParameter("v_tipo", typeof(string));
+    
+            var v_transactionTypeCodeParameter = v_transactionTypeCode != null ?
+                new ObjectParameter("v_transactionTypeCode", v_transactionTypeCode) :
+                new ObjectParameter("v_transactionTypeCode", typeof(string));
+    
+            var v_secuencialParameter = v_secuencial.HasValue ?
+                new ObjectParameter("v_secuencial", v_secuencial) :
+                new ObjectParameter("v_secuencial", typeof(int));
+    
+            var v_repeticionesParameter = v_repeticiones.HasValue ?
+                new ObjectParameter("v_repeticiones", v_repeticiones) :
+                new ObjectParameter("v_repeticiones", typeof(int));
+    
+            var v_montoTotalParameter = v_montoTotal.HasValue ?
+                new ObjectParameter("v_montoTotal", v_montoTotal) :
+                new ObjectParameter("v_montoTotal", typeof(decimal));
+    
+            var v_transactionIdParameter = v_transactionId != null ?
+                new ObjectParameter("v_transactionId", v_transactionId) :
+                new ObjectParameter("v_transactionId", typeof(string));
+    
+            var v_accountNumberParameter = v_accountNumber != null ?
+                new ObjectParameter("v_accountNumber", v_accountNumber) :
+                new ObjectParameter("v_accountNumber", typeof(string));
+    
+            var v_recovererCodeParameter = v_recovererCode != null ?
+                new ObjectParameter("v_recovererCode", v_recovererCode) :
+                new ObjectParameter("v_recovererCode", typeof(string));
+    
+            var v_loanCodeParameter = v_loanCode != null ?
+                new ObjectParameter("v_loanCode", v_loanCode) :
+                new ObjectParameter("v_loanCode", typeof(string));
+    
+            var v_transactionDateParameter = v_transactionDate.HasValue ?
+                new ObjectParameter("v_transactionDate", v_transactionDate) :
+                new ObjectParameter("v_transactionDate", typeof(System.DateTime));
+    
+            var v_tipoInserciónParameter = v_tipoInserción.HasValue ?
+                new ObjectParameter("v_tipoInserción", v_tipoInserción) :
+                new ObjectParameter("v_tipoInserción", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSertecBitacoraPagos2", v_tipoParameter, v_transactionTypeCodeParameter, v_secuencialParameter, v_repeticionesParameter, v_montoTotalParameter, v_transactionIdParameter, v_accountNumberParameter, v_recovererCodeParameter, v_loanCodeParameter, v_transactionDateParameter, v_tipoInserciónParameter);
+        }
+    
+        public virtual ObjectResult<string> spSelectSertecAgencyIdFuturosCS(string v_AccountNumber)
+        {
+            var v_AccountNumberParameter = v_AccountNumber != null ?
+                new ObjectParameter("v_AccountNumber", v_AccountNumber) :
+                new ObjectParameter("v_AccountNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelectSertecAgencyIdFuturosCS", v_AccountNumberParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> spSelectAmexLogin(string v_userLogin, string v_passwordLogin)
+        {
+            var v_userLoginParameter = v_userLogin != null ?
+                new ObjectParameter("v_userLogin", v_userLogin) :
+                new ObjectParameter("v_userLogin", typeof(string));
+    
+            var v_passwordLoginParameter = v_passwordLogin != null ?
+                new ObjectParameter("v_passwordLogin", v_passwordLogin) :
+                new ObjectParameter("v_passwordLogin", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spSelectAmexLogin", v_userLoginParameter, v_passwordLoginParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexPreguntaSeguridad_Result> spSelectAmexPreguntaSeguridad(string v_userLogin, string v_respuestaSeguridad)
+        {
+            var v_userLoginParameter = v_userLogin != null ?
+                new ObjectParameter("v_userLogin", v_userLogin) :
+                new ObjectParameter("v_userLogin", typeof(string));
+    
+            var v_respuestaSeguridadParameter = v_respuestaSeguridad != null ?
+                new ObjectParameter("v_respuestaSeguridad", v_respuestaSeguridad) :
+                new ObjectParameter("v_respuestaSeguridad", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexPreguntaSeguridad_Result>("spSelectAmexPreguntaSeguridad", v_userLoginParameter, v_respuestaSeguridadParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> spSelectAmexRespuestaSeguridad(string v_userLogin, string v_respuestaSeguridad)
+        {
+            var v_userLoginParameter = v_userLogin != null ?
+                new ObjectParameter("v_userLogin", v_userLogin) :
+                new ObjectParameter("v_userLogin", typeof(string));
+    
+            var v_respuestaSeguridadParameter = v_respuestaSeguridad != null ?
+                new ObjectParameter("v_respuestaSeguridad", v_respuestaSeguridad) :
+                new ObjectParameter("v_respuestaSeguridad", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spSelectAmexRespuestaSeguridad", v_userLoginParameter, v_respuestaSeguridadParameter);
+        }
+    
+        public virtual int spSelectAmexCambiarPassword(string v_userLogin, string v_nuevoPassword)
+        {
+            var v_userLoginParameter = v_userLogin != null ?
+                new ObjectParameter("v_userLogin", v_userLogin) :
+                new ObjectParameter("v_userLogin", typeof(string));
+    
+            var v_nuevoPasswordParameter = v_nuevoPassword != null ?
+                new ObjectParameter("v_nuevoPassword", v_nuevoPassword) :
+                new ObjectParameter("v_nuevoPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spSelectAmexCambiarPassword", v_userLoginParameter, v_nuevoPasswordParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> spSelectAmexUpdateFECHASettlementCONVENIOS(string i_vCuenta)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("spSelectAmexUpdateFECHASettlementCONVENIOS", i_vCuentaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> spSelectAmexUpdateFECHASettlementCONVENIOSReloaded(string i_vCuenta)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("spSelectAmexUpdateFECHASettlementCONVENIOSReloaded", i_vCuentaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateVISION_Result> spSelectAmexUpdateVISION(string i_vFecha)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateVISION_Result>("spSelectAmexUpdateVISION", i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateVISIONReloaded_Result> spSelectAmexUpdateVISIONReloaded(string i_vFecha)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateVISIONReloaded_Result>("spSelectAmexUpdateVISIONReloaded", i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateSEGVISIONREloaded_Result> spSelectAmexUpdateSEGVISIONREloaded(string i_vCuenta, Nullable<System.DateTime> i_vFEcha)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vFEchaParameter = i_vFEcha.HasValue ?
+                new ObjectParameter("i_vFEcha", i_vFEcha) :
+                new ObjectParameter("i_vFEcha", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateSEGVISIONREloaded_Result>("spSelectAmexUpdateSEGVISIONREloaded", i_vCuentaParameter, i_vFEchaParameter);
+        }
+    
+        public virtual int spInsertLOGUpdatesib(Nullable<int> selector, Nullable<int> noProceso, string nombreProceso, Nullable<int> secuencialProceso, string descProceso, Nullable<System.DateTime> fE_INICIO)
+        {
+            var selectorParameter = selector.HasValue ?
+                new ObjectParameter("selector", selector) :
+                new ObjectParameter("selector", typeof(int));
+    
+            var noProcesoParameter = noProceso.HasValue ?
+                new ObjectParameter("noProceso", noProceso) :
+                new ObjectParameter("noProceso", typeof(int));
+    
+            var nombreProcesoParameter = nombreProceso != null ?
+                new ObjectParameter("nombreProceso", nombreProceso) :
+                new ObjectParameter("nombreProceso", typeof(string));
+    
+            var secuencialProcesoParameter = secuencialProceso.HasValue ?
+                new ObjectParameter("secuencialProceso", secuencialProceso) :
+                new ObjectParameter("secuencialProceso", typeof(int));
+    
+            var descProcesoParameter = descProceso != null ?
+                new ObjectParameter("descProceso", descProceso) :
+                new ObjectParameter("descProceso", typeof(string));
+    
+            var fE_INICIOParameter = fE_INICIO.HasValue ?
+                new ObjectParameter("FE_INICIO", fE_INICIO) :
+                new ObjectParameter("FE_INICIO", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertLOGUpdatesib", selectorParameter, noProcesoParameter, nombreProcesoParameter, secuencialProcesoParameter, descProcesoParameter, fE_INICIOParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateVISIONFAST_Result> spSelectAmexUpdateVISIONFAST(string i_vFecha, Nullable<int> i_secuencial)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            var i_secuencialParameter = i_secuencial.HasValue ?
+                new ObjectParameter("i_secuencial", i_secuencial) :
+                new ObjectParameter("i_secuencial", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateVISIONFAST_Result>("spSelectAmexUpdateVISIONFAST", i_vFechaParameter, i_secuencialParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateVISIONFASTReloaded_Result> spSelectAmexUpdateVISIONFASTReloaded(string i_vFecha, Nullable<int> i_secuencial)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            var i_secuencialParameter = i_secuencial.HasValue ?
+                new ObjectParameter("i_secuencial", i_secuencial) :
+                new ObjectParameter("i_secuencial", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateVISIONFASTReloaded_Result>("spSelectAmexUpdateVISIONFASTReloaded", i_vFechaParameter, i_secuencialParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> spInsertHASHIB(string i_NombreJSON, string i_Secuencial, string i_Hash, Nullable<int> i_tipo)
+        {
+            var i_NombreJSONParameter = i_NombreJSON != null ?
+                new ObjectParameter("i_NombreJSON", i_NombreJSON) :
+                new ObjectParameter("i_NombreJSON", typeof(string));
+    
+            var i_SecuencialParameter = i_Secuencial != null ?
+                new ObjectParameter("i_Secuencial", i_Secuencial) :
+                new ObjectParameter("i_Secuencial", typeof(string));
+    
+            var i_HashParameter = i_Hash != null ?
+                new ObjectParameter("i_Hash", i_Hash) :
+                new ObjectParameter("i_Hash", typeof(string));
+    
+            var i_tipoParameter = i_tipo.HasValue ?
+                new ObjectParameter("i_tipo", i_tipo) :
+                new ObjectParameter("i_tipo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("spInsertHASHIB", i_NombreJSONParameter, i_SecuencialParameter, i_HashParameter, i_tipoParameter);
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdateCUENTA_Result> spSelectAmexUpdateCUENTA(string i_vFecha)
+        {
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdateCUENTA_Result>("spSelectAmexUpdateCUENTA", i_vFechaParameter);
+        }
+    
+        public virtual ObjectResult<string> spSelectSecuencialAmexJSON(string v_TipoJSON)
+        {
+            var v_TipoJSONParameter = v_TipoJSON != null ?
+                new ObjectParameter("v_TipoJSON", v_TipoJSON) :
+                new ObjectParameter("v_TipoJSON", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spSelectSecuencialAmexJSON", v_TipoJSONParameter);
+        }
+    
+        public virtual int spInsertSecuencialAmexJSON(string v_NombreCompleto, string v_Secuencial, string v_tipoJSON, string v_usuarioCreador, string v_totalRegistros, Nullable<System.DateTime> v_horaInicio, Nullable<System.DateTime> v_horaFin)
+        {
+            var v_NombreCompletoParameter = v_NombreCompleto != null ?
+                new ObjectParameter("v_NombreCompleto", v_NombreCompleto) :
+                new ObjectParameter("v_NombreCompleto", typeof(string));
+    
+            var v_SecuencialParameter = v_Secuencial != null ?
+                new ObjectParameter("v_Secuencial", v_Secuencial) :
+                new ObjectParameter("v_Secuencial", typeof(string));
+    
+            var v_tipoJSONParameter = v_tipoJSON != null ?
+                new ObjectParameter("v_tipoJSON", v_tipoJSON) :
+                new ObjectParameter("v_tipoJSON", typeof(string));
+    
+            var v_usuarioCreadorParameter = v_usuarioCreador != null ?
+                new ObjectParameter("v_usuarioCreador", v_usuarioCreador) :
+                new ObjectParameter("v_usuarioCreador", typeof(string));
+    
+            var v_totalRegistrosParameter = v_totalRegistros != null ?
+                new ObjectParameter("v_totalRegistros", v_totalRegistros) :
+                new ObjectParameter("v_totalRegistros", typeof(string));
+    
+            var v_horaInicioParameter = v_horaInicio.HasValue ?
+                new ObjectParameter("v_horaInicio", v_horaInicio) :
+                new ObjectParameter("v_horaInicio", typeof(System.DateTime));
+    
+            var v_horaFinParameter = v_horaFin.HasValue ?
+                new ObjectParameter("v_horaFin", v_horaFin) :
+                new ObjectParameter("v_horaFin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSecuencialAmexJSON", v_NombreCompletoParameter, v_SecuencialParameter, v_tipoJSONParameter, v_usuarioCreadorParameter, v_totalRegistrosParameter, v_horaInicioParameter, v_horaFinParameter);
+        }
+    
+        public virtual int spInsertSecuencialAmexJSON_R(string v_NombreCompleto, string v_Secuencial, string v_tipoJSON, string v_usuarioCreador, string v_totalRegistros, Nullable<System.DateTime> v_horaInicio, Nullable<System.DateTime> v_horaFin, Nullable<int> v_veredicto)
+        {
+            var v_NombreCompletoParameter = v_NombreCompleto != null ?
+                new ObjectParameter("v_NombreCompleto", v_NombreCompleto) :
+                new ObjectParameter("v_NombreCompleto", typeof(string));
+    
+            var v_SecuencialParameter = v_Secuencial != null ?
+                new ObjectParameter("v_Secuencial", v_Secuencial) :
+                new ObjectParameter("v_Secuencial", typeof(string));
+    
+            var v_tipoJSONParameter = v_tipoJSON != null ?
+                new ObjectParameter("v_tipoJSON", v_tipoJSON) :
+                new ObjectParameter("v_tipoJSON", typeof(string));
+    
+            var v_usuarioCreadorParameter = v_usuarioCreador != null ?
+                new ObjectParameter("v_usuarioCreador", v_usuarioCreador) :
+                new ObjectParameter("v_usuarioCreador", typeof(string));
+    
+            var v_totalRegistrosParameter = v_totalRegistros != null ?
+                new ObjectParameter("v_totalRegistros", v_totalRegistros) :
+                new ObjectParameter("v_totalRegistros", typeof(string));
+    
+            var v_horaInicioParameter = v_horaInicio.HasValue ?
+                new ObjectParameter("v_horaInicio", v_horaInicio) :
+                new ObjectParameter("v_horaInicio", typeof(System.DateTime));
+    
+            var v_horaFinParameter = v_horaFin.HasValue ?
+                new ObjectParameter("v_horaFin", v_horaFin) :
+                new ObjectParameter("v_horaFin", typeof(System.DateTime));
+    
+            var v_veredictoParameter = v_veredicto.HasValue ?
+                new ObjectParameter("v_veredicto", v_veredicto) :
+                new ObjectParameter("v_veredicto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spInsertSecuencialAmexJSON_R", v_NombreCompletoParameter, v_SecuencialParameter, v_tipoJSONParameter, v_usuarioCreadorParameter, v_totalRegistrosParameter, v_horaInicioParameter, v_horaFinParameter, v_veredictoParameter);
+        }
+    
+        public virtual ObjectResult<spSelectBitacoraSecuencialesAmexJSON_Result> spSelectBitacoraSecuencialesAmexJSON()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectBitacoraSecuencialesAmexJSON_Result>("spSelectBitacoraSecuencialesAmexJSON");
+        }
+    
+        public virtual ObjectResult<spSelectAmexUpdatePHONE_Result> spSelectAmexUpdatePHONE(string i_vCuenta, string i_vFecha)
+        {
+            var i_vCuentaParameter = i_vCuenta != null ?
+                new ObjectParameter("i_vCuenta", i_vCuenta) :
+                new ObjectParameter("i_vCuenta", typeof(string));
+    
+            var i_vFechaParameter = i_vFecha != null ?
+                new ObjectParameter("i_vFecha", i_vFecha) :
+                new ObjectParameter("i_vFecha", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spSelectAmexUpdatePHONE_Result>("spSelectAmexUpdatePHONE", i_vCuentaParameter, i_vFechaParameter);
         }
     }
 }

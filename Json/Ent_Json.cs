@@ -53,7 +53,7 @@ namespace Json
             public Demographics demographics { get; set; }
             public ContactInfo contactInfo { get; set; }
             public Employer employer { get; set; }
-            public RelatedPerson relatedPerson { get; set; }
+            public RelatedPersonList relatedPersonList { get; set; }
             public AccountDetails accountDetails { get; set; }
             public AttorneyDetails attorneyDetails { get; set; }
             public ProductDetails productDetails { get; set; }
@@ -72,7 +72,7 @@ namespace Json
             public FinancialTransactionDetails financialTransactionDetails { get; set; }
             public RiskScore riskScore { get; set; }
             public RegulatoryChange regulatoryChange { get; set; }
-            public Treatment treatment { get; set; }
+            public List<Treatments> treatments { get; set; }
             public Settlement settlement { get; set; }
             public StrategyInfo strategyInfo { get; set; }
             public SugarBarFieldDetails sugarBarFieldDetails { get; set; }
@@ -85,7 +85,8 @@ namespace Json
             public DeceasedDetails deceasedDetails { get; set; }
             public CmxTradeDemographics cmxTradeDemographics { get; set; }            
             public AgencyInfo agencyInfo { get; set; }
-            public AgencyAssignment agencyAssignment {get;set;}            
+            public AgencyAssignment agencyAssignment {get;set;}   
+            public CollectionRiskScore collectionRiskScore { get; set; }
         }
         public class AttorneyDetails
         {
@@ -102,7 +103,7 @@ namespace Json
             public string emailAddress2 { get; set; }
             public string city { get; set; }
             public string state { get; set; }
-            public string postalCode { get; set; }
+            public string postalCode { get; set; }  
             public string businessPhone { get; set; }
             public string mobilePhone1 { get; set; }
             public string mobilePhone2 { get; set; }
@@ -270,9 +271,29 @@ namespace Json
             public double? amountDue90DaysInUSD { get; set; } = null;
             public double? amountDue120DaysInUSD { get; set; } = null;
             public double? amountDue150DaysInUSD { get; set; } = null;
-            public string creditInUSD { get; set; }
+            public double? otherIncome { get; set; } = null;
+            public double? totalPastdue { get; set; } = null;
             public string legacyCode { get; set; }
+            public CreditInUSD creditInUSD { get; set; }
+           
         }
+        public class CreditInUSD
+        {
+            public double? Month01 { get; set; } = null;
+            public double? Month02 { get; set; } = null;
+            public double? Month03 { get; set; } = null;
+            public double? Month04 { get; set; } = null;
+            public double? Month05 { get; set; } = null;
+            public double? Month06 { get; set; } = null;
+            public double? Month07 { get; set; } = null;
+            public double? Month08 { get; set; } = null;
+            public double? Month09 { get; set; } = null;
+            public double? Month10 { get; set; } = null;
+            public double? Month11 { get; set; } = null;
+            public double? Month12 { get; set; } = null;
+        }
+          
+        
         public class FinancialRisk
         {
             public DateTime? updateDate { get; set; } = null;
@@ -321,7 +342,37 @@ namespace Json
             public double? Month11 { get; set; } = null;
             public double? Month12 { get; set; } = null;
         }
+        public class DebitSummaryInMonthsUSD
+        {
+            public double? Month01 { get; set; } = null;
+            public double? Month02 { get; set; } = null;
+            public double? Month03 { get; set; } = null;
+            public double? Month04 { get; set; } = null;
+            public double? Month05 { get; set; } = null;
+            public double? Month06 { get; set; } = null;
+            public double? Month07 { get; set; } = null;
+            public double? Month08 { get; set; } = null;
+            public double? Month09 { get; set; } = null;
+            public double? Month10 { get; set; } = null;
+            public double? Month11 { get; set; } = null;
+            public double? Month12 { get; set; } = null;
+        }
         public class AccountBalanceInMonths
+        {
+            public double? Month01 { get; set; } = null;
+            public double? Month02 { get; set; } = null;
+            public double? Month03 { get; set; } = null;
+            public double? Month04 { get; set; } = null;
+            public double? Month05 { get; set; } = null;
+            public double? Month06 { get; set; } = null;
+            public double? Month07 { get; set; } = null;
+            public double? Month08 { get; set; } = null;
+            public double? Month09 { get; set; } = null;
+            public double? Month10 { get; set; } = null;
+            public double? Month11 { get; set; } = null;
+            public double? Month12 { get; set; } = null;
+        }
+        public class AccountBalanceInMonthsUSD
         {
             public double? Month01 { get; set; } = null;
             public double? Month02 { get; set; } = null;
@@ -388,8 +439,9 @@ namespace Json
             public string accountNumber { get; set; }
             public string accountCategoryTypeCode { get; set; }            
             public DebitSummaryInMonths debitSummaryInMonths { get; set; }
+            public DebitSummaryInMonthsUSD debitSummaryInMonthsUSD { get; set; }
             public AccountBalanceInMonths accountBalanceInMonths { get; set; }
-            public InterestAccessedByMonth interestAccessedByMonth { get; set; }
+            public AccountBalanceInMonthsUSD accountBalanceInMonthsUSD { get; set; }
             public SummaryCreditInMonths summaryCreditInMonths { get; set; }
             public double? previousBalance { get; set; } = null;
             public AccountAgingInMonths accountAgingInMonths { get; set; }
@@ -447,16 +499,16 @@ namespace Json
             public double? lendingPayToCurrrentScore { get; set; } = null;
             public int? probScore { get; set; } = null;
         }
-        public class Treatment
+        public class Treatments
         {
             public DateTime? updateDate { get; set; } = null;
-            public int? id { get; set; } = null;
+            //public int? id { get; set; } = null;
             public string accountNumber { get; set; }
             public string accountCategoryTypeCode { get; set; }
-            public DateTime? nextPaymentDate { get; set; } = null;
-            public Care care { get; set; }
-            public Cdmp cdmp { get; set; }
-            public int? actualSettlementAmount { get; set; } = null;
+            //public DateTime? nextPaymentDate { get; set; } = null;
+            //public Care care { get; set; }
+            //public Cdmp cdmp { get; set; }
+            public double? actualSettlementAmount { get; set; } = null;//AANAY CAMBIO A DECIMALES PARA QUE NO MARQUE ERROR PORQUE ESTABA COMO ENTERO (INT) 03/ENE/22
             public string treatmentEligibility { get; set; }
             public DateTime? treatmentOffer { get; set; } = null;
             public DateTime? treatmentAccept { get; set; } = null;
@@ -464,8 +516,10 @@ namespace Json
             public DateTime? treatmentExpiration { get; set; } = null;
             public string treatmentProgram { get; set; }
             public double? agreedSettlementAmount { get; set; } = null;
-            public string applicationGeoScramNumber { get; set; }
+            //public string applicationGeoScramNumber { get; set; }
             public string agencyId { get; set; }
+            public string accountInsertTimeStamp { get; set; }
+            public string isActive { get; set; }
         }
         public class StrategyInfo
         {
@@ -539,7 +593,10 @@ namespace Json
             public Phone agencyPhone { get; set; }
             public string agencyBranchName { get; set; }
             public string extensibleAttribute { get; set; }
-       
+            //Este campo no existia, Existe en el EXCEL. Agregado el 24 de Septiembre del 2019. - Ricardo Cervantes
+            public string legacyRecovererCode { get; set; }
+
+
         }
         public class NationalId
         {
@@ -568,7 +625,7 @@ namespace Json
             public string type { get; set; }
             public DateTime? lastContactDate { get; set; } = null;
         }
-        public class RelatedPerson
+        public class RelatedPersonList
         {
             public DateTime? updateDate { get; set; } = null;
             public string updatedBy { get; set; }
@@ -740,6 +797,24 @@ namespace Json
             public string returnMetricScore { get; set; }
             public string ficoScore { get; set; }
         }
+        public class CollectionRiskScore
+        {
+            public DateTime? updateDate { get; set; } = null;
+            public string updatedBy { get; set; }
+            public string accountNumber { get; set; }
+            public string accountCategoryTypeCode { get; set; }
+            public double? debtToValueRatio { get; set; } = null;
+            public double? customerLevelScoreForChargeAndLending { get; set; } = null;
+            public double? lendingPayToCurrrentScore { get; set; } = null;
+            public int? probScore { get; set; } = null;
+            public int? id { get; set; } = null;
+            public int? collectibilityScore { get; set; } = null;
+            public int? recoveryScore { get; set; } = null;
+            public int? bankruptcyScore { get; set; } = null;
+            public int? marketRecoveryScore { get; set; } = null;
+            public string returnMetricScore { get; set; }
+            public string ficoScore { get; set; }
+        }
         public class CustomerAdditionalDetails
         {
             public DateTime? updateDate { get; set; } = null;
@@ -798,7 +873,7 @@ namespace Json
             public string accountNumber { get; set; }
             public string accountCategoryTypeCode { get; set; }
             public string attorneyName { get; set; }
-            public string attroneyAddress { get; set; }
+            public string attorneyAddress  { get; set; }
             public string executorAddress2 { get; set; }
             public string executorCity { get; set; }
             public string executorState { get; set; }
@@ -954,6 +1029,7 @@ namespace Json
             public string class5 { get; set; }
             public string rpc { get; set; }
             public string rpcTypeCode { get; set; }
+            public string agencyId { get; set; }
         }
         public class Care
         {

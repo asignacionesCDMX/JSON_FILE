@@ -21,7 +21,7 @@ namespace Json
         public string TBAXREACCOUNTCATEGORYTYPECODE { get; set; }
         public Nullable<decimal> TBAXREDEBTTOVALUERATIO { get; set; }
         public Nullable<decimal> TBAXRECUSTOMERLEVELSCOREFORCHARGEANDLENDING { get; set; }
-        public Nullable<int> TBAXRELENDINGPAYTOCURRRENTSCORE { get; set; }
+        public Nullable<decimal> TBAXRELENDINGPAYTOCURRRENTSCORE { get; set; }
         public Nullable<int> TBAXREPROBSCORE { get; set; }
         public string TBAXRETIPO { get; set; }
     }

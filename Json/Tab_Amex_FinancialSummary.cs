@@ -27,5 +27,7 @@ namespace Json
         public Nullable<int> TBAXFYIDACCOUNTAGINGINMONTHS { get; set; }
         public string TBAXFYTIPO { get; set; }
         public Nullable<int> TBAXFYIDHEADER { get; set; }
+        public Nullable<int> TBAXFYIDDEBITSUMMARYINMONTHSUSD { get; set; }
+        public Nullable<int> TBAXFYIDACCOUNTBALANCEINMONTHSUSD { get; set; }
     }
 }

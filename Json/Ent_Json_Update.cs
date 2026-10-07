@@ -11,15 +11,15 @@ namespace Json
         public class RootObject
         {
             public DateTime? updateDate { get; set; } = null;
-            public string updateBy { get; set; }
+            public string updatedBy { get; set; }
             public Json.Header header { get; set; }
             public List<AccountList> accountList { get; set; }
             public List<ActionsHistoryList> actionsHistoryList { get; set; }
             public List<AccountDetailsList> accountDetailsList { get; set; }
             public List<AdditionalCmSpendInfoList> additionalCmSpendInfoList { get; set; }            
-            public List<AgencyInfoList> agecyInfoList { get; set; }
+            public List<AgencyInfoList> agencyInfoList { get; set; }
             public List<AgencyAssignmentList> AgencyAssignmentList { get; set; }
-            public List<Json.AttorneyDetails> attorneyDetails { get; set; }
+            public List<Json.attorneyDetailsList> attorneyDetailsList { get; set; }
             public List<BankListList> bankListList { get; set; }
             public List<BankruptcyDetailsList> bankruptcyDetailsList { get; set; }
             public List<CapInfoList> capInfoList { get; set; }
@@ -46,13 +46,32 @@ namespace Json
             public List<ProductDetailsList> productDetailsList { get; set; }    
             public List<RiskScoreList> riskScoreList { get; set; }
             public List<RegulatoryChangeList> regulatoryChangeList { get; set; }
-            public List<Json.RelatedPersonListList> relatedPersonList { get; set; }
+            public List<Json.RelatedPersonListList> relatedPersonListList { get; set; }
             public List<SettlementList> settlementList { get; set; }
             public List<StrategyInfoList> strategyInfoList { get; set; }
             public List<SugarBarFieldDetailsList> sugarBarFieldDetailsList { get; set; }
             public List<TreatmentList> treatmentList { get; set; }
             public List<VisionList> visionList { get; set; }
+            public List<CollectionRiskScoreList> collectionRiskScoreList { get; set; }
         }
+    }
+    public class CollectionRiskScoreList
+    {
+        public DateTime? updateDate { get; set; } = null;
+        public string updatedBy { get; set; }
+        public string accountNumber { get; set; }
+        public string accountCategoryTypeCode { get; set; }
+        public double? debtToValueRatio { get; set; } = null;
+        public double? customerLevelScoreForChargeAndLending { get; set; } = null;
+        public double? lendingPayToCurrrentScore { get; set; } = null;
+        public int? probScore { get; set; } = null;
+        public int? id { get; set; } = null;
+        public int? collectibilityScore { get; set; } = null;
+        public int? recoveryScore { get; set; } = null;
+        public int? bankruptcyScore { get; set; } = null;
+        public int? marketRecoveryScore { get; set; } = null;
+        public string returnMetricScore { get; set; }
+        public string ficoScore { get; set; }
     }
     public class relatedPersonListList
     {
@@ -152,13 +171,9 @@ namespace Json
     }
     public class TreatmentList
     {
-        public DateTime? updateDate { get; set; } = null;
-        public int? id { get; set; } = null;
+        public DateTime? updateDate { get; set; } = null;        
         public string accountNumber { get; set; }
         public string accountCategoryTypeCode { get; set; }
-        public DateTime? nextPaymentDate { get; set; } = null;
-        public Care care { get; set; }
-        public Cdmp cdmp { get; set; }
         public double? actualSettlementAmount { get; set; } = null;
         public string treatmentEligibility { get; set; }
         public DateTime? treatmentOffer { get; set; } = null;
@@ -167,9 +182,9 @@ namespace Json
         public DateTime? treatmentExpiration { get; set; } = null;
         public string treatmentProgram { get; set; }
         public double? agreedSettlementAmount { get; set; } = null;
-        public int? applicationGeoScramNumber { get; set; } = null;
         public string agencyId { get; set; }
-
+        public string accountInsertTimeStamp { get; set; } = null;
+        public string isActive { get; set; }
 
 
     }
@@ -487,7 +502,37 @@ namespace Json
         public double? Month11 { get; set; } = null;
         public double? Month12 { get; set; } = null;
     }
+    public class DebitSummaryInMonthsUSD
+    {
+        public double? Month01 { get; set; } = null;
+        public double? Month02 { get; set; } = null;
+        public double? Month03 { get; set; } = null;
+        public double? Month04 { get; set; } = null;
+        public double? Month05 { get; set; } = null;
+        public double? Month06 { get; set; } = null;
+        public double? Month07 { get; set; } = null;
+        public double? Month08 { get; set; } = null;
+        public double? Month09 { get; set; } = null;
+        public double? Month10 { get; set; } = null;
+        public double? Month11 { get; set; } = null;
+        public double? Month12 { get; set; } = null;
+    }
     public class AccountBalanceInMonths
+    {
+        public double? Month01 { get; set; } = null;
+        public double? Month02 { get; set; } = null;
+        public double? Month03 { get; set; } = null;
+        public double? Month04 { get; set; } = null;
+        public double? Month05 { get; set; } = null;
+        public double? Month06 { get; set; } = null;
+        public double? Month07 { get; set; } = null;
+        public double? Month08 { get; set; } = null;
+        public double? Month09 { get; set; } = null;
+        public double? Month10 { get; set; } = null;
+        public double? Month11 { get; set; } = null;
+        public double? Month12 { get; set; } = null;
+    }
+    public class AccountBalanceInMonthsUSD
     {
         public double? Month01 { get; set; } = null;
         public double? Month02 { get; set; } = null;
@@ -554,8 +599,9 @@ namespace Json
         public string accountNumber { get; set; }
         public string accountCategoryTypeCode { get; set; }
         public DebitSummaryInMonths debitSummaryInMonths { get; set; }
+        public DebitSummaryInMonthsUSD debitSummaryInMonthsUSD { get; set; }
         public AccountBalanceInMonths accountBalanceInMonths { get; set; }
-        public InterestAccessedByMonth interestAccessedByMonth { get; set; }
+        public AccountBalanceInMonthsUSD accountBalanceInMonthsUSD { get; set; }        
         public SummaryCreditInMonths summaryCreditInMonths { get; set; }
         public double? previousBalance { get; set; } = null;
         public AccountAgingInMonths accountAgingInMonths { get; set; }
@@ -699,8 +745,25 @@ namespace Json
         public double? amountDue90DaysInUSD { get; set; } = null;
         public double? amountDue120DaysInUSD { get; set; } = null;
         public double? amountDue150DaysInUSD { get; set; } = null;
-        public string creditInUSD { get; set; }
+        public double? otherIncome { get; set; } = null;
+        public double? totalPastdue { get; set; } = null;
         public string legacyCode { get; set; }
+        public CreditInUSD creditInUSD { get; set; }
+    }
+    public class CreditInUSD
+    {
+        public double? Month01 { get; set; } = null;
+        public double? Month02 { get; set; } = null;
+        public double? Month03 { get; set; } = null;
+        public double? Month04 { get; set; } = null;
+        public double? Month05 { get; set; } = null;
+        public double? Month06 { get; set; } = null;
+        public double? Month07 { get; set; } = null;
+        public double? Month08 { get; set; } = null;
+        public double? Month09 { get; set; } = null;
+        public double? Month10 { get; set; } = null;
+        public double? Month11 { get; set; } = null;
+        public double? Month12 { get; set; } = null;
     }
     public class CustomerDetailsList
     {
@@ -868,7 +931,7 @@ namespace Json
         public string sourceFlag { get; set; }
         public string legacyFieldCode { get; set; }
     }
-    public class AttorneyDetails
+    public class attorneyDetailsList
     {
         public DateTime? updateDate { get; set; } = null;
         public int? id { get; set; } = null;

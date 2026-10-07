@@ -32,5 +32,8 @@ namespace Json
         public Nullable<decimal> TBAXTTAGREEDSETTLEMENTAMOUNT { get; set; }
         public string TBAXTTAPPLICATIONGEOSCRAMNUMBER { get; set; }
         public string TBAXTTAGENCYID { get; set; }
+        public string TBAXTTACCOUNTINSERTTIMESTAMP { get; set; }
+        public string TBAXTTISACTIVE { get; set; }
+        public Nullable<int> TBAXTTIDACCOUNT { get; set; }
     }
 }
