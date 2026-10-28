@@ -1,0 +1,305 @@
+SET SAFETY OFF
+SET CENTURY ON
+SET DATE AMERICAN
+SET HOURS TO 24
+
+RUN O:\PRG\GPO1\486\bases\ASIG_486.xlsm
+MESSAGEBOX('CONTINUA HASTA CORRER LA MACRO')
+
+CD O:\PRG\GPO1\486\bases
+
+* --- LIMPIEZA INICIAL DE ESTRUCTURAS ---
+USE "O:\PRG\GPO1\486\bases\layout_consumo" IN 0 EXCLUSIVE
+ZAP IN layout_consumo
+USE "O:\PRG\GPO1\486\bases\layout_tdc" IN 0 EXCLUSIVE
+ZAP IN layout_tdc
+USE "O:\PRG\GPO1\486\bases\layout_hipo" IN 0 EXCLUSIVE
+ZAP IN layout_hipo
+USE "O:\PRG\GPO1\486\bases\saldos_486" IN 0 EXCLUSIVE
+ZAP IN saldos_486
+CLOSE TABLES
+
+IF FILE("C:\DEVOLUCION.DBF")
+	USE C:\DEVOLUCION IN 0 EXCLUSIVE
+	ZAP IN DEVOLUCION
+	USE IN DEVOLUCION
+ENDIF
+
+
+* --- PROCESAMIENTO DE SALDOS ---
+USE "O:\PRG\GPO1\486\bases\saldos_486" IN 0 EXCLUSIVE
+SELECT saldos_486
+
+IF FILE("C:\SALDOS_TDC.CSV")
+	APPEND FROM "C:\SALDOS_TDC.CSV" CSV
+ENDIF
+IF FILE("C:\SALDOS_CONSUMO.CSV")
+	APPEND FROM "C:\SALDOS_CONSUMO.CSV" CSV
+ENDIF
+IF FILE("C:\SALDOS_HIPO.CSV")
+	APPEND FROM "C:\SALDOS_HIPO.CSV" CSV
+ENDIF
+BROWSE NOWAIT
+USE IN saldos_486
+
+
+* --- PROCESAMIENTO BASE CONSUMO ---
+IF FILE("C:\CONSUMO.CSV")
+	USE "O:\PRG\GPO1\486\bases\layout_consumo" IN 0 EXCLUSIVE
+	SELECT layout_consumo
+	MESSAGEBOX('BASE CONSUMO', 64, 'Procesando')
+	APPEND FROM "C:\CONSUMO.CSV" CSV
+	
+	UPDATE layout_consumo SET etiqueta1=sTRTRAN(etiqueta1,"-","")	  
+	UPDATE layout_consumo SET etiqueta1='MORA 1' WHERE etiqueta1='COSECHA 1'  
+   	UPDATE layout_consumo SET etiqueta1='MORA 2' WHERE etiqueta1='COSECHA 2'  
+   	UPDATE layout_consumo SET etiqueta1='MORA 3' WHERE etiqueta1='COSECHA 3'  
+	BROWSE 
+	IF NOT FILE("C:\MORA1.DBF")
+		SELECT layout_consumo.CUENTA, layout_consumo.ETIQUETA1 FROM layout_consumo ;
+		INNER JOIN O:\DAT\GPO1\486\DAT ON layout_consumo.CUENTA=DAT.CUENTA WHERE layout_consumo.etiqueta1!=DAT.etiqueta1 AND DAT.SEGMENTO2='CONSUMO';
+		INTO TABLE C:\MORA1
+		USE IN layout_consumo
+		USE IN DAT
+		USE IN MORA1
+	ELSE	
+		SELECT layout_consumo.CUENTA, layout_consumo.ETIQUETA1 FROM layout_consumo ;
+		INNER JOIN O:\DAT\GPO1\486\DAT ON layout_consumo.CUENTA=DAT.CUENTA WHERE layout_consumo.etiqueta1!=DAT.etiqueta1 AND DAT.SEGMENTO2='CONSUMO';
+		INTO CURSOR MORA1_CONSUMO
+		
+		USE C:\MORA1 IN 0 EXCLUSIVE
+		SELECT MORA1
+		APPEND FROM DBF('MORA1_CONSUMO')
+		USE IN MORA1_CONSUMO
+		USE IN MORA1
+	ENDIF
+	
+	IF NOT FILE("C:\DEVOLUCION.DBF")
+		SELECT CUENTA FROM O:\DAT\GPO1\486\DAT ;
+		WHERE DES_PROD NOT IN (SELECT DES_PROD FROM layout_consumo) AND segmento2 ='CONSUMO' ;
+		INTO TABLE C:\DEVOLUCION 
+		USE IN DEVOLUCION
+	ELSE
+		SELECT FOLIO, CUENTA FROM O:\DAT\GPO1\486\DAT ;
+			WHERE DES_PROD NOT IN (SELECT DES_PROD FROM layout_consumo) AND segmento2 ='CONSUMO' ;
+			INTO CURSOR cur_temp
+		
+		USE C:\DEVOLUCION IN 0 EXCLUSIVE
+		SELECT DEVOLUCION
+		APPEND FROM DBF('cur_temp')
+		USE IN cur_temp
+		
+		SELECT DISTINCT * FROM DEVOLUCION INTO CURSOR cur_limpio
+		SELECT DEVOLUCION
+		ZAP
+		APPEND FROM DBF('cur_limpio')
+		USE IN cur_limpio
+		USE IN DEVOLUCION
+	ENDIF
+	
+*!*		SELECT layout_consumo
+*!*		DELETE FROM layout_consumo WHERE DES_PROD IN (SELECT DES_PROD FROM O:\DAT\GPO1\486\DAT WHERE segmento2 ='CONSUMO')
+*!*		PACK
+*!*		
+*!*		SELECT layout_consumo
+*!*		BROWSE 
+	USE IN layout_consumo
+	USE layout_consumo
+	LOCATE FOR layout_consumo.sdo_act <= 0
+	IF FOUND()
+		MESSAGEBOX("Se encontro una cuenta con saldo actual menor o igual a cero, REPORTARLO",30,200)
+			DO O:\PRG\GPO1\486\mail_sdo_act_cons
+	ENDIF
+	
+	USE IN layout_consumo
+*!*		USE IN DAT
+ENDIF
+
+
+* --- PROCESAMIENTO BASE TDC ---
+IF FILE("C:\TDC.CSV")
+	USE "O:\PRG\GPO1\486\bases\layout_tdc" IN 0 EXCLUSIVE
+	SELECT layout_tdc
+	MESSAGEBOX('BASE TDC', 64, 'Procesando')
+	APPEND FROM "C:\TDC.CSV" CSV
+	
+	UPDATE layout_tdc SET SDO_ACT=SDO_VDO WHERE SDO_ACT<=0
+	
+	UPDATE layout_tdc SET etiqueta1=sTRTRAN(etiqueta1,"-","")	
+	UPDATE layout_tdc SET etiqueta1='MORA 1' WHERE etiqueta1='COSECHA 1'  
+   	UPDATE layout_tdc SET etiqueta1='MORA 2' WHERE etiqueta1='COSECHA 2'  
+   	UPDATE layout_tdc SET etiqueta1='MORA 3' WHERE etiqueta1='COSECHA 3'  
+   	BROWSE 
+   	IF NOT FILE("C:\MORA1.DBF")
+		SELECT layout_tdc.CUENTA, layout_tdc.ETIQUETA1 FROM layout_tdc;
+		INNER JOIN O:\DAT\GPO1\486\DAT ON layout_tdc.CUENTA=DAT.CUENTA WHERE layout_tdc.etiqueta1!=DAT.etiqueta1 AND DAT.SEGMENTO2='TDC';
+		INTO TABLE C:\MORA1
+		USE IN layout_tdc
+		USE IN DAT
+		USE IN MORA1
+	ELSE	
+		SELECT layout_tdc.CUENTA, layout_tdc.ETIQUETA1 FROM layout_tdc;
+		INNER JOIN O:\DAT\GPO1\486\DAT ON layout_tdc.CUENTA=DAT.CUENTA WHERE layout_tdc.etiqueta1!=DAT.etiqueta1 AND DAT.SEGMENTO2='TDC';
+		INTO CURSOR MORA1_TDC
+		
+		USE C:\MORA1 IN 0 EXCLUSIVE
+		SELECT MORA1
+		APPEND FROM DBF('MORA1_TDC')
+		USE IN MORA1_TDC
+		USE IN MORA1
+	ENDIF
+   	
+	
+	IF NOT FILE("C:\DEVOLUCION.DBF")
+		SELECT CUENTA FROM O:\DAT\GPO1\486\DAT ;
+			WHERE RIESGO NOT IN (SELECT RIESGO FROM layout_tdc) AND segmento2 ='TDC' ;
+			INTO TABLE C:\DEVOLUCION 
+		USE IN DEVOLUCION
+		
+	ELSE
+		SELECT CUENTA FROM O:\DAT\GPO1\486\DAT ;
+			WHERE RIESGO NOT IN (SELECT RIESGO FROM layout_tdc) AND segmento2 ='TDC' ;
+			INTO CURSOR cur_temp
+		
+		USE C:\DEVOLUCION IN 0 EXCLUSIVE
+		SELECT DEVOLUCION
+		APPEND FROM DBF('cur_temp')
+		USE IN cur_temp
+		
+		SELECT DISTINCT * FROM DEVOLUCION INTO CURSOR cur_limpio
+		SELECT DEVOLUCION
+		ZAP
+		APPEND FROM DBF('cur_limpio')
+		USE IN cur_limpio
+		USE IN DEVOLUCION
+	ENDIF
+	
+*!*		SELECT layout_tdc
+*!*		DELETE FROM layout_tdc WHERE RIESGO IN (SELECT RIESGO FROM O:\DAT\GPO1\486\DAT WHERE segmento2 ='TDC')
+*!*		PACK
+*!*		
+*!*		SELECT layout_tdc
+*!*		BROWSE 
+		
+*!*		USE IN layout_tdc
+*!*		USE IN DAT
+ENDIF
+
+
+* --- PROCESAMIENTO BASE HIPOTECARIO ---
+IF FILE("C:\HIPOTECARIO.CSV")
+	USE "O:\PRG\GPO1\486\bases\layout_hipo" IN 0 EXCLUSIVE
+	SELECT layout_hipo
+	MESSAGEBOX('BASE HIPO', 64, 'Procesando')
+	APPEND FROM "C:\HIPOTECARIO.CSV" CSV
+	UPDATE layout_hipo SET etiqueta1=sTRTRAN(etiqueta1,"-","")
+	UPDATE layout_hipo SET etiqueta1='MORA 1' WHERE etiqueta1='COSECHA 1'  
+   	UPDATE layout_hipo SET etiqueta1='MORA 2' WHERE etiqueta1='COSECHA 2'  
+   	UPDATE layout_hipo SET etiqueta1='MORA 3' WHERE etiqueta1='COSECHA 3' 
+	BROWSE 
+	IF NOT FILE("C:\MORA1.DBF")
+		SELECT layout_hipo.CUENTA, layout_hipo.ETIQUETA1 FROM layout_hipo;
+		INNER JOIN O:\DAT\GPO1\486\DAT ON layout_hipo.CUENTA=DAT.CUENTA WHERE layout_hipo.etiqueta1!=DAT.etiqueta1 AND DAT.SEGMENTO2='HIPOTECARIO';
+		INTO TABLE C:\MORA1
+		USE IN layout_hipo
+		USE IN DAT
+		USE IN MORA1
+	ELSE	
+		SELECT layout_hipo.CUENTA, layout_hipo.ETIQUETA1 FROM layout_hipo;
+		INNER JOIN O:\DAT\GPO1\486\DAT ON layout_hipo.CUENTA=DAT.CUENTA WHERE layout_hipo.etiqueta1!=DAT.etiqueta1 AND DAT.SEGMENTO2='HIPOTECARIO';
+		INTO CURSOR MORA1_HIPO
+		
+		USE C:\MORA1 IN 0 EXCLUSIVE
+		SELECT MORA1
+		APPEND FROM DBF('MORA1_HIPO')
+		USE IN MORA1_HIPO
+		USE IN MORA1
+	ENDIF
+	
+	IF NOT FILE("C:\DEVOLUCION.DBF")
+		SELECT CUENTA FROM O:\DAT\GPO1\486\DAT ;
+			WHERE DES_PROD NOT IN (SELECT DES_PROD FROM layout_hipo) AND segmento2 ='HIPOTECARIO' ;
+			INTO TABLE C:\DEVOLUCION 
+		USE IN DEVOLUCION
+		
+	ELSE
+		SELECT CUENTA FROM O:\DAT\GPO1\486\DAT ;
+			WHERE DES_PROD NOT IN (SELECT DES_PROD FROM layout_hipo) AND segmento2 ='HIPOTECARIO' ;
+			INTO CURSOR cur_temp
+		
+		USE C:\DEVOLUCION IN 0 EXCLUSIVE
+		SELECT DEVOLUCION
+		APPEND FROM DBF('cur_temp')
+		USE IN cur_temp
+		
+		SELECT DISTINCT * FROM DEVOLUCION INTO CURSOR cur_limpio
+		SELECT DEVOLUCION
+		ZAP
+		APPEND FROM DBF('cur_limpio')
+		USE IN cur_limpio
+		USE IN DEVOLUCION
+	ENDIF
+	
+*!*		SELECT layout_hipo
+*!*		DELETE FROM layout_hipo WHERE DES_PROD IN (SELECT DES_PROD FROM O:\DAT\GPO1\486\DAT WHERE segmento2 ='HIPOTECARIO')
+*!*		PACK
+*!*		
+*!*		SELECT layout_hipo
+*!*		BROWSE 
+*!*		
+*!*		USE IN layout_hipo
+*!*		USE IN DAT
+ENDIF
+
+
+
+USE C:\DEVOLUCION IN 0 EXCLUSIVE
+		
+SELECT DISTINCT * FROM DEVOLUCION INTO CURSOR cur_limpio
+SELECT DEVOLUCION
+ZAP
+APPEND FROM DBF('cur_limpio')
+BROW
+USE IN cur_limpio
+USE IN DEVOLUCION
+USE IN DAT
+
+
+
+
+USE "O:\PRG\GPO1\486\bases\saldos_486" IN 0 SHARED ALIAS saldos_486 
+USE "C:\DEVOLUCION" IN 0 SHARED ALIAS devolucion 
+USE "O:\DAT\GPO1\486\DAT" IN 0 SHARED ALIAS dat_origen 
+
+SELECT saldos_486
+
+DELETE FROM saldos_486 ;
+    WHERE CUENTA IN (SELECT CUENTA FROM devolucion)
+    
+DELETE FROM saldos_486 ;
+    WHERE CUENTA NOT IN (SELECT CUENTA FROM dat_origen)
+
+DELETE FROM saldos_486 ;
+    WHERE cuenta IN ( ;
+        SELECT cuenta FROM dat_origen ;
+        WHERE saldos_486.saldo1 == dat_origen.saldo1 ;
+          AND saldos_486.saldo2 == dat_origen.saldo2 ;
+    )
+
+USE IN devolucion 
+USE IN dat_origen 
+USE IN saldos_486 
+
+USE "O:\PRG\GPO1\486\bases\saldos_486" IN 0 EXCLUSIVE ALIAS saldos_pack 
+SELECT saldos_pack 
+PACK 
+BROWSE 
+USE IN saldos_pack
+
+USE "C:\MORA1" IN 0 EXCLUSIVE ALIAS ETIQUETAS_DIF
+SELECT ETIQUETAS_DIF
+BROWSE
+USE IN ETIQUETAS_DIF
+
+CLOSE TABLES ALL
+MESSAGEBOX("Proceso finalizado con éxito.", 64, "Terminado")
