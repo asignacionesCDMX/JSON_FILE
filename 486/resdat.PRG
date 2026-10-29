@@ -1,0 +1,10 @@
+SET TALK ON
+CLOSE ALL
+
+USE o:\dat\gpo1\486\DAT
+   COPY TO q:\mis\SERTEC98\CLIENTES\486\DAT
+   COPY TO b:\asignaciones\dats\dat486
+   
+UPDATE q:\mis\SERTEC98\CLIENTES\486\DAT SET cuenta3=cuenta
+UPDATE q:\mis\SERTEC98\CLIENTES\486\DAT SET cuenta='486-'+ALLTRIM(folio)
+CLOSE ALL
