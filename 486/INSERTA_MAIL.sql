@@ -1,5 +1,0 @@
-EXECUTE RCVRY.JSP_CORREOS_486;
-COMMIT;
-
-exit;
-quit

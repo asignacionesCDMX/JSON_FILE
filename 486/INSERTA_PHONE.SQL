@@ -1,4 +1,0 @@
-EXECUTE RCVRY.RPT_INSERTA_PHONE('1','486');
-COMMIT;
-exit;
-quit
